@@ -16,3 +16,6 @@
 [submodule "vendor/plugins/friendly_id"]
 	path = vendor/plugins/friendly_id
 	url = git://github.com/norman/friendly_id.git
+[submodule "vendor/plugins/twitter"]
+	path = vendor/plugins/twitter
+	url = git://github.com/jnunemaker/twitter.git

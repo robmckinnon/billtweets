@@ -39,3 +39,10 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+module Twfynz
+  def self.twitter_update message
+    twitter = Twitter::Base.new(twitter_user, twitter_password)
+    twitter.update message
+  end
+end
