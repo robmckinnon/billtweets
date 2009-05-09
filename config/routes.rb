@@ -1,4 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :outgoing_tweets
+
+  map.resources :tweets
+
+  map.resources :tweeters
+
+  map.resources :news_items
+
+  map.resources :news_queries
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

@@ -1,0 +1,16 @@
+%p
+  %strong Name:
+  =h @news_query.name
+%p
+  %strong Query:
+  =h @news_query.query
+%p
+  %strong Site restriction:
+  =h @news_query.site_restriction
+%p
+  %strong Tweeter:
+  =h @news_query.tweeter_id
+
+= link_to 'Edit', edit_object_url
+|
+= link_to 'Back', collection_url

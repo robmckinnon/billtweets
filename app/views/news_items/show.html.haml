@@ -1,0 +1,19 @@
+%p
+  %strong Title:
+  =h @news_item.title
+%p
+  %strong Url:
+  =h @news_item.url
+%p
+  %strong Publisher:
+  =h @news_item.publisher
+%p
+  %strong Content:
+  =h @news_item.content
+%p
+  %strong News query:
+  =h @news_item.news_query_id
+
+= link_to 'Edit', edit_object_url
+|
+= link_to 'Back', collection_url

@@ -1,0 +1,26 @@
+%h1 Listing tweets
+
+%table
+  %tr
+    %th Dm to
+    %th Reply to
+    %th Message
+    %th Tweeted
+    %th Tweeted at
+    %th Tweeter
+  - @tweets.each do |tweet|
+    %tr
+      %td= h tweet.dm_to
+      %td= h tweet.reply_to
+      %td= h tweet.message
+      %td= h tweet.tweeted
+      %td= h tweet.tweeted_at
+      %td= h tweet.tweeter_id
+        
+      %td= link_to 'Show', object_url(tweet)
+      %td= link_to 'Edit', edit_object_url(tweet)
+      %td= link_to 'Destroy', object_url(tweet), :confirm => 'Are you sure?', :method => :delete
+
+%br/
+
+=link_to 'New tweet', new_object_url

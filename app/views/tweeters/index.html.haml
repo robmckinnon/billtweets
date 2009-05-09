@@ -1,0 +1,22 @@
+%h1 Listing tweeters
+
+%table
+  %tr
+    %th Name
+    %th Full name
+    %th Password
+    %th Email
+  - @tweeters.each do |tweeter|
+    %tr
+      %td= h tweeter.name
+      %td= h tweeter.full_name
+      %td= h tweeter.password
+      %td= h tweeter.email
+        
+      %td= link_to 'Show', object_url(tweeter)
+      %td= link_to 'Edit', edit_object_url(tweeter)
+      %td= link_to 'Destroy', object_url(tweeter), :confirm => 'Are you sure?', :method => :delete
+
+%br/
+
+=link_to 'New tweeter', new_object_url

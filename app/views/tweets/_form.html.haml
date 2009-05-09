@@ -1,0 +1,18 @@
+%p
+  %label{:for => "tweet_dm_to"} Dm to:
+  = f.text_field :dm_to
+%p
+  %label{:for => "tweet_reply_to"} Reply to:
+  = f.text_field :reply_to
+%p
+  %label{:for => "tweet_message"} Message:
+  = f.text_field :message
+%p
+  %label{:for => "tweet_tweeted"} Tweeted:
+  = f.check_box :tweeted
+%p
+  %label{:for => "tweet_tweeted_at"} Tweeted at:
+  = f.datetime_select :tweeted_at
+%p
+  %label{:for => "tweet_tweeter_id"} Tweeter:
+  = f.text_field :tweeter_id

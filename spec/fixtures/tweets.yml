@@ -1,0 +1,16 @@
+one:
+  id: 1
+  dm_to: MyString
+  reply_to: MyString
+  message: MyString
+  tweeted: false
+  tweeted_at: 2009-05-09 17:53:34
+  tweeter_id: 1
+two:
+  id: 2
+  dm_to: MyString
+  reply_to: MyString
+  message: MyString
+  tweeted: false
+  tweeted_at: 2009-05-09 17:53:34
+  tweeter_id: 1

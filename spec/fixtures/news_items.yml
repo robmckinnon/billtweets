@@ -1,0 +1,14 @@
+one:
+  id: 1
+  title: MyString
+  url: MyString
+  publisher: MyString
+  content: MyText
+  news_query_id: 1
+two:
+  id: 2
+  title: MyString
+  url: MyString
+  publisher: MyString
+  content: MyText
+  news_query_id: 1

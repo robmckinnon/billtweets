@@ -1,0 +1,24 @@
+%h1 Listing news_items
+
+%table
+  %tr
+    %th Title
+    %th Url
+    %th Publisher
+    %th Content
+    %th News query
+  - @news_items.each do |news_item|
+    %tr
+      %td= h news_item.title
+      %td= h news_item.url
+      %td= h news_item.publisher
+      %td= h news_item.content
+      %td= h news_item.news_query_id
+        
+      %td= link_to 'Show', object_url(news_item)
+      %td= link_to 'Edit', edit_object_url(news_item)
+      %td= link_to 'Destroy', object_url(news_item), :confirm => 'Are you sure?', :method => :delete
+
+%br/
+
+=link_to 'New news_item', new_object_url

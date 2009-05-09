@@ -1,0 +1,86 @@
+# This file is auto-generated from the current state of the database. Instead of editing this file, 
+# please use the migrations feature of Active Record to incrementally modify your database, and
+# then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your database schema. If you need
+# to create the application database on another system, you should be using db:schema:load, not running
+# all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended to check this file into your version control system.
+
+ActiveRecord::Schema.define(:version => 20090509165336) do
+
+  create_table "news_items", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "publisher"
+    t.text     "content"
+    t.integer  "news_query_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "news_items", ["news_query_id"], :name => "index_news_items_on_news_query_id"
+
+  create_table "news_queries", :force => true do |t|
+    t.string   "name"
+    t.string   "query"
+    t.string   "site_restriction"
+    t.integer  "tweeter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "news_queries", ["tweeter_id"], :name => "index_news_queries_on_tweeter_id"
+
+  create_table "outgoing_tweets", :force => true do |t|
+    t.string   "dm_to"
+    t.string   "reply_to"
+    t.string   "message"
+    t.boolean  "tweeted"
+    t.datetime "tweeted_at"
+    t.integer  "tweeter_id"
+    t.integer  "tweet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "outgoing_tweets", ["tweet_id"], :name => "index_outgoing_tweets_on_tweet_id"
+  add_index "outgoing_tweets", ["tweeter_id"], :name => "index_outgoing_tweets_on_tweeter_id"
+
+  create_table "slugs", :force => true do |t|
+    t.string   "name"
+    t.integer  "sluggable_id"
+    t.integer  "sequence",                     :default => 1, :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.string   "scope",          :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "slugs", ["name", "sluggable_type", "scope", "sequence"], :name => "index_slugs_on_name_and_sluggable_type_and_scope_and_sequence", :unique => true
+  add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
+  create_table "tweeters", :force => true do |t|
+    t.string   "name"
+    t.string   "full_name"
+    t.string   "password"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tweets", :force => true do |t|
+    t.string   "dm_to"
+    t.string   "reply_to"
+    t.string   "message"
+    t.boolean  "tweeted"
+    t.datetime "tweeted_at"
+    t.integer  "tweeter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tweets", ["tweeter_id"], :name => "index_tweets_on_tweeter_id"
+
+end

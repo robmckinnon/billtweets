@@ -1,0 +1,22 @@
+%p
+  %strong Dm to:
+  =h @tweet.dm_to
+%p
+  %strong Reply to:
+  =h @tweet.reply_to
+%p
+  %strong Message:
+  =h @tweet.message
+%p
+  %strong Tweeted:
+  =h @tweet.tweeted
+%p
+  %strong Tweeted at:
+  =h @tweet.tweeted_at
+%p
+  %strong Tweeter:
+  =h @tweet.tweeter_id
+
+= link_to 'Edit', edit_object_url
+|
+= link_to 'Back', collection_url

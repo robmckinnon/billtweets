@@ -1,0 +1,16 @@
+%p
+  %strong Name:
+  =h @tweeter.name
+%p
+  %strong Full name:
+  =h @tweeter.full_name
+%p
+  %strong Password:
+  =h @tweeter.password
+%p
+  %strong Email:
+  =h @tweeter.email
+
+= link_to 'Edit', edit_object_url
+|
+= link_to 'Back', collection_url

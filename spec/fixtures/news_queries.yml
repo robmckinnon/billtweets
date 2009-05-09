@@ -1,0 +1,12 @@
+one:
+  id: 1
+  name: MyString
+  query: MyString
+  site_restriction: MyString
+  tweeter_id: 1
+two:
+  id: 2
+  name: MyString
+  query: MyString
+  site_restriction: MyString
+  tweeter_id: 1

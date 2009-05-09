@@ -1,0 +1,28 @@
+%h1 Listing outgoing_tweets
+
+%table
+  %tr
+    %th Dm to
+    %th Reply to
+    %th Message
+    %th Tweeted
+    %th Tweeted at
+    %th Tweeter
+    %th Tweet
+  - @outgoing_tweets.each do |outgoing_tweet|
+    %tr
+      %td= h outgoing_tweet.dm_to
+      %td= h outgoing_tweet.reply_to
+      %td= h outgoing_tweet.message
+      %td= h outgoing_tweet.tweeted
+      %td= h outgoing_tweet.tweeted_at
+      %td= h outgoing_tweet.tweeter_id
+      %td= h outgoing_tweet.tweet_id
+        
+      %td= link_to 'Show', object_url(outgoing_tweet)
+      %td= link_to 'Edit', edit_object_url(outgoing_tweet)
+      %td= link_to 'Destroy', object_url(outgoing_tweet), :confirm => 'Are you sure?', :method => :delete
+
+%br/
+
+=link_to 'New outgoing_tweet', new_object_url
