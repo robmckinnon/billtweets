@@ -1,0 +1,2 @@
+class BlogItem < EntryItem
+end

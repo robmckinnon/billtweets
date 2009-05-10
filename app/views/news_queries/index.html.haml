@@ -2,17 +2,23 @@
 
 %table
   %tr
+    %th News
+    %th Blogs
+    %th Total
     %th Name
     %th Query
     %th Site restriction
     %th Tweeter
-  - @news_queries.each do |news_query|
+  - @news_queries.sort_by(&:entry_item_count).reverse.each do |news_query|
     %tr
+      %td= h news_query.news_item_count
+      %td= h news_query.blog_item_count
+      %td= h news_query.entry_item_count
       %td= h news_query.name
       %td= h news_query.query
       %td= h news_query.site_restriction
       %td= h news_query.tweeter_id
-        
+
       %td= link_to 'Show', object_url(news_query)
       %td= link_to 'Edit', edit_object_url(news_query)
       %td= link_to 'Destroy', object_url(news_query), :confirm => 'Are you sure?', :method => :delete

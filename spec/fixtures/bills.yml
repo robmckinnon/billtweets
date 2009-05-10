@@ -1,0 +1,20 @@
+one:
+  id: 1
+  name: MyString
+  description: MyText
+  url: MyString
+  rss: MyString
+  tweeter_id: 1
+  house: MyString
+  bill_type: MyString
+  categories: MyText
+two:
+  id: 2
+  name: MyString
+  description: MyText
+  url: MyString
+  rss: MyString
+  tweeter_id: 1
+  house: MyString
+  bill_type: MyString
+  categories: MyText

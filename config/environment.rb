@@ -16,7 +16,7 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
-  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
+  config.gem "hpricot", :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
 
@@ -40,7 +40,7 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
-module Twfynz
+module BillTweets
   def self.twitter_update message
     twitter = Twitter::Base.new(twitter_user, twitter_password)
     twitter.update message

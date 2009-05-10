@@ -3,6 +3,8 @@ class CreateTweeters < ActiveRecord::Migration
     create_table :tweeters, :force => true do |t|
       t.string :name
       t.string :full_name
+      t.string :url
+      t.string :bio
       t.string :password
       t.string :email
 

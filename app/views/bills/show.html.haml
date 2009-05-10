@@ -1,0 +1,28 @@
+%p
+  %strong Name:
+  =h @bill.name
+%p
+  %strong Description:
+  =h @bill.description
+%p
+  %strong Url:
+  =h @bill.url
+%p
+  %strong Rss:
+  =h @bill.rss
+%p
+  %strong Tweeter:
+  =h @bill.tweeter_id
+%p
+  %strong House:
+  =h @bill.house
+%p
+  %strong Bill type:
+  =h @bill.bill_type
+%p
+  %strong Categories:
+  =h @bill.categories
+
+= link_to 'Edit', edit_object_url
+|
+= link_to 'Back', collection_url

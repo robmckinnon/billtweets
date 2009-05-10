@@ -1,0 +1,30 @@
+%h1 Listing bills
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Url
+    %th Rss
+    %th Tweeter
+    %th House
+    %th Bill type
+    %th Categories
+  - @bills.each do |bill|
+    %tr
+      %td= h bill.name
+      %td= h bill.description
+      %td= h bill.url
+      %td= h bill.rss
+      %td= h bill.tweeter_id
+      %td= h bill.house
+      %td= h bill.bill_type
+      %td= h bill.categories
+        
+      %td= link_to 'Show', object_url(bill)
+      %td= link_to 'Edit', edit_object_url(bill)
+      %td= link_to 'Destroy', object_url(bill), :confirm => 'Are you sure?', :method => :delete
+
+%br/
+
+=link_to 'New bill', new_object_url

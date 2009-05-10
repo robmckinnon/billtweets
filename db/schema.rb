@@ -9,19 +9,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090509165336) do
+ActiveRecord::Schema.define(:version => 20090509213732) do
 
-  create_table "news_items", :force => true do |t|
+  create_table "bills", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "url"
+    t.string   "rss"
+    t.integer  "tweeter_id"
+    t.string   "house"
+    t.string   "bill_type"
+    t.text     "categories"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bills", ["tweeter_id"], :name => "index_bills_on_tweeter_id"
+
+  create_table "entry_items", :force => true do |t|
     t.string   "title"
+    t.string   "type"
     t.string   "url"
     t.string   "publisher"
+    t.string   "published_date"
+    t.datetime "published_time"
     t.text     "content"
     t.integer  "news_query_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "news_items", ["news_query_id"], :name => "index_news_items_on_news_query_id"
+  add_index "entry_items", ["news_query_id"], :name => "index_entry_items_on_news_query_id"
 
   create_table "news_queries", :force => true do |t|
     t.string   "name"
@@ -64,6 +82,8 @@ ActiveRecord::Schema.define(:version => 20090509165336) do
   create_table "tweeters", :force => true do |t|
     t.string   "name"
     t.string   "full_name"
+    t.string   "url"
+    t.string   "bio"
     t.string   "password"
     t.string   "email"
     t.datetime "created_at"
