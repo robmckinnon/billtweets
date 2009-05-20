@@ -2,17 +2,22 @@
 
 %table
   %tr
+    %th Items
     %th Name
     %th Full name
+    %th Bio
     %th Password
     %th Email
   - @tweeters.each do |tweeter|
     %tr
-      %td= h tweeter.name
+      %td= tweeter.entry_item_count
+      %td
+        %code= h tweeter.name
       %td= h tweeter.full_name
+      %td= h tweeter.bio
       %td= h tweeter.password
       %td= h tweeter.email
-        
+
       %td= link_to 'Show', object_url(tweeter)
       %td= link_to 'Edit', edit_object_url(tweeter)
       %td= link_to 'Destroy', object_url(tweeter), :confirm => 'Are you sure?', :method => :delete

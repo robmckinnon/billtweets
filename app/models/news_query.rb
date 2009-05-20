@@ -5,17 +5,34 @@ require 'morph'
 class NewsQuery < ActiveRecord::Base
 
   has_many :entry_items
+  belongs_to :tweeter
+
+  def attach_tweeter
+    bill = Bill.find_by_name(name)
+    if bill.tweeter
+      self.tweeter_id = bill.tweeter.id
+      save!
+    end
+  end
 
   def entry_item_count
     entry_items.count
   end
 
+  def news_items
+    entry_items.select{|x| x.class == NewsItem }
+  end
+
+  def blog_items
+    entry_items.select{|x| x.class == BlogItem }
+  end
+
   def news_item_count
-    entry_items.select{|x| x.class == NewsItem }.size
+    news_items.size
   end
 
   def blog_item_count
-    entry_items.select{|x| x.class == BlogItem }.size
+    blog_items.size
   end
 
   def news_search
@@ -66,7 +83,7 @@ class NewsQuery < ActiveRecord::Base
           e.author.name = split[1]
         end
         if e.author.name[/unknown|Anonymous|nospam@example\.com/i]
-          e.author.name = e.author.uri.sub('http://','').sub('www.','').chomp('/')
+          e.author.name = e.author.uri.split('/')[2].sub('www.','')
         end
         e.publisher = e.author.name
         e.published_date = e.published

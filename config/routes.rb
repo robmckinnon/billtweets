@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :entry_sources
+
   map.resources :bills
 
   map.resources :outgoing_tweets

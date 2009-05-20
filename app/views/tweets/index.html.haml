@@ -2,21 +2,25 @@
 
 %table
   %tr
-    %th Dm to
-    %th Reply to
+    %th Tweeter
+    %th publisher
     %th Message
+    %th Content
     %th Tweeted
     %th Tweeted at
-    %th Tweeter
+    %th Dm to
+    %th Reply to
   - @tweets.each do |tweet|
     %tr
-      %td= h tweet.dm_to
-      %td= h tweet.reply_to
+      %td= h tweet.tweeter.name
+      %td= h tweet.entry_item.publisher
       %td= h tweet.message
+      %td= h tweet.entry_item.content
       %td= h tweet.tweeted
       %td= h tweet.tweeted_at
-      %td= h tweet.tweeter_id
-        
+      %td= h tweet.dm_to
+      %td= h tweet.reply_to
+
       %td= link_to 'Show', object_url(tweet)
       %td= link_to 'Edit', edit_object_url(tweet)
       %td= link_to 'Destroy', object_url(tweet), :confirm => 'Are you sure?', :method => :delete

@@ -3,24 +3,31 @@
 %table
   %tr
     %th Name
+    %th Stories
     %th Description
-    %th Url
-    %th Rss
-    %th Tweeter
-    %th House
+    %th Urls
     %th Bill type
-    %th Categories
-  - @bills.each do |bill|
+  - @bills.sort_by(&:name).each do |bill|
     %tr
-      %td= h bill.name
+      %td
+        = h bill.name
+        %br
+        = bill.tweeter_id? ? link_to(bill.tweeter.name, bill.tweeter) : 'NONE!!!'
+      %td
+        = bill.stories_count
       %td= h bill.description
-      %td= h bill.url
-      %td= h bill.rss
-      %td= h bill.tweeter_id
-      %td= h bill.house
-      %td= h bill.bill_type
-      %td= h bill.categories
-        
+      %td
+        = bill.url.sub('http://services.parliament.uk/bills/','')[0..50]
+        %br
+        = bill.rss.sub('http://services.parliament.uk/bills/','')[0..50]
+      %td
+        = h bill.house
+        %br
+        = bill.bill_type.split('(').join('<br/>(')
+        - unless eval(bill.categories).empty?
+          %br
+          = h bill.categories
+
       %td= link_to 'Show', object_url(bill)
       %td= link_to 'Edit', edit_object_url(bill)
       %td= link_to 'Destroy', object_url(bill), :confirm => 'Are you sure?', :method => :delete

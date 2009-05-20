@@ -1,0 +1,20 @@
+%h1 Listing entry_sources
+
+%table
+  %tr
+    %th Author uri
+    %th Author name
+    %th Item host uri
+  - @entry_sources.each do |entry_source|
+    %tr
+      %td= h entry_source.author_uri
+      %td= h entry_source.author_name
+      %td= h entry_source.item_host_uri
+        
+      %td= link_to 'Show', object_url(entry_source)
+      %td= link_to 'Edit', edit_object_url(entry_source)
+      %td= link_to 'Destroy', object_url(entry_source), :confirm => 'Are you sure?', :method => :delete
+
+%br/
+
+=link_to 'New entry_source', new_object_url

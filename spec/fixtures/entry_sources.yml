@@ -1,0 +1,10 @@
+one:
+  id: 1
+  author_uri: MyString
+  author_name: MyString
+  item_host_uri: MyString
+two:
+  id: 2
+  author_uri: MyString
+  author_name: MyString
+  item_host_uri: MyString

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090509213732) do
+ActiveRecord::Schema.define(:version => 20090519174350) do
 
   create_table "bills", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(:version => 20090509213732) do
   end
 
   add_index "entry_items", ["news_query_id"], :name => "index_entry_items_on_news_query_id"
+
+  create_table "entry_sources", :force => true do |t|
+    t.string   "author_uri"
+    t.string   "author_name"
+    t.string   "item_host_uri"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "news_queries", :force => true do |t|
     t.string   "name"
@@ -99,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20090509213732) do
     t.integer  "tweeter_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "entry_item_id"
   end
 
   add_index "tweets", ["tweeter_id"], :name => "index_tweets_on_tweeter_id"

@@ -15,7 +15,21 @@
   =h @news_query.site_restriction
 %p
   %strong Tweeter:
-  =h @news_query.tweeter_id
+  =h @news_query.tweeter ? @news_query.tweeter.name : 'n/a'
+
+- unless @news_query.entry_items.empty?
+  - @news_query.entry_items.sort_by(&:published_time).each do |item|
+    %p
+      %strong=h item.title
+    %p
+      %small
+        = item.published_time.to_s(:short)
+        =h item.publisher
+        (
+        =h item.url
+        )
+    %p
+      = item.content
 
 = link_to 'Edit', edit_object_url
 |

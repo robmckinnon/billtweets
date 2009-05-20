@@ -41,8 +41,9 @@ Rails::Initializer.run do |config|
 end
 
 module BillTweets
-  def self.twitter_update message
-    twitter = Twitter::Base.new(twitter_user, twitter_password)
+  def self.twitter_update user, message
+    httpauth = Twitter::HTTPAuth.new(user, password='')
+    twitter = Twitter::Base.new(httpauth)
     twitter.update message
   end
 end

@@ -5,12 +5,28 @@
   %strong Full name:
   =h @tweeter.full_name
 %p
+  %strong Bio:
+  =h @tweeter.bio
+%p
   %strong Password:
   =h @tweeter.password
 %p
   %strong Email:
   =h @tweeter.email
-
+%table
+  - @tweeter.tweets.each do |tweet|
+    %tr
+      %td= h tweet.entry_item.published_date.to_date.to_s(:dd_mm_yyyy)
+      - if tweet.entry_item.sub_domain
+        %td{:style => 'text-align:center'}= h tweet.entry_item.host_domain
+        %td= h tweet.entry_item.sub_domain
+      - else
+        %td{:style => 'text-align:center'}= h tweet.entry_item.host_domain
+        %td
+      %td= h tweet.entry_item.class.name.sub('Item','')
+      %td= h tweet.entry_item.publisher
+      %td= h(tweet.display_message) + " (#{tweet.display_message.size})"
+      %td= h tweet.entry_item.content
 = link_to 'Edit', edit_object_url
 |
 = link_to 'Back', collection_url
