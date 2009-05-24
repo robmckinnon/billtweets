@@ -1,18 +1,19 @@
 class CreateNewsQueries < ActiveRecord::Migration
   def self.up
-    create_table :news_queries, :force => true do |t|
-      t.string :name
+    create_table :entry_queries, :force => true do |t|
+      t.string :type
+      t.integer :bill_id
+      t.string :feed_uri
       t.string :query
       t.string :site_restriction
-      t.integer :tweeter_id
 
       t.timestamps
     end
 
-    add_index :news_queries, :tweeter_id
+    add_index :entry_queries, :bill_id
   end
 
   def self.down
-    drop_table :news_queries
+    drop_table :entry_queries
   end
 end

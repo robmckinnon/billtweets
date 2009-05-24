@@ -1,0 +1,3 @@
+class ParliamentSource < EntrySource
+
+end

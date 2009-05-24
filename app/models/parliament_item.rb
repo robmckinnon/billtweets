@@ -4,6 +4,10 @@ require 'morph'
 
 class ParliamentItem < EntryItem
 
+  def source_model
+    ParliamentSource
+  end
+
   def twfy_url url
     begin
       url = "http://www.theyworkforyou.com/api/convertURL?url="#{URI.escape(url)}"&output=xml&key=EXmgpTBtvw2XEEGWsgEu2N6r"

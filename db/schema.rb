@@ -37,28 +37,33 @@ ActiveRecord::Schema.define(:version => 20090519174350) do
     t.integer  "news_query_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "entry_source_id"
   end
 
+  add_index "entry_items", ["entry_source_id"], :name => "index_entry_items_on_entry_source_id"
   add_index "entry_items", ["news_query_id"], :name => "index_entry_items_on_news_query_id"
 
+  create_table "entry_queries", :force => true do |t|
+    t.string   "type"
+    t.integer  "bill_id"
+    t.string   "feed_uri"
+    t.string   "query"
+    t.string   "site_restriction"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entry_queries", ["bill_id"], :name => "index_entry_queries_on_bill_id"
+
   create_table "entry_sources", :force => true do |t|
+    t.string   "type"
     t.string   "author_uri"
     t.string   "author_name"
     t.string   "item_host_uri"
+    t.string   "item_title_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "news_queries", :force => true do |t|
-    t.string   "name"
-    t.string   "query"
-    t.string   "site_restriction"
-    t.integer  "tweeter_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "news_queries", ["tweeter_id"], :name => "index_news_queries_on_tweeter_id"
 
   create_table "outgoing_tweets", :force => true do |t|
     t.string   "dm_to"

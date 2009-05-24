@@ -2,38 +2,7 @@ require 'open-uri'
 require 'hpricot'
 require 'morph'
 
-class NewsQuery < ActiveRecord::Base
-
-  has_many :entry_items
-  belongs_to :tweeter
-
-  def attach_tweeter
-    bill = Bill.find_by_name(name)
-    if bill.tweeter
-      self.tweeter_id = bill.tweeter.id
-      save!
-    end
-  end
-
-  def entry_item_count
-    entry_items.count
-  end
-
-  def news_items
-    entry_items.select{|x| x.class == NewsItem }
-  end
-
-  def blog_items
-    entry_items.select{|x| x.class == BlogItem }
-  end
-
-  def news_item_count
-    news_items.size
-  end
-
-  def blog_item_count
-    blog_items.size
-  end
+class NewsQuery < EntryQuery
 
   def news_search
     begin
@@ -48,6 +17,7 @@ class NewsQuery < ActiveRecord::Base
         doc = Hpricot "<html><body>#{e.content}</body></html>"
         e.author = doc.at('font[@color="#6f6f6f"]').inner_text
         e.publisher = e.author.split(',')[0]
+        e.publisher_url = nil
         e.full_title = e.title
         e.title = doc.at('a').inner_text
         e.title = e.full_title.sub(e.publisher,'').strip.chomp('-') if e.title.blank?
@@ -77,22 +47,16 @@ class NewsQuery < ActiveRecord::Base
       results.entries = [] if !results.respond_to?(:entries) || results.entries.blank?
 
       results.entries.each do |e|
-        e.full_title = e.title
-        if (split = e.title.split('|')).size == 2
-          e.title = split[0]
-          e.author.name = split[1]
-        end
-        if e.author.name[/unknown|Anonymous|nospam@example\.com/i]
-          e.author.name = e.author.uri.split('/')[2].sub('www.','')
-        end
         e.publisher = e.author.name
+        e.publisher_url = e.author.uri
         e.published_date = e.published
         e.display_date = Date.parse(e.published_date).to_s(:long)
         e.url = e.link.href
+        e.full_title = e.title
+
         e.content = %Q|<font size="-1">#{e.content.sub('Contents; « Previous · Next » · Search within this Bill.','')}</font>|
       end
 
-      # results.entries.delete_if {|x| x.publisher[/example\.com/]}
       entries = results.entries.sort_by {|x| Date.parse(x.published_date) }.reverse
       entries.collect do |entry|
         make_item entry, BlogItem
@@ -107,6 +71,7 @@ class NewsQuery < ActiveRecord::Base
 
     def make_item data, model
       item = model.find_or_create_by_url data.link.href
+      source = EntrySource.find_or_create_from_data item.source_model, data.publisher, data.publisher_url, data.full_title, data.link.href
 
       item.title = data.title
       item.publisher = data.publisher
@@ -114,6 +79,7 @@ class NewsQuery < ActiveRecord::Base
       item.published_time = Time.parse(data.published_date) if data.published_date
       item.content = data.content
       item.news_query_id = self.id
+      item.entry_source_id = source.id
       item.save!
       item
     end

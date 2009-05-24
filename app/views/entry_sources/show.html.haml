@@ -1,4 +1,7 @@
 %p
+  %strong Type:
+  =h @entry_source.type
+%p
   %strong Author uri:
   =h @entry_source.author_uri
 %p
@@ -7,6 +10,19 @@
 %p
   %strong Item host uri:
   =h @entry_source.item_host_uri
+
+- @entry_source.entry_items.each do |item|
+  %p
+    %strong=h item.title
+  %p
+    %small
+      = item.published_time.to_s(:short)
+      =h item.publisher
+      (
+      =h item.url
+      )
+  %p
+    = item.content
 
 = link_to 'Edit', edit_object_url
 |

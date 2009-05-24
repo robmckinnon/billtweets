@@ -1,7 +1,18 @@
 class EntryItem < ActiveRecord::Base
 
   belongs_to :news_queries
+  belongs_to :entry_source
   has_one :tweet
+
+  def stuff
+    if (split = e.title.split('|')).size == 2
+      e.title = split[0]
+      e.author.name = split[1]
+    end
+    if e.author.name[/unknown|Anonymous|nospam@example\.com/i]
+      e.author.name = e.author.uri.split('/')[2].sub('www.','')
+    end
+  end
 
   def sub_domain
     if (parts = host.split('.')).size > 2 && !host[/(gov|parliament)\.uk/]
@@ -16,6 +27,14 @@ class EntryItem < ActiveRecord::Base
       "#{publisher} #{host}"
     else
       publisher
+    end
+  end
+
+  def make_source
+    unless entry_source
+      source = EntrySource.find_or_create_from_data source_model, publisher, nil, title, url
+      self.entry_source_id = source.id
+      self.save!
     end
   end
 

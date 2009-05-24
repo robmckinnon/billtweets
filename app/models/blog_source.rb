@@ -1,0 +1,3 @@
+class BlogSource < EntrySource
+
+end

@@ -1,7 +1,6 @@
 class Tweeter < ActiveRecord::Base
 
   has_one :bill
-  has_many :news_queries
   has_many :tweets
 
   validates_size_of :name, :maximum => 15

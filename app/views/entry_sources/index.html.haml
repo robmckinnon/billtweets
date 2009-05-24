@@ -2,18 +2,23 @@
 
 %table
   %tr
-    %th Author uri
+    %th
     %th Author name
+    %th Item title name
+    %th Author uri
     %th Item host uri
-  - @entry_sources.each do |entry_source|
-    %tr
-      %td= h entry_source.author_uri
-      %td= h entry_source.author_name
-      %td= h entry_source.item_host_uri
-        
-      %td= link_to 'Show', object_url(entry_source)
-      %td= link_to 'Edit', edit_object_url(entry_source)
-      %td= link_to 'Destroy', object_url(entry_source), :confirm => 'Are you sure?', :method => :delete
+  - @entry_sources.group_by(&:type).each do |type, list|
+    - list.sort_by(&:item_host_uri).each do |entry_source|
+      %tr
+        %td= h entry_source.type
+        %td= h entry_source.author_name
+        %td= h entry_source.item_title_name
+        %td= h entry_source.author_uri
+        %td= h entry_source.item_host_uri
+
+        %td= link_to 'Show', object_url(entry_source)
+        %td= link_to 'Edit', edit_object_url(entry_source)
+        %td= link_to 'Destroy', object_url(entry_source), :confirm => 'Are you sure?', :method => :delete
 
 %br/
 

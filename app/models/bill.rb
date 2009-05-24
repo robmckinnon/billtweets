@@ -1,4 +1,4 @@
-# require 'hpricot'
+require 'hpricot'
 require 'open-uri'
 require 'morph'
 
@@ -7,13 +7,10 @@ class Bill < ActiveRecord::Base
   validates_uniqueness_of :url
 
   belongs_to :tweeter
+  has_many :news_queries
 
   def stories_count
     news_queries.collect{ |x| x.entry_item_count }.sum
-  end
-
-  def news_queries
-    tweeter ? tweeter.news_queries : []
   end
 
   class << self
@@ -30,8 +27,6 @@ class Bill < ActiveRecord::Base
       all_bills = Morph.from_hash(hash).channel.items
       current_bills = all_bills.select {|x| current.has_key?(x.link) }
 
-      Bill.delete_all
-      NewsQuery.delete_all
       bills = []
       current_bills.each do |data|
         bill = find_or_create_by_url(data.link)
@@ -50,14 +45,16 @@ class Bill < ActiveRecord::Base
         bill.categories = categories.inspect
 
         bill.save!
+        bill.make_tweeter
         bills << bill
 
-        news_query = NewsQuery.find_or_create_by_name(bill.name)
-        query, restriction = bill.query_for_search
-        news_query.query = query
-        news_query.site_restriction = restriction
-        # t.integer :tweeter_id
-        news_query.save!
+        if bill.news_query.empty?
+          news_query = bill.news_queries.create
+          query, restriction = bill.query_for_search
+          news_query.query = query
+          news_query.site_restriction = restriction
+          news_query.save!
+        end
       end
       bills
     end
@@ -66,10 +63,12 @@ class Bill < ActiveRecord::Base
   def parliament_search
     h = Hash.from_xml open(rss).read
     m = Morph.from_hash h
+    puts m.inspect
     results = m.channel.items
+    results = [m.channel.item] unless results
 
     results.collect do |data|
-      item = ParliamentItem.new
+      item = ParliamentItem.find_or_create_by_
       item.title = data.title
       item.publisher = 'UK Parliament'
       item.published_date = data.updated
@@ -77,6 +76,9 @@ class Bill < ActiveRecord::Base
       item.content = data.description
       item.url = data.link
       item.news_query_id = 41
+
+      source = EntrySource.find_or_create_from_data ParliamentSource, nil, nil, data.title, data.link
+      item.source_id = source.id
       item.save!
       item
     end
@@ -88,7 +90,6 @@ class Bill < ActiveRecord::Base
       self.tweeter_id = tweeter.id
       save!
     end
-
     unless tweeter
       t = Tweeter.new
       t.name = "#{name.gsub(/\s/,'').gsub(/\t/,'').gsub(/\n/,'').gsub(/\r/,'').gsub("'",'').gsub(',','').gsub('(','').sub('Employment','employ').chomp('Bill')[0..7]}billuk".downcase
@@ -98,7 +99,6 @@ class Bill < ActiveRecord::Base
         t.name = "#{t.name[0..(7- num.size)]}#{num}billuk"
         puts t.name
       end
-
       if name.size <= 20
         t.full_name = name
       else
