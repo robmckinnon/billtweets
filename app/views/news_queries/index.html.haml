@@ -4,7 +4,6 @@
   %tr
     %th ID
     %th Tweeter
-    %th Name
     %th Recent
     %th News
     %th Blogs
@@ -15,7 +14,6 @@
     %tr
       %td= news_query.id
       %td= news_query.tweeter ? news_query.tweeter.name : 'nil'
-      %td= h news_query.name
       %td= h news_query.news_items.collect(&:published_time).compact.empty? ? '' : news_query.news_items.collect(&:published_time).compact.sort.reverse.first.to_date.to_s(:long)
       %td= h news_query.news_item_count
       %td= h news_query.blog_item_count

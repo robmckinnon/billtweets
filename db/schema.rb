@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20090519174350) do
     t.string   "name"
     t.text     "description"
     t.string   "url"
-    t.string   "rss"
+    t.string   "feed_uri"
     t.integer  "tweeter_id"
     t.string   "house"
     t.string   "bill_type"
@@ -34,14 +34,14 @@ ActiveRecord::Schema.define(:version => 20090519174350) do
     t.string   "published_date"
     t.datetime "published_time"
     t.text     "content"
-    t.integer  "news_query_id"
+    t.integer  "entry_query_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "entry_source_id"
   end
 
+  add_index "entry_items", ["entry_query_id"], :name => "index_entry_items_on_entry_query_id"
   add_index "entry_items", ["entry_source_id"], :name => "index_entry_items_on_entry_source_id"
-  add_index "entry_items", ["news_query_id"], :name => "index_entry_items_on_news_query_id"
 
   create_table "entry_queries", :force => true do |t|
     t.string   "type"

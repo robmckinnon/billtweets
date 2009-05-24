@@ -4,6 +4,11 @@ require 'morph'
 
 class NewsQuery < EntryQuery
 
+  def do_search
+    news_search
+    blog_search
+  end
+
   def news_search
     begin
       url = "http://news.google.co.uk/news?hl=en&ned=uk&ie=UTF-8&scoring=n&q=#{URI.escape(query_for_search)}&output=atom"
@@ -70,15 +75,15 @@ class NewsQuery < EntryQuery
   private
 
     def make_item data, model
-      item = model.find_or_create_by_url data.link.href
+      item = model.find_or_create_by_url_and_published_date data.link.href, data.published_date
+
       source = EntrySource.find_or_create_from_data item.source_model, data.publisher, data.publisher_url, data.full_title, data.link.href
 
       item.title = data.title
       item.publisher = data.publisher
-      item.published_date = data.published_date
       item.published_time = Time.parse(data.published_date) if data.published_date
       item.content = data.content
-      item.news_query_id = self.id
+      item.entry_query_id = self.id
       item.entry_source_id = source.id
       item.save!
       item

@@ -3,6 +3,10 @@ class EntryQuery < ActiveRecord::Base
   has_many :entry_items
   belongs_to :bill
 
+  def tweeter
+    bill.tweeter
+  end
+
   def entry_item_count
     entry_items.count
   end

@@ -11,11 +11,11 @@ class Tweeter < ActiveRecord::Base
   validates_uniqueness_of :full_name
 
   def entry_item_count
-    news_queries.collect(&:entry_item_count).sum
+    bill.entry_queries.collect(&:entry_item_count).sum
   end
 
   def entry_items
-    news_queries.collect(&:entry_items).flatten.sort_by(&:published_time)
+    bill.entry_queries.collect(&:entry_items).flatten.sort_by(&:published_time)
   end
 
   def make_tweets

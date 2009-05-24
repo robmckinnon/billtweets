@@ -7,13 +7,19 @@ class Bill < ActiveRecord::Base
   validates_uniqueness_of :url
 
   belongs_to :tweeter
-  has_many :news_queries
+  has_many :entry_queries
 
   def stories_count
     news_queries.collect{ |x| x.entry_item_count }.sum
   end
 
   class << self
+    def do_search
+      find_each do |bill|
+        bill.entry_queries.each {|q| q.do_search }
+      end
+    end
+
     def load_bills
       doc = Hpricot open(RAILS_ROOT + '/data/bills_before_parliament.html')
       current = (doc/'a').inject({}) do |h, a|
@@ -32,7 +38,7 @@ class Bill < ActiveRecord::Base
         bill = find_or_create_by_url(data.link)
         bill.name = %Q|#{data.title} Bill|
         bill.description = data.description
-        bill.rss = current[data.link]
+        bill.feed_uri = current[data.link]
         categories = data.categories
         if categories.include?('Lords')
           bill.house = categories.delete('Lords')
@@ -48,39 +54,19 @@ class Bill < ActiveRecord::Base
         bill.make_tweeter
         bills << bill
 
-        if bill.news_query.empty?
-          news_query = bill.news_queries.create
+        if bill.entry_queries.empty?
+          news_query = NewsQuery.create :bill_id => bill.id
           query, restriction = bill.query_for_search
           news_query.query = query
           news_query.site_restriction = restriction
           news_query.save!
+
+          parliament_query = ParliamentQuery.create :bill_id => bill.id
+          parliament_query.feed_uri = bill.feed_uri
+          parliament_query.save!
         end
       end
       bills
-    end
-  end
-
-  def parliament_search
-    h = Hash.from_xml open(rss).read
-    m = Morph.from_hash h
-    puts m.inspect
-    results = m.channel.items
-    results = [m.channel.item] unless results
-
-    results.collect do |data|
-      item = ParliamentItem.find_or_create_by_
-      item.title = data.title
-      item.publisher = 'UK Parliament'
-      item.published_date = data.updated
-      item.published_time = Time.parse(data.updated) if data.updated
-      item.content = data.description
-      item.url = data.link
-      item.news_query_id = 41
-
-      source = EntrySource.find_or_create_from_data ParliamentSource, nil, nil, data.title, data.link
-      item.source_id = source.id
-      item.save!
-      item
     end
   end
 

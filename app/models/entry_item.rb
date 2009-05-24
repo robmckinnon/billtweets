@@ -1,6 +1,6 @@
 class EntryItem < ActiveRecord::Base
 
-  belongs_to :news_queries
+  belongs_to :entry_query
   belongs_to :entry_source
   has_one :tweet
 

@@ -4,7 +4,7 @@ class CreateBills < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :url
-      t.string :rss
+      t.string :feed_uri
       t.integer :tweeter_id
       t.string :house
       t.string :bill_type

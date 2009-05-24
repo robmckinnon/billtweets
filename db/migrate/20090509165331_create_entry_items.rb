@@ -8,12 +8,12 @@ class CreateEntryItems < ActiveRecord::Migration
       t.string :published_date
       t.datetime :published_time
       t.text :content
-      t.integer :news_query_id
+      t.integer :entry_query_id
 
       t.timestamps
     end
 
-    add_index :entry_items, :news_query_id
+    add_index :entry_items, :entry_query_id
   end
 
   def self.down
