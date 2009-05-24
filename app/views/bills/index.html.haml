@@ -19,7 +19,7 @@
       %td
         = bill.url.sub('http://services.parliament.uk/bills/','')[0..50]
         %br
-        = bill.rss.sub('http://services.parliament.uk/bills/','')[0..50]
+        = bill.feed_uri.sub('http://services.parliament.uk/bills/','')[0..50]
       %td
         = h bill.house
         %br

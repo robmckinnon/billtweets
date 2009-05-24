@@ -10,10 +10,17 @@ class Bill < ActiveRecord::Base
   has_many :entry_queries
 
   def stories_count
-    news_queries.collect{ |x| x.entry_item_count }.sum
+    entry_queries.collect{ |x| x.entry_item_count }.sum
   end
 
   class << self
+
+    def tweet
+      find_each do |bill|
+        bill.tweeter.make_tweets if bill.tweeter
+      end
+    end
+
     def do_search
       find_each do |bill|
         bill.entry_queries.each {|q| q.do_search }
