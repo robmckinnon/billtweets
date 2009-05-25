@@ -25,8 +25,16 @@
         %td
       %td= h tweet.entry_item.class.name.sub('Item','')
       %td= h tweet.entry_item.publisher
-      %td= h(tweet.display_message) + " (#{tweet.display_message.size})"
-      %td= h tweet.entry_item.content
+      %td
+        = h(tweet.display_message) + " (#{tweet.display_message.size})"
+        %br
+        = tweet.entry_item.twfy_url ? link_to(tweet.entry_item.twfy_url, tweet.entry_item.twfy_url) : ''
+      %td
+        = h tweet.entry_item.published_date
+        %br
+        = h tweet.entry_item.title
+        %br
+        = h tweet.entry_item.content
 = link_to 'Edit', edit_object_url
 |
 = link_to 'Back', collection_url

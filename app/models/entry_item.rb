@@ -4,6 +4,10 @@ class EntryItem < ActiveRecord::Base
   belongs_to :entry_source
   has_one :tweet
 
+  def twfy_url
+    nil
+  end
+
   def stuff
     if (split = e.title.split('|')).size == 2
       e.title = split[0]

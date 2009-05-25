@@ -22,6 +22,7 @@ class Tweeter < ActiveRecord::Base
     entry_items.each do |item|
       if tweet = item.tweet
         tweet.message = item.tweet_msg
+        print '.'
         tweet.save
       else
         print '.'

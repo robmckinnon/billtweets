@@ -7,5 +7,6 @@ doc
 Capfile
 config/deploy.rb
 config/auth.yml
+config/twfy_key.txt
 config/passenger
 vendor/plugins/visualize_models
