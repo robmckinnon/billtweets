@@ -28,7 +28,7 @@
       %td
         = h(tweet.display_message) + " (#{tweet.display_message.size})"
         %br
-        = tweet.entry_item.twfy_url ? link_to(tweet.entry_item.twfy_url, tweet.entry_item.twfy_url) : ''
+        = tweet.entry_item.twfy_uri ? link_to(tweet.entry_item.twfy_uri, tweet.entry_item.twfy_uri) : ''
       %td
         = h tweet.entry_item.published_date
         %br

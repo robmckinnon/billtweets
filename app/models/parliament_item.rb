@@ -11,18 +11,6 @@ class ParliamentItem < EntryItem
   end
 
   def twfy_url
-    if title[/Provisional Sitting/] || !tweet.message[/(ldhansrd|cmhansrd|Reading)/]
-      return nil
-    end
-    if content[/House of Commons (\S+) Reading/i] || tweet.message[/cmhansrd/]
-      find_twfy_url 'commons'
-    elsif content[/House of Lords (\S+) Reading/i] || tweet.message[/ldhansrd/]
-      find_twfy_url 'lords'
-    else
-      url = find_twfy_url 'lords'
-      url = find_twfy_url 'commons' unless url
-      url
-    end
     # begin
       # url = "http://www.theyworkforyou.com/api/convertURL?url="#{URI.escape(url)}"&output=xml&key=EXmgpTBtvw2XEEGWsgEu2N6r"
       # h = Hash.from_xml(open(url).read)
@@ -32,48 +20,64 @@ class ParliamentItem < EntryItem
       # puts e.to_s
       # nil
     # end
+    if title[/Provisional Sitting/] || !tweet.message[/(ldhansrd|cmhansrd|Reading)/]
+      return nil
+    elsif content[/House of Commons (\S+) Reading/i] || tweet.message[/cmhansrd/]
+      find_twfy_url 'commons'
+    elsif content[/House of Lords (\S+) Reading/i] || tweet.message[/ldhansrd/]
+      find_twfy_url 'lords'
+    else
+      url = find_twfy_url 'lords'
+      url = find_twfy_url 'commons' unless url
+      url
+    end
   end
 
   def tweet_msg
-    text = content.gsub(/<[^>]+>/,' ')
-    text.gsub!('&nbsp;',' ')
-    text.squeeze!(' ')
-    text.strip!
-    text.sub!(/This (private )?Bill (is|was) /i,'')
-    text.sub!(/This (private )?Bill will /i,'will ')
-    text.sub!(/This (private )?Bill has /i,'has ')
-    text.sub!('The Bill received its ','received ')
-    text.sub!('The Bill received its ','received ')
-    text.sub!('The Bill will be have its ','will have ')
-    text.sub!('The Bill was ','was ')
-    %w(January February March April May June July August September October November December).each do |month|
-      text.gsub!(month, month[0..2])
-    end
-    text.gsub!(/(\d)(th|st|nd|rd) /, '\1 ')
-    text.gsub!('1 sitting', '1st sitting')
-    text.gsub!('2 sitting', '2nd sitting')
-    text.gsub!('1 Reading', '1st Reading')
-    text.gsub!('2 Reading', '2nd Reading')
-    text.gsub!('3 Reading', '3rd Reading')
-    text.gsub!('Second reading', '2nd Reading')
-    text.gsub!('Second Reading', '2nd Reading')
-    # tweet = "#{url} #{text} #{published_time.to_s(:short)}"
-    tweet = "#{url} #{text}"
-    if title.starts_with?('Publication:')
-      tweet = "publishing #{tweet}"
-    end
-    shortened = tweet.sub(url,'http://bit.ly/15mmkk')
-    if shortened.size > 140
-      count = shortened.size - 140
-      tweet = tweet[0..(tweet.size - 1 - count)]
-    end
+    text = prepare_tweet_text content
+    if title[/Provisional Sitting: (\d\d)\/(\d\d)\/(\d\d\d\d)/]
+      tweet = "#{text} provisional sitting date is #{Date.new($3.to_i,$2.to_i,$1.to_i).to_s(:d_m_y).reverse.chomp('0').reverse}"
+    else
+      link = twfy_uri ? twfy_uri : url
 
-    tweet.sub!("#{url} ",'')
-    tweet += " #{url}"
+      tweet = "#{link} #{text}"
+      if title.starts_with?('Publication:')
+        tweet = "publishing #{tweet}"
+      end
+      shortened = tweet.sub(link,'http://bit.ly/15mmkk')
+      if shortened.size > 140
+        count = shortened.size - 140
+        tweet = tweet[0..(tweet.size - 1 - count)]
+      end
+
+      tweet.sub!("#{link} ",'')
+      tweet += " #{link}"
+    end
     tweet
   end
 
   private
+
+    def prepare_tweet_text text
+      text = text.gsub(/<[^>]+>/,' ')
+      text.gsub!('&nbsp;',' ')
+      text.squeeze!(' ')
+      text.strip!
+      text.sub!(/This (private )?Bill (is|was) /i,'')
+      text.sub!(/This (private )?Bill will /i,'will ')
+      text.sub!(/This (private )?Bill has /i,'has ')
+      text.sub!('The Bill received its ','received ')
+      text.sub!('The Bill received its ','received ')
+      text.sub!('The Bill will be have its ','will have ')
+      text.sub!('The Bill was ','was ')
+      text.gsub!(/(\d)(th|st|nd|rd) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/, '\1 \2')
+      %w(January February March April May June July August September October November December).each do |month|
+        text.gsub!(month, month[0..2])
+      end
+      text.gsub!('Second reading', '2nd Reading')
+      text.gsub!('Second Reading', '2nd Reading')
+      text
+    end
 
     def twfy_key
       @twfy_key ||= IO.read(RAILS_ROOT+'/config/twfy_key.txt').strip
@@ -127,7 +131,7 @@ class ParliamentItem < EntryItem
           "http://www.theyworkforyou.com/lords/?id=#{debate_id}"
         end
       else
-        url
+        nil
       end
     end
     def clean_content

@@ -47,3 +47,7 @@ module BillTweets
     twitter.update message
   end
 end
+
+ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(
+  :d_m_y => "%d %b %Y"
+)

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090519174350) do
+ActiveRecord::Schema.define(:version => 20090525170339) do
 
   create_table "bills", :force => true do |t|
     t.string   "name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20090519174350) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "entry_source_id"
+    t.string   "twfy_uri"
   end
 
   add_index "entry_items", ["entry_query_id"], :name => "index_entry_items_on_entry_query_id"
