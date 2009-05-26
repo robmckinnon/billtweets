@@ -4,54 +4,28 @@ require 'morph'
 
 class ParliamentItem < EntryItem
 
-  before_save :clean_content
+  before_save :lookup_twfy_uri
 
   def source_model
     ParliamentSource
   end
 
-  def twfy_url
-    # begin
-      # url = "http://www.theyworkforyou.com/api/convertURL?url="#{URI.escape(url)}"&output=xml&key=EXmgpTBtvw2XEEGWsgEu2N6r"
-      # h = Hash.from_xml(open(url).read)
-      # m = Morph.from_hash(h)
-      # m.url
-    # rescue Exception => e
-      # puts e.to_s
-      # nil
-    # end
-    if title[/Provisional Sitting/] || !tweet.message[/(ldhansrd|cmhansrd|Reading)/]
-      return nil
-    elsif content[/House of Commons (\S+) Reading/i] || tweet.message[/cmhansrd/]
-      find_twfy_url 'commons'
-    elsif content[/House of Lords (\S+) Reading/i] || tweet.message[/ldhansrd/]
-      find_twfy_url 'lords'
-    else
-      url = find_twfy_url 'lords'
-      url = find_twfy_url 'commons' unless url
-      url
-    end
-  end
-
   def tweet_msg
     text = prepare_tweet_text content
     if title[/Provisional Sitting: (\d\d)\/(\d\d)\/(\d\d\d\d)/]
-      tweet = "#{text} provisional sitting date is #{Date.new($3.to_i,$2.to_i,$1.to_i).to_s(:d_m_y).reverse.chomp('0').reverse}"
+      tweet = "provisional sitting date for #{text} is #{Date.new($3.to_i,$2.to_i,$1.to_i).to_s(:d_m_y).reverse.chomp('0').reverse}"
     else
       link = twfy_uri ? twfy_uri : url
 
-      tweet = "#{link} #{text}"
-      if title.starts_with?('Publication:')
-        tweet = "publishing #{tweet}"
-      end
+      tweet = "#{link}: #{text}"
       shortened = tweet.sub(link,'http://bit.ly/15mmkk')
       if shortened.size > 140
         count = shortened.size - 140
         tweet = tweet[0..(tweet.size - 1 - count)]
       end
 
-      tweet.sub!("#{link} ",'')
-      tweet += " #{link}"
+      tweet.sub!("#{link}: ",'')
+      tweet += ": #{link}"
     end
     tweet
   end
@@ -76,6 +50,19 @@ class ParliamentItem < EntryItem
       end
       text.gsub!('Second reading', '2nd Reading')
       text.gsub!('Second Reading', '2nd Reading')
+
+      if title[/^(Sitting|Publication)/] && text.ends_with?('Reading')
+        if twfy_uri && twfy_uri[/lords/] && !text.include?('House of Lords')
+          text = "publishing House of Lords #{text}"
+        elsif twfy_uri && twfy_uri[/debates/] && !text.include?('House of Commons')
+          text = "publishing House of Commons #{text}"
+        else
+          text = "publishing #{text}"
+        end
+      elsif title.starts_with?('Publication:')
+        text = "publishing #{text}"
+      end
+
       text
     end
 
@@ -134,7 +121,28 @@ class ParliamentItem < EntryItem
         nil
       end
     end
-    def clean_content
-      # self.content = self.content.gsub('<span>','').gsub('</span>','')
+
+    def lookup_twfy_uri
+      # begin
+        # url = "http://www.theyworkforyou.com/api/convertURL?url="#{URI.escape(url)}"&output=xml&key=EXmgpTBtvw2XEEGWsgEu2N6r"
+        # h = Hash.from_xml(open(url).read)
+        # m = Morph.from_hash(h)
+        # m.url
+      # rescue Exception => e
+        # puts e.to_s
+        # nil
+      # end
+      self.twfy_uri = if title[/Provisional Sitting/] || !tweet.message[/(ldhansrd|cmhansrd|Reading)/]
+        nil
+      elsif content[/House of Commons (\S+) Reading/i] || tweet.message[/cmhansrd/]
+        find_twfy_url 'commons'
+      elsif content[/House of Lords (\S+) Reading/i] || tweet.message[/ldhansrd/]
+        find_twfy_url 'lords'
+      else
+        url = find_twfy_url 'lords'
+        url = find_twfy_url 'commons' unless url
+        url
+      end
     end
+
 end
