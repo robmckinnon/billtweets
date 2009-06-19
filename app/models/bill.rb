@@ -40,7 +40,7 @@ class Bill < ActiveRecord::Base
     def load_bills
       doc = Hpricot open(RAILS_ROOT + '/data/bills_before_parliament.html')
       current = (doc/'a').inject({}) do |h, a|
-        if a['href'] && a['href'].to_s[/services.parliament.uk\/bills\/\d\d\d\d-\d\d\//] && a.parent.next_sibling.at('a')
+        if a['href'] && a['href'].to_s[/\d\d\d\d-\d\d\//] && a.parent.next_sibling.at('a')
           h[a['href']] = a.parent.next_sibling.at('a')['href']
         end
         h
