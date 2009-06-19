@@ -9,6 +9,8 @@ class ParliamentQuery < EntryQuery
   end
 
   def parliament_search
+    uri = feed_uri
+    uri = "http://services.parliament.uk/bills/#{uri}" unless uri[/^http:\/\/services.parliament.uk\/bills\//]
     h = Hash.from_xml open(feed_uri).read
     m = Morph.from_hash h
 
