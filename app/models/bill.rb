@@ -42,7 +42,7 @@ class Bill < ActiveRecord::Base
       current = (doc/'a').inject({}) do |h, a|
         if a['href'] && a['href'].to_s[/\d\d\d\d-\d\d\//] && a.parent.next_sibling.at('a')
           key = a['href'].strip.chomp('&#xA;')
-          key = "http://services.parliament.uk/bills/#{key}" unless key[/^http://services.parliament.uk\/bills\//]
+          key = "http://services.parliament.uk/bills/#{key}" unless key[/^http:\/\/services.parliament.uk\/bills\//]
           h[key] = a.parent.next_sibling.at('a')['href']
         end
         h
