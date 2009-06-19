@@ -41,7 +41,9 @@ class Bill < ActiveRecord::Base
       doc = Hpricot open(RAILS_ROOT + '/data/bills_before_parliament.html')
       current = (doc/'a').inject({}) do |h, a|
         if a['href'] && a['href'].to_s[/\d\d\d\d-\d\d\//] && a.parent.next_sibling.at('a')
-          h[a['href']] = a.parent.next_sibling.at('a')['href']
+          key = a['href'].strip.chomp('&#xA;')
+          key = "http://services.parliament.uk/bills/#{key}" unless key[/^http://services.parliament.uk\/bills\//]
+          h[key] = a.parent.next_sibling.at('a')['href']
         end
         h
       end
