@@ -55,9 +55,9 @@ class Bill < ActiveRecord::Base
       bills = []
       current_bills.each do |data|
         url = data.link
-        puts url
-        bill = find_or_create_by_url(url)
-        bill.name = %Q|#{data.title} Bill|
+        name = %Q|#{data.title} Bill|
+        puts name
+        bill = find_or_create_by_url_and_name(url, name)
         bill.description = data.description
         bill.feed_uri = current[data.link]
         categories = data.categories
