@@ -4,6 +4,8 @@ require 'morph'
 
 class Bill < ActiveRecord::Base
 
+  has_friendly_id :name, :use_slug => true, :strip_diacritics => true
+
   validates_uniqueness_of :url
 
   belongs_to :tweeter
@@ -11,6 +13,14 @@ class Bill < ActiveRecord::Base
 
   def stories_count
     entry_queries.collect{ |x| x.entry_item_count }.sum
+  end
+
+  def entry_items
+    entry_queries.collect(&:entry_items).flatten.sort_by(&:published_time)
+  end
+
+  def news_items
+    entry_items.select{|x| x.is_a?(BlogItem)}
   end
 
   class << self

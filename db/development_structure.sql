@@ -27,6 +27,7 @@ CREATE TABLE `entry_items` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   `entry_source_id` int(11) default NULL,
+  `twfy_uri` varchar(255) default NULL,
   PRIMARY KEY  (`id`),
   KEY `index_entry_items_on_entry_query_id` (`entry_query_id`),
   KEY `index_entry_items_on_entry_source_id` (`entry_source_id`)
@@ -89,7 +90,7 @@ CREATE TABLE `slugs` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `index_slugs_on_name_and_sluggable_type_and_scope_and_sequence` (`name`,`sluggable_type`,`scope`,`sequence`),
   KEY `index_slugs_on_sluggable_id` (`sluggable_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `tweeters` (
   `id` int(11) NOT NULL auto_increment,
@@ -117,7 +118,7 @@ CREATE TABLE `tweets` (
   `entry_item_id` int(11) default NULL,
   PRIMARY KEY  (`id`),
   KEY `index_tweets_on_tweeter_id` (`tweeter_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3279 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27789 DEFAULT CHARSET=utf8;
 
 INSERT INTO schema_migrations (version) VALUES ('20090509164330');
 
@@ -136,3 +137,5 @@ INSERT INTO schema_migrations (version) VALUES ('20090509213732');
 INSERT INTO schema_migrations (version) VALUES ('20090510100458');
 
 INSERT INTO schema_migrations (version) VALUES ('20090519174350');
+
+INSERT INTO schema_migrations (version) VALUES ('20090525170339');

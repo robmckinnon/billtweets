@@ -1,5 +1,7 @@
 class Tweeter < ActiveRecord::Base
 
+  has_friendly_id :name, :use_slug => true, :strip_diacritics => true
+
   has_one :bill
   has_many :tweets
 
@@ -15,7 +17,7 @@ class Tweeter < ActiveRecord::Base
   end
 
   def entry_items
-    bill.entry_queries.collect(&:entry_items).flatten.sort_by(&:published_time)
+    bill.entry_items
   end
 
   def make_tweets

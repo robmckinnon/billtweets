@@ -13,9 +13,9 @@
   - @tweets.each do |tweet|
     %tr
       %td= h tweet.tweeter.name
-      %td= h tweet.entry_item.publisher
+      %td= tweet.entry_item ? h(tweet.entry_item.publisher) : ''
       %td= h tweet.message
-      %td= h tweet.entry_item.content
+      %td= tweet.entry_item ? h(tweet.entry_item.content) : ''
       %td= h tweet.tweeted
       %td= h tweet.tweeted_at
       %td= h tweet.dm_to

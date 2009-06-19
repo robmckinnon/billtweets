@@ -11,6 +11,7 @@ describe ParliamentItem do
 
   describe 'content is long' do
     before do
+      @item.title = 'Title'
       @item.content = 'This Bill is expected to be introduced in January 2009 (subject to the satisfactory completion of a formal stage on 18th December 2008).'
       @tweet = @item.tweet_msg
     end
@@ -19,7 +20,7 @@ describe ParliamentItem do
       @tweet.sub(@url,'http://bit.ly/15mmkk').size.should <= 140
     end
     it 'make good tweet text' do
-      @tweet.should == 's'
+      @tweet.should == 'expected to be introduced in Jan 2009 (subject to the satisfactory completion of a formal stage on 18 thember 2008).: http://services.parliament.uk/bills/2008-09/cityofwestminster.html'
     end
   end
 

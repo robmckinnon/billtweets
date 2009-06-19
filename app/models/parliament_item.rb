@@ -4,6 +4,8 @@ require 'morph'
 
 class ParliamentItem < EntryItem
 
+  validates_presence_of :title
+
   before_save :lookup_twfy_uri
 
   def source_model
