@@ -134,11 +134,11 @@ class ParliamentItem < EntryItem
         # puts e.to_s
         # nil
       # end
-      self.twfy_uri = if title[/Provisional Sitting/] || !tweet.message[/(ldhansrd|cmhansrd|Reading)/]
+      self.twfy_uri = if title[/Provisional Sitting/] || (!link[/(ldhansrd|cmhansrd)/] && !content[/Reading/])
         nil
-      elsif content[/House of Commons (\S+) Reading/i] || tweet.message[/cmhansrd/]
+      elsif content[/House of Commons (\S+) Reading/i] || link[/cmhansrd/]
         find_twfy_url 'commons'
-      elsif content[/House of Lords (\S+) Reading/i] || tweet.message[/ldhansrd/]
+      elsif content[/House of Lords (\S+) Reading/i] || link[/ldhansrd/]
         find_twfy_url 'lords'
       else
         url = find_twfy_url 'lords'
