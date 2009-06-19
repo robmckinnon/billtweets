@@ -1,0 +1,230 @@
+!!! Strict
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type" }
+    %meta{ :name => "robots", :content => "ALL" }
+    %meta{ :name => "description", :content => "Typogridphy &mdash; A Typographical and Grid Layout CSS Framework From Harry Roberts of CSS Wizardry" }
+    %meta{ :name => "keywords", :content => "" }
+    %meta{ :name => "classification", :content => "" }
+    %meta{ :name => "author", :content => "Harry Roberts - http://csswizardry.com" }
+    %meta{ :name => "reply-to", :content => "" }
+    %meta{ :name => "copyright", :content => "" }
+    %link{ :href => "favicon.ico", :rel => "shortcut icon" }
+    %title
+      Typogridphy &mdash; A Typographical and Grid Layout CSS Framework From Harry Roberts of CSS Wizardry
+    = stylesheet_link_tag 'typogridphy', :media => 'all'
+    = %Q|<!--[if IE]><link rel="stylesheet" type="text/css" href="/stylesheets/typogridphy_ie.css" /><![endif]-->|
+  %body
+    #wrapper
+      #header
+        %span#nav
+          %a{ :href => "#", :title => "Nav Item Title" }
+            Nav Item One
+          \&middot;
+          %a{ :href => "#", :title => "Nav Item Title" }
+            Nav Item Two
+          \&middot;
+          %a{ :href => "#", :title => "Nav Item Title" }
+            Nav Item Three
+          \&middot;
+          %a{ :href => "#", :title => "Nav Item Title" }
+            Nav Item Four
+      .generic.nineforty
+        %h1
+          UK Bill Tweets
+      .generic.nineforty.end
+        / 940px
+        %h2.s940
+          = link_to_bill(@bills, @titles, 0)
+        .generic.borderless.twoeighty
+          %p
+            = @texts[0][0..(@texts[0].size / 3)].sub('<p>','')
+        .generic.borderless.twoeighty
+          %p
+            = @texts[0][((@texts[0].size / 3) + 1)..(2 * @texts[0].size / 3)]
+        .generic.borderless.twoeighty.end
+          %p
+            = @texts[0][((2 * @texts[0].size / 3) + 1)..(3 * @texts[0].size / 3)]
+          %p
+            The Internet
+      .generic.twotwenty
+        / 220px
+        %h2.s220
+          = link_to_bill(@bills, @titles, 10)
+        %p
+          = @texts[10][0..(@texts[1].length - 700)] + ' ...'
+      .generic.sevenhun.end
+        / 700px
+        %h2.s700
+          = link_to_bill(@bills, @titles, 1)
+        %blockquote.twoeighty.right-float
+          %p
+            \&ldquo;This is a blockquote, with a right float and a width of 280px. Even
+            %em
+              this
+            maintains typographical flow!&rdquo; &mdash;
+            %cite
+              Harry Roberts
+        %p
+          = @texts[1]
+      .generic.twoeighty.break
+        / 280px
+        %h2.s280
+          = link_to_bill(@bills, @titles, 9)
+        %p
+          = #@texts[9] + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah ' + 'blah '
+          = @texts[9][0..(@texts[2].length - 353)] + ' ...'
+      .generic.sixforty.end
+        / 640px
+        %h2.s640
+          = link_to_bill(@bills, @titles, 2)
+        %p
+          = @texts[2]
+      .generic.threeforty.break
+        / 340px
+        %h2.s340
+          = link_to_bill(@bills, @titles, 8)
+        %p
+          = @texts[8][0..(400)] + ' ...'
+      .generic.fiveeighty.end
+        / 580px
+        %h2.s580
+          = link_to_bill(@bills, @titles, 3)
+        %p
+          = @texts[3]
+      .generic.fourhun.break
+        %h2.s400
+          = link_to_bill(@bills, @titles, 7)
+        %p
+          = @texts[7][0..(250)] + ' ...'
+      .generic.fivetwenty.end
+        / 520px
+        %h2.s520
+          = link_to_bill(@bills, @titles, 4)
+        %img.right-img{ :src => "images/rails.png", :alt => "A Placeholder Image" }
+        %p
+          = @texts[4]
+      .generic.foursixty.break
+        / 460px
+        %h2.s460
+          = link_to_bill(@bills, @titles, 5)
+        %p
+          = @texts[5]
+      .generic.foursixty.end
+        / 460px
+        %h2.s460
+          = link_to_bill(@bills, @titles, 6)
+        %p
+          = @texts[6]
+      .generic.nineforty
+        %h2.s220
+          @latest_debates[5].sub_debates[2].name
+          Lists&hellip;
+        %ol.twotwenty.left-float
+          %li
+            This is an ordered list&hellip;
+          %li
+            \&hellip;which has been floated left.
+          %li
+            It is also 22em wide&hellip;
+          %li
+            Nested Lists:
+            %ul
+              %li
+                This is a nested
+                %span.code
+                  \&lt;ul&gt;
+          %li
+            Nested Lists:
+            %ol
+              %li
+                This is a nested
+                %span.code
+                  \&lt;ol&gt;
+          %li
+            \&hellip;which equates to 220px when not zoomed.
+        %p
+          %strong
+            Lorem
+          ipsum dolor sit amet, consectetuer adipiscing elit. In accumsan diam vitae velit. Aliquam vehicula, turpis sed egestas porttitor, est ligula egestas leo, at interdum leo ante ut risus. Cras ut nunc. Phasellus imperdiet, urna in volutpat venenatis, mauris pede euismod pede, malesuada euismod turpis enim at arcu. Sed placerat accumsan mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam suscipit, quam at placerat interdum, quam turpis placerat pede, eget sagittis arcu sapien vel mauris. Nulla faucibus turpis eget tellus. Integer mattis dapibus lorem. Donec pretium lorem vel ligula. Fusce semper consequat dui. Integer ac mi. Cras faucibus nulla quis ipsum. Nunc augue turpis, tristique et, hendrerit id, hendrerit eu, lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vulputate. Proin et erat id ipsum accumsan porttitor. Suspendisse tellus arcu, scelerisque vel, feugiat sit amet, aliquet sed, velit. Cras ut nunc. Phasellus imperdiet, urna in volutpat venenatis, mauris pede euismod pede, malesuada euismod turpis enim at arcu. Sed placerat accumsan mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        %ul.foursixty.left-float
+          %li
+            This is an unordered list&hellip;
+          %li
+            \&hellip;which has been floated left.
+          %li
+            It is also 46em wide&hellip;
+          %li
+            \&hellip;which equates to 460px when not zoomed.
+          %li
+            Nested Lists:
+            %ul
+              %li
+                This is a nested
+                %span.code
+                  \&lt;ul&gt;
+          %li
+            Nested Lists:
+            %ol
+              %li
+                This is a nested
+                %span.code
+                  \&lt;ol&gt;
+          %li
+            The wider the class assigned, the wider the list will be &mdash; pretty nifty eh?.
+        %p
+          %strong
+            Lorem
+          ipsum dolor sit amet, consectetuer adipiscing elit. In accumsan diam vitae velit. Aliquam vehicula, turpis sed egestas porttitor, est ligula egestas leo, at interdum leo ante ut risus. Cras ut nunc. Phasellus imperdiet, urna in volutpat venenatis, mauris pede
+          %a{ :href => "#", :title => "Always try and give links a title attribute" }
+            euismod pede
+          , malesuada euismod turpis enim at arcu. Sed placerat accumsan mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam suscipit, quam at placerat interdum, quam turpis placerat pede, eget sagittis arcu sapien vel mauris. Nulla faucibus turpis eget tellus. Integer mattis dapibus lorem. Donec pretium lorem vel ligula. Fusce semper consequat dui. Integer ac mi. Cras faucibus nulla quis ipsum. Nunc augue turpis, tristique et, hendrerit id, hendrerit eu, lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vulputate. Proin et erat id ipsum accumsan porttitor. Suspendisse tellus arcu, scelerisque vel, feugiat sit amet, aliquet sed, velit.
+      .generic.threeforty
+        %h3.s340
+          Images
+        %img.left-img{ :src => "images/holder-01.gif", :alt => "A Placeholder Image" }
+        %p
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In accumsan diam vitae velit. Aliquam vehicula, turpis sed egestas porttitor, est ligula egestas leo, at interdum leo ante ut risus. Cras ut nunc. Phasellus imperdiet, urna in volutpat venenatis, mauris pede euismod pede, malesuada euismod turpis enim at arcu. Sed placerat accumsan mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+      .generic.twotwenty
+        %h3.s220
+          Glyphs
+        %p.intro.drop
+          %strong
+            Typogridphy
+          is also designed to use glyphs, as opposed to the normal text used in web design. For example, use &lsquo;&aelig;&rsquo; in place of &lsquo;ae&rsquo;, &lsquo;&mdash;&rsquo; instead of &lsquo;-&rsquo; and &lsquo;&hellip;&rsquo; as opposed to &lsquo;...&rsquo;.
+        %p
+          A good way of finding out about different glyphs is through Dreamweaver&rsquo;s design view. Wow, I never thought I&rsquo;d be singing the praises of a
+          %abbr{ :title => "What You See Is What You Get" }
+            WYSIWYG
+          application!
+      .generic.threeforty.end
+        %h3.s340
+          Headings
+        %h1
+          Heading 1
+        %h2
+          Heading 2
+        %h3
+          Heading 3
+        %h4
+          Heading 4
+        %h5
+          Heading 5
+        %h6
+          Heading 6
+      .generic.nineforty
+        %p#footer-nav
+          %a{ :href => "http://csswizardry.com/", :title => "CSS Wizardry &mdash; Home of Harry Roberts" }
+            \&copy; MMVIII Harry Roberts
+          \&middot;
+          %a{ :href => "#", :title => "Nav Item Title" }
+            Nav Item One
+          \&middot;
+          %a{ :href => "#", :title => "Nav Item Title" }
+            Nav Item Two
+          \&middot;
+          %a{ :href => "#", :title => "Nav Item Title" }
+            Nav Item Three
+          \&middot;
+          %a{ :href => "#", :title => "Nav Item Title" }
+            Nav Item Four
