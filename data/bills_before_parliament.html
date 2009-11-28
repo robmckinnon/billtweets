@@ -1,277 +1,1214 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml" lang="en-GB">
-<head><title>
+	<head><title>
 	www.parliament.uk | Bills before Parliament
-</title><link rel="stylesheet" type="text/css" media="screen" href="http://www.parliament.uk/styles/header.css" /><link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico" /><link rel="stylesheet" type="text/css" media="all" href="Styles/bills.css" />
-    <!--[if IE 5]>
-        <link rel="stylesheet" type="text/css" media="all" href="Styles/bills_ie5.css" />
-    <![endif]-->
-    <link rel="stylesheet" type="text/css" media="screen" href="styles/bills_screen.css" /><link rel="stylesheet" type="text/css" media="print" href="styles/bills_print.css" />
-    
-    <script src="../jscript/util.js" type="text/javascript"> </script>
-       
-   <script type="text/javascript" src="/bills/jscript/jquery.js"></script>
+</title><link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico" /><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Cache-Control" content="no-cache" /><meta http-equiv="expires" content="0" /><meta content=" " name="description" /><meta content=" " name="keywords" /><link rel="stylesheet" type="text/css" media="screen" href="styles/header.css" /><link rel="stylesheet" type="text/css" media="all" href="Styles/bills.css" />
+		
+		<!-- 
+		<link rel="stylesheet" type="text/css" media="screen" href="styles/bills_screen.css" /><link rel="stylesheet" type="text/css" media="print" href="styles/bills_print.css" />
+		-->
 
+		<script type="text/javascript" src="/bills/jscript/util.js" > </script>
+		<script type="text/javascript" src="/bills/jscript/jquery.js"></script>
 
-   <script language="JavaScript1.1" type="text/javascript">
-        
-        jQuery(document).ready(function() {
-            var divHeight = jQuery('#mainbody').height();
-            divHeight = divHeight + 300;
-            jQuery('#content').attr('style','height:'+ divHeight + 'px;');
-        })
-    </script>
-    
-    
+		
+	<link
+		rel="alternate" 
+		href="/bills/AllBills.rss" 
+		title="Bills before Parliament: RSS feed"
+		type="application/rss+xml" />
+</head>
 
-    
-   
+	<body>
+		<div id="content">
+			<div id="header">
+				
 
-    
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Cache-Control" content="no-cache" /><meta http-equiv="expires" content="0" /><meta content=" " name="description" /><meta content=" " name="keywords" /></head>
-
-<body>
-<div id="content">
-<div id="header">
-
-            
-    
-        <script type="text/javascript" src="http://www.parliament.uk/js/swfobject.js"></script>
+<script type="text/javascript" src="http://www.parliament.uk/js/swfobject.js"></script>
 <script type="text/javascript" src="http://www.parliament.uk/js/main.js"></script>
-<script type="text/javascript">
-   displayClock();
-</script>
+<script type="text/javascript">displayClock();</script>
+
 <div id="header_wrapper">
-<div id="top_nav">
-	<ul>
-		<li class="firstnav"><a href="http://www.parliament.uk/site_information/accessibility.cfm">Accessibility</a> </li>
-		<li><a href="http://www.parliament.uk/index/index.cfm">A-Z Index</a></li>
-		<li><a href="http://www.parliament.uk/glossary/glossary.cfm">Glossary</a></li>
-		<li><a href="http://www.parliament.uk/site_information/help.cfm">Help</a></li>
-		<li><a href="http://www.parliament.uk/site_information/contact_us.cfm">Contact Us</a></li>
-	</ul>
-</div>
-<div id="banner">
-	<div id="banner_top">
-		<div id="banner_img">
-			<a href="http://www.parliament.uk/"><img src="http://www.parliament.uk/images/global/parliament_logo.gif" alt="" width="280" height="45" border="0" /></a>
-		</div>
-		<div id="banner_time">
-			<div id="bigben"></div><p><script type="text/javascript">displayTimeDate();</script></p></div>
-		<form action="http://www.publications.parliament.uk/cgi-bin/search.pl" method="post">					
-			<div id="banner_search">
-				<h2 class="hidden">Search</h2>
-					<input type="text" name="QUERY00" id="search" class="searchBox" />
-					<input type="submit" class="searchSubmit" name="CMD=search.run" value="Search" />
-					<input type="hidden" name="STYPE" value="SIMPLE" />
-					<input type="hidden" name="DB" value="semukparl" />
-					<input type="hidden" name="SHOWCONCEPT" value="1" />
-					<input type="hidden" name="ORGANISE_CODED" value="R:date" />
-					<input type="hidden" name="ENDDATE" value="TODAY" />
-					<input type="hidden" name="DAYSMINUS" value="730" />
-			</div>
-		</form>
-</div>
-<div id="main_nav">
-	<ul>
-		<li class="first"><a href="http://www.parliament.uk/">Home</a></li>
-		<li><a href="http://www.parliament.uk/visiting/">Visiting</a></li>
-		<li><a href="http://www.parliament.uk/about/">About</a></li>
-		<li class="selected"><a href="http://www.parliament.uk/business/">Parliamentary Business</a></li>
-		<li><a href="http://www.parliament.uk/people/">MPs, Lords and Offices</a></li>
-		<li><a href="http://www.parliament.uk/getinvolved/">Get Involved</a></li>
-		<li><a href="http://www.parliament.uk/topics/topical-issues.htm">Topical Issues</a></li>
-		<li><a href="http://www.parliament.uk/education/">Education</a></li>
-	</ul>
-</div>
-	<div id="secondary_nav">
+	<div id="top_nav">
 		<ul>
-			<li><a href="http://www.parliament.uk/business/what_s_on.cfm">What's On</a></li>
-			<li><a href="http://www.parliament.uk/business/committees.cfm">Committees</a></li>
-			<li class="selected"><a href="http://www.parliament.uk/business/bills_and_legislation.cfm">Bills &amp; Legislation</a></li>
-			<li><a href="http://www.parliament.uk/business/judicial_work.cfm">Judicial Work</a></li>
-            <li><a href="http://www.parliament.uk/commons/">House of Commons</a></li>
-			<li><a href="http://www.parliament.uk/lords/">House of Lords</a></li>
-			<li><a href="http://www.parliament.uk/publications/">Publications &amp Records</a></li>
-			<li><a href="http://news.parliament.uk/">News</a></li>
+			<li class="firstnav"><a href="http://www.parliament.uk/site_information/accessibility.cfm">Accessibility</a></li>
+			<li><a href="http://www.parliament.uk/index/index.cfm">A-Z Index</a></li>
+			<li><a href="http://www.parliament.uk/glossary/glossary.cfm">Glossary</a></li>
+			<li><a href="http://www.parliament.uk/site_information/help.cfm">Help</a></li>
+			<li><a href="http://www.parliament.uk/site_information/contact_us.cfm">Contact Us</a></li>
 		</ul>
-	</div>	
-</div>
-</div>
-		
-		
-    
+	</div>
+	<div id="banner">
+		<div id="banner_top">
+			<div id="banner_img">
+				<a href="http://www.parliament.uk/">
+					<img src="http://www.parliament.uk/images/global/parliament_logo.gif" alt="" width="280"
+						height="45" border="0" /></a>
+			</div>
+			<div id="banner_time">
+				<div id="bigben">
+				</div>
+				<p>
 
-        
-          <div id="breadcrumb">
-          <span class="breadcrumbtext">You are here:</span>
-          <a class="breadcrumbtext3" href="http://www.parliament.uk/index.cfm">Parliament Home Page</a>
-          <span class="breadcrumbtext">&gt;</span>
-          <a class="breadcrumbtext3" href="http://www.parliament.uk/business/index.cfm">Business</a>
-          <span class="breadcrumbtext">&gt;</span>
-          <a class="breadcrumbtext3" href="http://www.parliament.uk/business/bills_and_legislation.cfm">Bills and Legislation</a>
-          <span class="breadcrumbtext">&gt;</span>
-          
-          <span class="breadcrumbtext">
-          
-    Bills before Parliament 2008-09
+					<script type="text/javascript">displayTimeDate();</script>
 
-          </span>
-          
-        </div>
-        
-</div>
-
-
-
-<div id="mainbody">
-
-<div id="leftmenu">
-            
-        
-     <!-- This section constructs a left hand navigation for inclusion in the masterpage. It is intended to use an external file produced, and dynamically updated, by the Content Management System for the navigation in the future. This code is an interim fix until that file is available. -->
-    <a class="leftmenu2" href="http://services.parliament.uk/bills/">Current Bills</a><br />
-    <div class="leftline">&nbsp;</div><br /> 
-    <a class="leftmenu2" href="http://www.parliament.uk/business/bills_and_legislation/previous_bills.cfm">Previous Bills</a><br />
-    <div class="leftline">&nbsp;</div><br /> 
-    <a class="leftmenu2" href="http://www.parliament.uk/business/bills_and_legislation/draft_bills.cfm">Draft Bills</a><br />
-    <div class="leftline">&nbsp;</div><br /> 
-    <a class="leftmenu2" href="http://www.parliament.uk/business/bills_and_legislation/acts_of_parliament.cfm">Acts of Parliament</a><br />
-    <div class="leftline">&nbsp;</div><br /> 
-    <a class="leftmenu2" href="http://www.parliament.uk/business/bills_and_legislation/secondary_legislation.cfm">Secondary Legislation</a><br />
-    <div class="leftline">&nbsp;</div><br />
-    <!-- <a class="leftmenu2" href="http://www.parliament.uk/business/bills/european_legislation.cfm">European Legislation</a><br />
-    <div class="leftline">&nbsp;</div><br /> -->
-    
-
-    
-</div>
-     
-     
-     
-         
-    <div xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions"><h1 style="float:left;margin-top:0;">
-            Bills before Parliament 2008-09</h1></div><div style="clear:both;" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions"><div class="eightpointtext" style="float:left;"><br /><p>Listed below are all Bills currently before Parliament. Any Bills which start in the Lords have [HL] in their title. Explanatory Notes and Amendments are on each Bill's individual page.</p><p><img alt="Current Bills RSS" src="icons/rss_big.gif&#xA;            " /><a href="RSS/AllBills.xml"> RSS for Bills before Parliament</a></p><p><img border="0" alt=" Subscribe to Email  Alerts for this page" src="images/envelope.gif&#xA;            " /><a href="http://subscriptions.parliament.uk/service/subscribe.html?code=UKPARLIAMENT_3" target="_blank">Subscribe to Email Alerts for this page.</a></p></div></div><h2 class="subtitle clearMe" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions">
-      What's New
-    </h2><table cellspacing="1" border="0" class="billList eightpointtext" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions"><colgroup><col width="60%" /><col width="30%" align="center" /><col width="10%" align="center" /></colgroup><tr><th class="subheader" align="left">
-          Bill Title
-        </th><th class="subheader" align="center">
-          Type of Update
-        </th><th class="subheader" align="center">
-          Date Amended
-        </th></tr><tr><td><a href="2008-09/apprenticeshipsskillschildrenandlearning.html">Apprenticeships, Skills, Children and Learning   Bill</a></td><td align="center">Amendment Paper</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/borderscitizenshipandimmigration.html">Borders, Citizenship and Immigration Bill [HL]</a></td><td align="center">Proceeding</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/borderscitizenshipandimmigration.html">Borders, Citizenship and Immigration Bill [HL]</a></td><td align="center">Bill</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/businessratesupplements.html">Business Rate Supplements Bill</a></td><td align="center">Bill</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/businessratesupplements.html">Business Rate Supplements Bill</a></td><td align="center">Amendment Paper</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/equality.html">Equality Bill</a></td><td align="center">Amendment Paper</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/equality.html">Equality Bill</a></td><td align="center">Proceeding</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/finance.html">Finance Bill</a></td><td align="center">Amendment Paper</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/finance.html">Finance Bill</a></td><td align="center">Proceeding</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/health.html">Health Bill [HL]</a></td><td align="center">Amendment Paper</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/health.html">Health Bill [HL]</a></td><td align="center">Proceeding</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/localdemocracyeconomicdevelopmentandconstruction.html">Local Democracy, Economic Development and Construction Bill [HL]</a></td><td align="center">Amendment Paper</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/localdemocracyeconomicdevelopmentandconstruction.html">Local Democracy, Economic Development and Construction Bill [HL]</a></td><td align="center">Proceeding</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/policingandcrime.html">Policing and Crime Bill</a></td><td align="center">Amendment Paper</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/politicalpartiesandelections.html">Political Parties and Elections Bill</a></td><td align="center">Amendment Paper</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/roadsignstouristdestinationsandfacilities.html">Road Signs (Tourist Destinations and Facilities) Bill</a></td><td align="center">Bill</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/savinggatewayaccounts.html">Saving Gateway Accounts Bill</a></td><td align="center">Bill</td><td align="center">19.06.2009</td></tr><tr><td><a href="2008-09/welfarereform.html">Welfare Reform Bill</a></td><td align="center">Amendment Paper</td><td align="center">19.06.2009</td></tr></table><h2 class="subtitle clearMe" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions">
-      Filter options
-    </h2><div class="eightpointtext toplevelfilters" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions"><a href="2008-09.html?filter=publicbills&#xA;        ">Public Bills only</a> 
-      <a href="2008-09.html?filter=privatebills&#xA;        ">Private Bills only</a> 
-      <a href="2008-09.html?filter=privatemembersbills&#xA;        ">Private Members' Bills only</a></div><div class="eightpointtext billKey billKeycol1" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions"><h4>Public Bills</h4><ul><li><span><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;              " />
-            =
-          </span><a href="2008-09.html?filter=governmentbills&#xA;            ">
-            Government Bill
-          </a></li><li><span><img alt="Consolidation Bill" src="icons/bill_ico_az_conso_bills.gif&#xA;              " />
-            =
-          </span><a href="2008-09.html?filter=consolidationbills&#xA;            ">
-            Consolidation Bill
-          </a></li><li><span><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;              " />
-            =
-          </span><a href="2008-09.html?filter=ballotbills&#xA;            ">
-            Ballot Bill (Private Members’ Bills)
-          </a></li><li><span><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;              " />
-            =
-          </span><a href="2008-09.html?filter=tenminuterulebills&#xA;            ">
-            Ten Minute Rule, SO No 23 (Private Members’ Bills)
-          </a></li><li><span><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;              " />
-            =
-          </span><a href="2008-09.html?filter=presentationbills&#xA;            ">
-            Presentation Bill (Private Members’ Bills)
-          </a></li><li><span><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;              " />
-            =
-          </span><a href="2008-09.html?filter=holprivatemembersbills&#xA;            ">
-            House of Lords Private Members’ Bills
-          </a></li></ul></div><div class="eightpointtext billKey billKeycol2" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions"><h4>Private Bills</h4><ul><li><span><img alt="Private Bill" src="icons/bill_ico_az_private.gif&#xA;              " />
-            =
-          </span><a href="2008-09.html?filter=privatebills&#xA;            ">
-              Private Bill
-            </a></li></ul><h4><span class="clearMe">Hybrid Bills</span></h4><ul><li><span><img alt="Hybrid Bill" src="icons/bill_ico_az_hybrid.gif&#xA;              " />
-            =
-          </span><a href="2008-09.html?filter=hybridbills&#xA;            ">
-            Hybrid Bill
-          </a></li></ul><h4><span class="clearMe">Bills Granted Royal Assent</span></h4><ul><li><span><img alt="Royal Assent" src="icons/icon_blkprt.gif&#xA;              " />
-            =
-          </span><a href="2008-09.html?filter=royalassentbills&#xA;            ">
-            Royal Assent
-          </a></li></ul></div><div class="eightpointtext billKey billKeycol3" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions"><h4>Filter by House</h4><ul><li><span><img alt="Commons" src="icons/icon_cmns.gif&#xA;            " />
-          =
-        </span><a href="2008-09.html?filter=commonsbills&#xA;          ">
-          Commons
-        </a></li><li><span><img alt="Lords" src="icons/icon_lrds.gif&#xA;            " />
-          =
-        </span><a href="2008-09.html?filter=lordsbills&#xA;          ">
-          Lords
-        </a></li><li><span><img alt="Pending" src="icons/bill_ico_pending.gif&#xA;            " />
-          =
-        </span><a href="2008-09.html?filter=pendingbills&#xA;          ">
-          House Pending (Private Bills only)
-        </a></li></ul></div><h2 class="subtitle clearMe" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions">
-      Bills before Parliament
-    </h2><div class="clearMe" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions" /><div id="azLinks" class="eightpointtext" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions"><a href="&#xA;                              #billsstartingwithA">A</a><a href="&#xA;                              #billsstartingwithB">B</a><a href="&#xA;                              #billsstartingwithC">C</a><a href="&#xA;                              #billsstartingwithD">D</a><a href="&#xA;                              #billsstartingwithE">E</a><a href="&#xA;                              #billsstartingwithF">F</a><a href="&#xA;                              #billsstartingwithG">G</a><a href="&#xA;                              #billsstartingwithH">H</a><a href="&#xA;                              #billsstartingwithI">I</a><span class="azGrey">J</span><span class="azGrey">K</span><a href="&#xA;                              #billsstartingwithL">L</a><a href="&#xA;                              #billsstartingwithM">M</a><a href="&#xA;                              #billsstartingwithN">N</a><a href="&#xA;                              #billsstartingwithO">O</a><a href="&#xA;                              #billsstartingwithP">P</a><span class="azGrey">Q</span><a href="&#xA;                              #billsstartingwithR">R</a><a href="&#xA;                              #billsstartingwithS">S</a><a href="&#xA;                              #billsstartingwithT">T</a><span class="azGrey">U</span><span class="azGrey">V</span><a href="&#xA;                              #billsstartingwithW">W</a><span class="azGrey">X</span><a href="&#xA;                              #billsstartingwithY">Y</a><span class="azGrey">Z</span></div><table cellspacing="1" border="0" class="billList eightpointtext" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions"><colgroup><col align="center" /><col align="center" /><col width="100%" /><col align="center" /><col align="center" /></colgroup><tr><th>Type</th><th>House</th><th align="left">Bill Title</th><th>RSS</th><th>Date Amended</th></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithA" /><strong>A</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/airportexpansionparliamentaryapproval.html&#xA;                                  ">Airport Expansion (Parliamentary Approval) Bill</a><td><a href="RSS/airportexpansionparliamentaryapproval.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.06.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/apprenticeshipsskillschildrenandlearning.html&#xA;                                  ">Apprenticeships, Skills, Children and Learning   Bill</a><td><a href="RSS/apprenticeshipsskillschildrenandlearning.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/armeniangenocideremembranceday.html&#xA;                                  ">Armenian Genocide Remembrance Day  Bill</a><td><a href="RSS/armeniangenocideremembranceday.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">28.01.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/autism.html&#xA;                                  ">Autism Bill</a><td><a href="RSS/autism.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">16.06.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithB" /><strong>B</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/bailiffsrepealsandamendment.html&#xA;                                  ">Bailiffs (Repeals and Amendment) Bill</a><td><a href="RSS/bailiffsrepealsandamendment.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">08.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/bankofenglandamendment.html&#xA;                                  ">Bank of England (Amendment) Bill [HL]</a><td><a href="RSS/bankofenglandamendment.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">18.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/bankerspensionslimits.html&#xA;                                  ">Bankers' Pensions (Limits) Bill</a><td><a href="RSS/bankerspensionslimits.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">16.06.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="Royal Assent" src="icons/icon_blkprt.gif&#xA;                                      " /></td><td><a href="2008-09/banking.html&#xA;                                  ">Banking Bill</a><td><a href="RSS/banking.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">16.03.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/bankingno2.html&#xA;                                  ">Banking (No. 2) Bill [HL]</a><td><a href="RSS/bankingno2.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">23.02.2009</td></tr><tr><td align="center"><img alt="Private Bill" src="icons/bill_ico_az_private.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/beverleyfreemen.html&#xA;                                  ">Beverley Freemen Bill [HL]</a><td><a href="RSS/beverleyfreemen.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">28.04.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/borderscitizenshipandimmigration.html&#xA;                                  ">Borders, Citizenship and Immigration Bill [HL]</a><td><a href="RSS/borderscitizenshipandimmigration.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr><td align="center"><img alt="Private Bill" src="icons/bill_ico_az_private.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/bournemouthboroughcouncil.html&#xA;                                  ">Bournemouth Borough Council Bill [HL]</a><td><a href="RSS/bournemouthboroughcouncil.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">14.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/britishmuseumact1963amendment.html&#xA;                                  ">British Museum Act 1963 (Amendment) Bill</a><td><a href="RSS/britishmuseumact1963amendment.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/broadcastingpublicservicecontent.html&#xA;                                  ">Broadcasting (Public Service Content)  Bill</a><td><a href="RSS/broadcastingpublicservicecontent.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/broadcastingtelevisionlicencefeeabolition.html&#xA;                                  ">Broadcasting (Television Licence Fee Abolition) Bill</a><td><a href="RSS/broadcastingtelevisionlicencefeeabolition.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.06.2009</td></tr><tr><td align="center"><img alt="Private Bill" src="icons/bill_ico_az_private.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/broadsauthority.html&#xA;                                  ">Broads Authority Bill</a><td><a href="RSS/broadsauthority.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/businessratesupplements.html&#xA;                                  ">Business Rate Supplements Bill</a><td><a href="RSS/businessratesupplements.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithC" /><strong>C</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Bill" src="icons/bill_ico_az_private.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/canterburycitycouncil.html&#xA;                                  ">Canterbury City Council Bill</a><td><a href="RSS/canterburycitycouncil.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">14.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/cheapestenergytariffinformation.html&#xA;                                  ">Cheapest Energy Tariff (Information) Bill</a><td><a href="RSS/cheapestenergytariffinformation.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">09.06.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/childpoverty.html&#xA;                                  ">Child Poverty Bill</a><td><a href="RSS/childpoverty.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">18.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/childrenincarecustody.html&#xA;                                  ">Children in Care (Custody) Bill</a><td><a href="RSS/childrenincarecustody.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">30.03.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/citizenssconventionaccountabilityandethics.html&#xA;                                  ">Citizens' Convention (Accountability and Ethics)  Bill</a><td><a href="RSS/citizenssconventionaccountabilityandethics.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">16.06.2009</td></tr><tr><td align="center"><img alt="Private Bill" src="icons/bill_ico_az_private.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/cityofwestminster.html&#xA;                                  ">City of Westminster Bill [HL]</a><td><a href="RSS/cityofwestminster.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">05.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/climatechangesectoraltargets.html&#xA;                                  ">Climate Change (Sectoral Targets) Bill</a><td><a href="RSS/climatechangesectoraltargets.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/cohabitationno2.html&#xA;                                  ">Cohabitation (No. 2) Bill</a><td><a href="RSS/cohabitationno2.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">18.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/cohabitation.html&#xA;                                  ">Cohabitation Bill [HL]</a><td><a href="RSS/cohabitation.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">01.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/commissionforthecompact.html&#xA;                                  ">Commission for the Compact Bill</a><td><a href="RSS/commissionforthecompact.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">21.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/communityamateursportsclubssupport.html&#xA;                                  ">Community Amateur Sports Clubs (Support) Bill [HL]</a><td><a href="RSS/communityamateursportsclubssupport.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">02.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/companiesremunerationreports.html&#xA;                                  ">Companies’ Remuneration Reports Bill [HL]</a><td><a href="RSS/companiesremunerationreports.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">07.05.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="Royal Assent" src="icons/icon_blkprt.gif&#xA;                                      " /></td><td><a href="2008-09/consolidatedfund.html&#xA;                                  ">Consolidated Fund Bill</a><td><a href="RSS/consolidatedfund.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">12.03.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="Royal Assent" src="icons/icon_blkprt.gif&#xA;                                      " /></td><td><a href="2008-09/consolidatedfundappropriation.html&#xA;                                  ">Consolidated Fund (Appropriation) Bill</a><td><a href="RSS/consolidatedfundappropriation.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">30.03.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/constitutionalreform.html&#xA;                                  ">Constitutional Reform Bill [HL]</a><td><a href="RSS/constitutionalreform.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">03.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/constitutionalrenewal.html&#xA;                                  ">Constitutional Renewal Bill [HL]</a><td><a href="RSS/constitutionalrenewal.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/cooperativeandcommunitybenefitsocietiesandcreditunions.html&#xA;                                  ">Co-operative and Community Benefit Societies and Credit Unions Bill</a><td><a href="RSS/cooperativeandcommunitybenefitsocietiesandcreditunions.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/coronersandjustice.html&#xA;                                  ">Coroners and Justice Bill</a><td><a href="RSS/coronersandjustice.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">18.06.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="Royal Assent" src="icons/icon_blkprt.gif&#xA;                                      " /></td><td><a href="2008-09/corporatetax.html&#xA;                                  ">Corporation Tax Bill</a><td><a href="RSS/corporatetax.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">13.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/counciltaxrebate.html&#xA;                                  ">Council Tax Rebate Bill</a><td><a href="RSS/counciltaxrebate.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">21.04.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/crownemploymentnationality.html&#xA;                                  ">Crown Employment (Nationality)  Bill</a><td><a href="RSS/crownemploymentnationality.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">16.06.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithD" /><strong>D</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/damagesasbestosrelatedconditions.html&#xA;                                  ">Damages (Asbestos-Related Conditions)  Bill</a><td><a href="RSS/damagesasbestosrelatedconditions.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">26.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/developingcountrydebtrestrictionofrecovery.html&#xA;                                  ">Developing Country Debt (Restriction of Recovery) Bill</a><td><a href="RSS/developingcountrydebtrestrictionofrecovery.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">11.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/disabledpersonsindependentliving.html&#xA;                                  ">Disabled Persons (Independent Living) Bill [HL]</a><td><a href="RSS/disabledpersonsindependentliving.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">08.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/dogcontrol.html&#xA;                                  ">Dog Control Bill [HL]</a><td><a href="RSS/dogcontrol.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">08.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/drivinginstructionsuspensionandexemptionpowers.html&#xA;                                  ">Driving Instruction (Suspension and Exemption Powers)  Bill</a><td><a href="RSS/drivinginstructionsuspensionandexemptionpowers.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">18.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/drugsroadsidetesting.html&#xA;                                  ">Drugs (Roadside Testing)  Bill</a><td><a href="RSS/drugsroadsidetesting.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">13.05.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithE" /><strong>E</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/employersliabilityinsurancebureau.html&#xA;                                  ">Employers’ Liability Insurance Bureau  Bill</a><td><a href="RSS/employersliabilityinsurancebureau.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">26.03.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/employmentopportunities.html&#xA;                                  ">Employment Opportunities Bill</a><td><a href="RSS/employmentopportunities.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/employmentretention.html&#xA;                                  ">Employment Retention Bill</a><td><a href="RSS/employmentretention.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">05.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/employmentrights.html&#xA;                                  ">Employment Rights Bill</a><td><a href="RSS/employmentrights.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">18.02.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/equalpayandflexibleworking.html&#xA;                                  ">Equal Pay and Flexible Working Bill [HL]</a><td><a href="RSS/equalpayandflexibleworking.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">10.03.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/equality.html&#xA;                                  ">Equality Bill</a><td><a href="RSS/equality.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/equalityanddiversityreform.html&#xA;                                  ">Equality and Diversity (Reform) Bill</a><td><a href="RSS/equalityanddiversityreform.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">28.01.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/europeanunionauditofbenefitsandcostsofukmembership.html&#xA;                                  ">European Union (Audit of Benefits and Costs of UK Membership) Bill</a><td><a href="RSS/europeanunionauditofbenefitsandcostsofukmembership.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/exerciseofreasonablediscretion.html&#xA;                                  ">Exercise of Reasonable Discretion Bill</a><td><a href="RSS/exerciseofreasonablediscretion.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">27.04.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithF" /><strong>F</strong></td><td /><td /></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/finance.html&#xA;                                  ">Finance Bill</a><td><a href="RSS/finance.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/foodlabellingregulationsamendment.html&#xA;                                  ">Food Labelling Regulations (Amendment)  Bill</a><td><a href="RSS/foodlabellingregulationsamendment.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">26.03.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/forceswidowspensionsequalityoftreatment.html&#xA;                                  ">Forces Widows Pensions (Equality of Treatment) Bill</a><td><a href="RSS/forceswidowspensionsequalityoftreatment.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">05.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/fuelpoverty.html&#xA;                                  ">Fuel Poverty Bill</a><td><a href="RSS/fuelpoverty.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/fuelpovertyno2.html&#xA;                                  ">Fuel Poverty (No.2) Bill</a><td><a href="RSS/fuelpovertyno2.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.06.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithG" /><strong>G</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/gangmasterslicensingact2004amendment.html&#xA;                                  ">Gangmasters Licensing Act 2004 (Amendment) Bill</a><td><a href="RSS/gangmasterslicensingact2004amendment.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">11.06.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/genevaconventionsandunitednationspersonnelprotocols.html&#xA;                                  ">Geneva Conventions and United Nations Personnel (Protocols)  Bill [HL]</a><td><a href="RSS/genevaconventionsandunitednationspersonnelprotocols.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">11.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/goalpostsafety.html&#xA;                                  ">Goalpost Safety Bill</a><td><a href="RSS/goalpostsafety.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">14.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/greenenergydefinitionandpromotion.html&#xA;                                  ">Green Energy (Definition and Promotion) Bill</a><td><a href="RSS/greenenergydefinitionandpromotion.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">18.06.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithH" /><strong>H</strong></td><td /><td /></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/health.html&#xA;                                  ">Health Bill [HL]</a><td><a href="RSS/health.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/holocauststolenartrestitution.html&#xA;                                  ">Holocaust (Return of Cultural Objects) (formerly known as Holocaust (Stolen Art) Restitution) Bill</a><td><a href="RSS/holocauststolenartrestitution.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/homerepossessionprotection.html&#xA;                                  ">Home Repossession (Protection) Bill</a><td><a href="RSS/homerepossessionprotection.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">12.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/houseoflordsmemberstaxationstatus.html&#xA;                                  ">House of Lords (Members' Taxation Status) Bill [HL]</a><td><a href="RSS/houseoflordsmemberstaxationstatus.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">13.03.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/houseoflords.html&#xA;                                  ">House of Lords Bill [HL]</a><td><a href="RSS/houseoflords.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">30.04.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/humanrightsact1998meaningofpublicauthority.html&#xA;                                  ">Human Rights Act 1998 (Meaning Of Public Authority)  Bill</a><td><a href="RSS/humanrightsact1998meaningofpublicauthority.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">28.01.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithI" /><strong>I</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/illegallyloggedtimberprohibitionofsale.html&#xA;                                  ">Illegally Logged Timber (Prohibition Of Sale)  Bill</a><td><a href="RSS/illegallyloggedtimberprohibitionofsale.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">16.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/industrialcarbonemissionstargets.html&#xA;                                  ">Industrial Carbon Emissions (Targets) Bill</a><td><a href="RSS/industrialcarbonemissionstargets.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">28.01.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="Royal Assent" src="icons/icon_blkprt.gif&#xA;                                      " /></td><td><a href="2008-09/industryandexportsfinancialsupportbill.html&#xA;                                  ">Industry and Exports (Financial Support)  Bill</a><td><a href="RSS/industryandexportsfinancialsupportbill.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">16.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/insolvencyprovisionofinformationtoemploymentagencies.html&#xA;                                  ">Insolvency (Provision of Information to Employment Agencies) Bill</a><td><a href="RSS/insolvencyprovisionofinformationtoemploymentagencies.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">23.04.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithL" /><strong>L</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/landusegardensprotectionetc.html&#xA;                                  ">Land Use (Gardens Protection Etc)  Bill</a><td><a href="RSS/landusegardensprotectionetc.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">11.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/lawcommission.html&#xA;                                  ">Law Commission Bill [HL]</a><td><a href="RSS/lawcommission.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/leaseholdersrights.html&#xA;                                  ">Leaseholders Rights Bill</a><td><a href="RSS/leaseholdersrights.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">11.06.2009</td></tr><tr><td align="center"><img alt="Private Bill" src="icons/bill_ico_az_private.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/leedscitycouncil.html&#xA;                                  ">Leeds City Council Bill</a><td><a href="RSS/leedscitycouncil.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">02.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/lendingregulation.html&#xA;                                  ">Lending (Regulation) Bill</a><td><a href="RSS/lendingregulation.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">28.04.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/localdemocracyeconomicdevelopmentandconstruction.html&#xA;                                  ">Local Democracy, Economic Development and Construction Bill [HL]</a><td><a href="RSS/localdemocracyeconomicdevelopmentandconstruction.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr><td align="center"><img alt="Private Bill" src="icons/bill_ico_az_private.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/londonlocalauthorities.html&#xA;                                  ">London Local Authorities Bill [HL]</a><td><a href="RSS/londonlocalauthorities.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr><td align="center"><img alt="Private Bill" src="icons/bill_ico_az_private.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/londonlocalauthoritiesandtransportforlondonno2.html&#xA;                                  ">London Local Authorities and Transport for London (No. 2) Bill [HL]</a><td><a href="RSS/londonlocalauthoritiesandtransportforlondonno2.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">27.04.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithM" /><strong>M</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Bill" src="icons/bill_ico_az_private.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/manchestercitycouncil.html&#xA;                                  ">Manchester City Council Bill [HL]</a><td><a href="RSS/manchestercitycouncil.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">14.05.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/marineandcoastalaccess.html&#xA;                                  ">Marine and Coastal Access Bill [HL]</a><td><a href="RSS/marineandcoastalaccess.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/marinenavigationaids.html&#xA;                                  ">Marine Navigation Aids Bill [HL]</a><td><a href="RSS/marinenavigationaids.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/maximumwage.html&#xA;                                  ">Maximum Wage Bill</a><td><a href="RSS/maximumwage.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">16.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/motorvehicleclimatechangeinformation.html&#xA;                                  ">Motor Vehicle (Climate change information) Bill</a><td><a href="RSS/motorvehicleclimatechangeinformation.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithN" /><strong>N</strong></td><td /><td /></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="Royal Assent" src="icons/icon_blkprt.gif&#xA;                                      " /></td><td><a href="2008-09/northernireland.html&#xA;                                  ">Northern Ireland Bill</a><td><a href="RSS/northernireland.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">03.06.2009</td></tr><tr><td align="center"><img alt="Private Bill" src="icons/bill_ico_az_private.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/nottinghamcitycouncil.html&#xA;                                  ">Nottingham City Council Bill</a><td><a href="RSS/nottinghamcitycouncil.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">02.06.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithO" /><strong>O</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/onlinepurchasingofgoodsandservicesageverification.html&#xA;                                  ">Online Purchasing of Goods and Services (Age Verification)  Bill [HL]</a><td><a href="RSS/onlinepurchasingofgoodsandservicesageverification.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">03.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/organdonationpresumedconsent.html&#xA;                                  ">Organ Donation (Presumed Consent) Bill</a><td><a href="RSS/organdonationpresumedconsent.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">26.03.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithP" /><strong>P</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/palliativecare.html&#xA;                                  ">Palliative Care Bill</a><td><a href="RSS/palliativecare.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">05.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/pedlarsamendment.html&#xA;                                  ">Pedlars (Amendment)  Bill</a><td><a href="RSS/pedlarsamendment.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">11.02.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/pensioncreditandpersonalexpenseallowancedutyofconsultationandreview.html&#xA;                                  ">Pension Credit and Personal Expense Allowance (Duty of Consultation and Review) Bill</a><td><a href="RSS/pensioncreditandpersonalexpenseallowancedutyofconsultationandreview.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">16.06.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/perpetuitiesandaccumulations.html&#xA;                                  ">Perpetuities and Accumulations Bill [HL]</a><td><a href="RSS/perpetuitiesandaccumulations.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">17.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/pharmaceuticallabellingwarningofcognitivefunctionimpairment.html&#xA;                                  ">Pharmaceutical Labelling (Warning Of Cognitive Function Impairment)  Bill</a><td><a href="RSS/pharmaceuticallabellingwarningofcognitivefunctionimpairment.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">26.03.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/policingandcrime.html&#xA;                                  ">Policing and Crime Bill</a><td><a href="RSS/policingandcrime.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/politicalpartiesandelections.html&#xA;                                  ">Political Parties and Elections Bill</a><td><a href="RSS/politicalpartiesandelections.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/postalservices.html&#xA;                                  ">Postal Services  Bill [HL]</a><td><a href="RSS/postalservices.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">08.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/presumptionofdeath.html&#xA;                                  ">Presumption of Death Bill</a><td><a href="RSS/presumptionofdeath.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">27.04.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/preventionofexcessivecharges.html&#xA;                                  ">Prevention of Excessive Charges Bill</a><td><a href="RSS/preventionofexcessivecharges.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">07.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/programmingofbillssuspension.html&#xA;                                  ">Programming of Bills (Suspension) Bill</a><td><a href="RSS/programmingofbillssuspension.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">18.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/protectionofchildrenencryptedmaterial.html&#xA;                                  ">Protection of Children (Encrypted Material) Bill</a><td><a href="RSS/protectionofchildrenencryptedmaterial.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">11.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/protectionofchildrenpublicity.html&#xA;                                  ">Protection of Children (Publicity) Bill</a><td><a href="RSS/protectionofchildrenpublicity.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">05.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/protectionofgardenlanddevelopmentcontrol.html&#xA;                                  ">Protection of Garden Land (Development Control) Bill</a><td><a href="RSS/protectionofgardenlanddevelopmentcontrol.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">15.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/protectionofshareholders.html&#xA;                                  ">Protection of Shareholders Bill</a><td><a href="RSS/protectionofshareholders.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">26.03.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithR" /><strong>R</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Bill" src="icons/bill_ico_az_private.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/readingboroughcouncil.html&#xA;                                  ">Reading Borough Council Bill</a><td><a href="RSS/readingboroughcouncil.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">02.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/registrationofbirthsanddeathswelshlanguage.html&#xA;                                  ">Registration of Births and Deaths (Welsh Language) Bill</a><td><a href="RSS/registrationofbirthsanddeathswelshlanguage.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">24.04.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/renewablecontentobligation.html&#xA;                                  ">Renewable Content Obligation Bill</a><td><a href="RSS/renewablecontentobligation.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">11.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/roadsignstouristdestinationsandfacilities.html&#xA;                                  ">Road Signs (Tourist Destinations and Facilities) Bill</a><td><a href="RSS/roadsignstouristdestinationsandfacilities.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/royalmarriagesandsuccessiontothecrownpreventionofdiscrimination.html&#xA;                                  ">Royal Marriages and Succession to the Crown (Prevention of Discrimination) Bill</a><td><a href="RSS/royalmarriagesandsuccessiontothecrownpreventionofdiscrimination.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">01.06.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithS" /><strong>S</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/safetyofmedicinesevaluation.html&#xA;                                  ">Safety Of Medicines (Evaluation)  Bill</a><td><a href="RSS/safetyofmedicinesevaluation.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">27.02.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/saleofmobilehomesinterview.html&#xA;                                  ">Sale of Mobile Homes (Interview)  Bill</a><td><a href="RSS/saleofmobilehomesinterview.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">07.05.2009</td></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/savinggatewayaccounts.html&#xA;                                  ">Saving Gateway Accounts Bill</a><td><a href="RSS/savinggatewayaccounts.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/schoolbussafety.html&#xA;                                  ">School Bus (Safety) Bill</a><td><a href="RSS/schoolbussafety.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">14.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/schoolshealthsupport.html&#xA;                                  ">Schools (Health Support) Bill</a><td><a href="RSS/schoolshealthsupport.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">11.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/scottishbanknotesacceptabilityinunitedkingdom.html&#xA;                                  ">Scottish Banknotes (Acceptability in United Kingdom) Bill</a><td><a href="RSS/scottishbanknotesacceptabilityinunitedkingdom.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">11.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/shortsellingandbankaccounts.html&#xA;                                  ">Short Selling and Bank Accounts  Bill</a><td><a href="RSS/shortsellingandbankaccounts.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">26.03.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/smallbusinessratereliefautomaticpayment.html&#xA;                                  ">Small Business Rate Relief (Automatic Payment) Bill</a><td><a href="RSS/smallbusinessratereliefautomaticpayment.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">03.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/sovereigntyofparliamenteuropeancommunities.html&#xA;                                  ">Sovereignty Of Parliament (European Communities)  Bill</a><td><a href="RSS/sovereigntyofparliamenteuropeancommunities.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">27.04.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/specialeducationalneedsanddisabilitysupport.html&#xA;                                  ">Special Educational Needs and Disability (Support) Bill</a><td><a href="RSS/specialeducationalneedsanddisabilitysupport.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">18.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/sportsgroundssafetyauthority.html&#xA;                                  ">Sports Grounds Safety Authority Bill [HL]</a><td><a href="RSS/sportsgroundssafetyauthority.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">23.02.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Ballot Bill)" src="icons/bill_ico_az_privmem_bills_b.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/statutoryredundancypayamendment.html&#xA;                                  ">Statutory Redundancy Pay (Amendment) Bill</a><td><a href="RSS/statutoryredundancypayamendment.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">18.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/surfacewaterandhighwaydrainagechargesexemptionbill.html&#xA;                                  ">Surface Water and Highway Drainage Charges (Exemption)  Bill</a><td><a href="RSS/surfacewaterandhighwaydrainagechargesexemptionbill.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">13.05.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/sustainablecommuntitiesact2007amendment.html&#xA;                                  ">Sustainable Communtities Act 2007 (Amendment) Bill</a><td><a href="RSS/sustainablecommuntitiesact2007amendment.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">11.06.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithT" /><strong>T</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/teachingofbritishhistoryinschools.html&#xA;                                  ">Teaching of British History in Schools Bill</a><td><a href="RSS/teachingofbritishhistoryinschools.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">18.03.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/theftfromshopsuseofpenaltynoticesfordisorder.html&#xA;                                  ">Theft from Shops (Use of Penalty Notices for Disorder) Bill</a><td><a href="RSS/theftfromshopsuseofpenaltynoticesfordisorder.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">05.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Presentation Bill)" src="icons/bill_ico_az_privmem_bills_p.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/torturedamagesno2.html&#xA;                                  ">Torture (Damages) (No. 2)  Bill</a><td><a href="RSS/torturedamagesno2.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">16.06.2009</td></tr><tr><td align="center"><img alt="Private Members' Bill (Starting in the House of Lords)" src="icons/bill_ico_az_privmem_bills_l.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/torturedamages.html&#xA;                                  ">Torture (Damages) Bill [HL]</a><td><a href="RSS/torturedamages.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">23.02.2009</td></tr><tr><td align="center"><img alt="Private Bill" src="icons/bill_ico_az_private.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/transportforlondonsupplementaltollprovisions.html&#xA;                                  ">Transport for London (Supplemental Toll Provisions) Bill [HL]</a><td><a href="RSS/transportforlondonsupplementaltollprovisions.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">23.02.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithW" /><strong>W</strong></td><td /><td /></tr><tr><td align="center"><img alt="Government Bill" src="icons/bill_ico_az_govbills.gif&#xA;                                      " /></td><td align="center"><img alt="House of Lords" src="icons/icon_lrds.gif&#xA;                                      " /></td><td><a href="2008-09/welfarereform.html&#xA;                                  ">Welfare Reform Bill</a><td><a href="RSS/welfarereform.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">19.06.2009</td></tr><tr class="letter"><td /><td /><td><a name="billsstartingwithY" /><strong>Y</strong></td><td /><td /></tr><tr><td align="center"><img alt="Private Members' Bill (under the Ten Minute Rule, SO No 23)" src="icons/bill_ico_az_privmem_bills_t.gif&#xA;                                      " /></td><td align="center"><img alt="House of Commons" src="icons/icon_cmns.gif&#xA;                                      " /></td><td><a href="2008-09/youngpeopleleavingcareaccommodation.html&#xA;                                  ">Young People Leaving Care (Accommodation) Bill</a><td><a href="RSS/youngpeopleleavingcareaccommodation.xml"><img class="rss" alt="RSS" src="icons/rss_sml.gif&#xA;                                      " /></a></td></td><td align="center">26.03.2009</td></tr></table><span class="lastupdated2" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions">
-      Updated 19/06/2009 18:00</span><div id="rightlinks" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:fn="http://www.w3.org/2005/02/xpath-functions"><div class="rightitem"><div class="rightcolhdr">Draft Legislative Programme 2008-09</div><br /><div class="rightcolbd">The government has announced the Bills it would like to introduce during the 2008-09 session of parliament. The Office of the Leader of the House of Commons website has details of the proposed Bills.</div><br /><a class="breadcrumbtext3" href="http://www.commonsleader.gov.uk/output/Page2641.asp">Proposed bills for 2008-09</a></div><br /></div>
-
-     
-
-    <div id="footer">
-                
-            
-             <div id="footer_holder">
-		<ul id="bottomNavigation">
-			<li class="first"><a href="http://www.parliament.uk/a-z/index.cfm" class="footerlink">A-Z Index</a></li>
-                            <li><a href="http://www.parliament.uk/site_information/accessibility.cfm" class="footerlink">Accessibility</a></li>
-			<li><a href="http://www.parliament.uk/site_information/careers/jobs.cfm" class="footerlink">Jobs</a></li>
-                           <li><a href="http://www.parliament.uk/site_information/contact_us.cfm" class="footerlink">Contact Us</a></li>
-			<li><a href="http://www.parliament.uk/parliamentary_publications_and_archives/foi_introduction.cfm" class="footerlink">Freedom of Information</a></li>
-			<li><a href="http://www.parliament.uk/site_information/glossary.cfm" class="footerlink">Glossary</a></li>
-			<li><a href="http://www.parliament.uk/site_information/help.cfm" class="footerlink">Help</a></li>
-			<li><a href="http://www.parliament.uk/site_information/site_information.cfm" class="footerlink">Using this website</a></li>
+				</p>
+			</div>
+			<form action="http://www.publications.parliament.uk/cgi-bin/search.pl" method="post">
+			<div id="banner_search">
+				<h2 class="hidden">
+					Search</h2>
+				<input type="text" name="QUERY00" id="search" class="searchBox" />
+				<input type="submit" class="searchSubmit" name="CMD=search.run" value="Search" />
+				<input type="hidden" name="STYPE" value="SIMPLE" />
+				<input type="hidden" name="DB" value="semukparl" />
+				<input type="hidden" name="SHOWCONCEPT" value="1" />
+				<input type="hidden" name="ORGANISE_CODED" value="R:date" />
+				<input type="hidden" name="ENDDATE" value="TODAY" />
+				<input type="hidden" name="DAYSMINUS" value="730" />
+			</div>
+			</form>
+		</div>
+		<div id="main_nav">
+			<ul>
+				<li class="first"><a href="http://www.parliament.uk/">Home</a></li>
+				<li><a href="http://www.parliament.uk/visiting/">Visiting</a></li>
+				<li><a href="http://www.parliament.uk/about/">About</a></li>
+				<li class="selected"><a href="http://www.parliament.uk/business/">Parliamentary Business</a></li>
+				<li><a href="http://www.parliament.uk/people/">MPs, Lords and Offices</a></li>
+				<li><a href="http://www.parliament.uk/getinvolved/">Get Involved</a></li>
+				<li><a href="http://www.parliament.uk/topics/topical-issues.htm">Topical Issues</a></li>
+				<li><a href="http://www.parliament.uk/education/">Education</a></li>
 			</ul>
+		</div>
+		<div id="secondary_nav">
+			<ul>
+				<li><a href="http://www.parliament.uk/business/what_s_on.cfm">What's On</a></li>
+				<li><a href="http://www.parliament.uk/business/committees.cfm">Committees</a></li>
+				<li class="selected"><a href="http://www.parliament.uk/business/bills_and_legislation.cfm">
+					Bills &amp; Legislation</a></li>
+				<li><a href="http://www.parliament.uk/business/judicial_work.cfm">Judicial Work</a></li>
+				<li><a href="http://www.parliament.uk/commons/">House of Commons</a></li>
+				<li><a href="http://www.parliament.uk/lords/">House of Lords</a></li>
+				<li><a href="http://www.parliament.uk/publications/">Publications &amp Records</a></li>
+				<li><a href="http://news.parliament.uk/">News</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+				
+				<div id="breadcrumb">
+					You are here:
+					<a href="http://www.parliament.uk/index.cfm">Parliament Home Page</a>
+					&gt;
+					<a href="http://www.parliament.uk/business/index.cfm">Business</a>
+					&gt;
+					<a href="http://www.parliament.uk/business/bills_and_legislation.cfm">Bills and Legislation</a>
+					&gt;
+					
+					
+	 Bills before Parliament 2009-10
+
+					
+				</div>
+				
+			</div>
+			<div id="mainbody">
+				<div id="mainbody-inner">
+					<div id="leftmenu">
+						
+						
+	<ul>
+		<li class="up">
+			<a href="http://www.parliament.uk/business/bills_and_legislation.cfm">Bills &amp; Legislation</a>
+		</li>
+		<li class="current-section active">
+			<a href="/bills/2009-10.html">Bills before Parliament 2009-10</a>
+		</li>
+		<li class="">
+			<a href="/bills/public/2009-10.html">Public Bills</a>
+		</li>
+		<li class="">
+			<a href="/bills/private/2009-10.html">Private Bills</a>
+		</li>
+		<li class="">
+			<a href="/bills/hybrid/2009-10.html">Hybrid Bills</a>
+		</li>
+	</ul>
+	
+
+						
+					</div>
+
+					 
+					 <div id="main-content">
+						
+
+	<div id="bill-summary-all">
+		<div id="bill-summary">
+
+			<h1> Bills before Parliament 2009-10</h2>
+
+			<p>
+				Listed below are all Bills currently before Parliament. Any Bills which start
+				in the Lords have [HL] in their title. Explanatory Notes and Amendments are on
+				each Bill's individual page.
+			</p>
+
+			
+
+				<p class="groupby-links">
+					
+						<span class="groupby-item">
+							
+								<a href="#a">A</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<a href="#b">B</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<a href="#c">C</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<a href="#d">D</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<a href="#e">E</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<a href="#f">F</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<span class="not-available">G</span>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<a href="#h">H</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<span class="not-available">I</span>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<span class="not-available">J</span>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<a href="#k">K</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<a href="#l">L</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<a href="#m">M</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<a href="#n">N</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<span class="not-available">O</span>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<a href="#p">P</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<span class="not-available">Q</span>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<a href="#r">R</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<span class="not-available">S</span>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<a href="#t">T</a>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<span class="not-available">U</span>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<span class="not-available">V</span>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<span class="not-available">W</span>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<span class="not-available">X</span>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<span class="not-available">Y</span>
+							
+						</span>
+					
+						<span class="groupby-item">
+							
+								<span class="not-available">Z</span>
+							
+						</span>
+					
+				</p>
+
+			
+
+			<table class="bill-list" style="clear: both;">
+				<thead>
+					<tr class="headings">
+						<th class="multiline">
+							<a class="asc"
+								href="/bills/?group=house">
+								Current<br />House
+							</a>
+						</th>
+						<th class=" current">
+							<a class="desc"
+								href="/bills/?order=desc">
+								Bill title
+							</a>
+						</th>
+						<th class="multiline">
+							<a class="desc"
+								href="/bills/?group=date&order=desc">
+								Last&nbsp;updated
+							</a>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="a">A</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_house_pending.png" 
+										alt="House Pending"
+										title="House Pending"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/allhallowsstainingchurch.html">
+										Allhallows Staining Church Bill
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="b">B</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/beverleyfreemen.html">
+										Beverley Freemen Bill [HL]
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/bournemouthboroughcouncil.html">
+										Bournemouth Borough Council Bill [HL]
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/bribery.html">
+										Bribery Bill [HL]
+									</a>
+								</td>
+								<td class="middle">24.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/buildingregulationsamendment.html">
+										Building Regulations (Amendment)  Bill [HL]
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="c">C</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/canterburycitycouncil.html">
+										Canterbury City Council Bill
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/childpoverty.html">
+										Child Poverty Bill
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/childrenschoolsandfamilies.html">
+										Children, Schools and Families  Bill
+									</a>
+								</td>
+								<td class="middle">26.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/childrensrights.html">
+										Children's Rights Bill [HL]
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/cityofwestminster.html">
+										City of Westminster Bill [HL]
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/clustermunitionsprohibition.html">
+										Cluster Munitions (Prohibitions) Bill [HL]
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/constitutionalreform.html">
+										Constitutional Reform Bill [HL]
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/constitutionalreformandgovernance.html">
+										Constitutional Reform and Governance Bill
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/consumeremissionsclimatechange.html">
+										Consumer Emissions (Climate Change)  Bill [HL]
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/contaminatedbloodsupportforinfectedandbereavedpersons.html">
+										Contaminated Blood (Support for Infected and Bereaved Persons) Bill [HL]
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/cooperativeandcommunitybenefitsocietiesandcreditunions.html">
+										Co-operative and Community Benefit Societies and Credit Unions Bill [HL]
+									</a>
+								</td>
+								<td class="middle">23.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/corporationtax.html">
+										Corporation Tax Bill
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/crimeandsecurity.html">
+										Crime and Security Bill
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="d">D</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/damagesasbestosrelatedconditions.html">
+										Damages (Asbestos-related Conditions) Bill [HL]
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/digitaleconomy.html">
+										Digital Economy Bill [HL]
+									</a>
+								</td>
+								<td class="middle">24.11.2009</td>
+							</tr>
+						
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="e">E</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/energy.html">
+										Energy Bill
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/equality.html">
+										Equality Bill
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="f">F</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/financialservices.html">
+										Financial Services Bill
+									</a>
+								</td>
+								<td class="middle">24.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/floodandwatermanagement.html">
+										Flood and Water Management  Bill
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="h">H</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/healthandsocialcareindependentliving.html">
+										Health and Social Care (Independent Living) Bill [HL]
+									</a>
+								</td>
+								<td class="middle">24.11.2009</td>
+							</tr>
+						
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="k">K</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_house_pending.png" 
+										alt="House Pending"
+										title="House Pending"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/kentcountycouncil.html">
+										Kent County Council (Filming on Highways) Bill
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="l">L</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/leedscitycouncil.html">
+										Leeds City Council Bill
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/livemusic.html">
+										Live Music Bill [HL]
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/londonlocalauthorities.html">
+										London Local Authorities Bill [HL]
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/londonlocalauthoritiesandtransportforlondonno2.html">
+										London Local Authorities and Transport for London (No. 2) Bill [HL]
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="m">M</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/manchestercitycouncil.html">
+										Manchester City Council Bill [HL]
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/marinenavigationaids.html">
+										Marine Navigation Aids Bill [HL]
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/marriagewales.html">
+										Marriage (Wales) Bill [HL]
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="n">N</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/northernirelandassemblymembers.html">
+										Northern Ireland Assembly Members Bill [HL]
+									</a>
+								</td>
+								<td class="middle">24.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/nottinghamcitycouncil.html">
+										Nottingham City Council Bill
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="p">P</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/patienttransport.html">
+										Patient Transport Bill [HL]
+									</a>
+								</td>
+								<td class="middle">24.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/personalcareathome.html">
+										Personal Care at Home Bill
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/powersofentryetc.html">
+										Powers of Entry etc.  Bill [HL]
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="r">R</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/readingboroughcouncil.html">
+										Reading Borough Council Bill
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/rehabilitationofoffendersamendment.html">
+										Rehabilitation of Offenders (Amendment) Bill [HL]
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="group-heading">
+								<td>&nbsp;</td>
+								<td id="t">T</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_commons.png" 
+										alt="Commons"
+										title="Commons"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/taxationinternationalandotherprovisions.html">
+										Taxation (International and Other Provisions) Bill
+									</a>
+								</td>
+								<td class="middle">20.11.2009</td>
+							</tr>
+						
+							<tr class="tr2">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/thirdpartiesrightsagainstinsurers.html">
+										Third Parties (Rights against Insurers) Bill [HL]
+									</a>
+								</td>
+								<td class="middle">25.11.2009</td>
+							</tr>
+						
+							<tr class="tr1">
+								<td class="middle">
+									<img src="/bills/icons/icon_lords.png" 
+										alt="Lords"
+										title="Lords"
+									/>
+								</td>
+								<td>
+									<a href="/bills/2009-10/transportforlondonsupplementaltollprovisions.html">
+										Transport for London (Supplemental Toll Provisions) Bill [HL]
+									</a>
+								</td>
+								<td class="middle">27.11.2009</td>
+							</tr>
+						
+				</tbody>
+			</table>
+		</div>
+		<div id="bill-uptodate">
+		
+		<h2 class="first">Stay up to date</h2>
+
+			<p>
+				Keep up to date with the progress of Bills going through Parliament.
+				Sign up for email alerts or use our RSS feeds.
+			</p>
+
+			<ul id="bill-uptodate-links">
+				<li class="rss"><a href="/bills/AllBills.rss">RSS feed for Bills before Parliament</a></li>
+				<li class="alert">
+					<a href="http://subscriptions.parliament.uk/service/subscribe.html?code=UKPARLIAMENT_3" 
+						target="_blank">
+						Receive email updates for this page
+					</a>
+				</li>
+			</ul>
+			
+			<h2>Key to table</h2>
+			
+			
+			
+			<table>
+				<tr>
+					<td><img src="/bills/icons/icon_house_pending.png" alt="" /></td>
+					<td>House pending</td>
+				</tr>
+				<tr>
+					<td><img src="/bills/icons/icon_commons.png" alt="" /></td>
+					<td>Bill currently in the House of Commons</td>
+				</tr>
+				<tr>
+					<td><img src="/bills/icons/icon_lords.png" alt="" /></td>
+					<td>Bill currently in the House of Lords</td>
+				</tr>
+				<tr>
+					<td><img src="/bills/icons/icon_royal_assent.png" alt="" /></td>
+					<td>Bill granted Royal Assent</td>
+				</tr>
+			</table>
+
+			<h2>Related information</h2>
+		
+			
+				<h3>
+					
+						<a href="http://www.parliament.uk/faq/ballot_faq_page.cfm">Results of the Private Members' Bills ballot</a>
+					
+				</h3>
+				<div class="news-content">
+					The Private Members' Bills ballot for the 2009-10 session took place on Thursday 26 November 2009. The Bills introduced by the 20 successful MPs are given priority on Private Members' Bill Fridays.
+				</div>
+			
+				<h3>
+					
+						<a href="http://news.parliament.uk/2009/11/new-bills-announced-in-queens-speech/">Bills announced in Queen’s Speech</a>
+					
+				</h3>
+				<div class="news-content">
+					Browse a list of all Bills announced in this years Queen's Speech.
+				</div>
+			
+				<h3>
+					
+						<a href="http://www.parliament.uk/about/how/laws/passage_bill/index.htm">Guide to the passage of a Bill?</a>
+					
+				</h3>
+				<div class="news-content">
+					Find out what happens at each stage of a Public Bill&rsquo;s journey through Parliament with the Passage of a Bill guide.
+				</div>
+			
+		</div>
+		<div class="clear"></div>
 	</div>
 
 
-           
-    </div>
+					 </div>
+					 
+					<div style="clear:both;"></div>
+				</div>
+				
+<div id="footer_holder">
+	<ul id="bottomNavigation">
+		<li class="first"><a href="http://www.parliament.uk/a-z/index.cfm" class="footerlink">A-Z Index</a></li>
+		<li><a href="http://www.parliament.uk/site_information/accessibility.cfm" class="footerlink">Accessibility</a></li>
+		<li><a href="http://www.parliament.uk/site_information/careers/jobs.cfm" class="footerlink">Jobs</a></li>
+		<li><a href="http://www.parliament.uk/site_information/contact_us.cfm" class="footerlink">Contact Us</a></li>
+		<li><a href="http://www.parliament.uk/parliamentary_publications_and_archives/foi_introduction.cfm" class="footerlink">Freedom of Information</a></li>
+		<li><a href="http://www.parliament.uk/site_information/glossary.cfm" class="footerlink">Glossary</a></li>
+		<li><a href="http://www.parliament.uk/site_information/help.cfm" class="footerlink">Help</a></li>
+		<li><a href="http://www.parliament.uk/site_information/site_information.cfm" class="footerlink">Using this website</a></li>
+	</ul>
 </div>
 
-&nbsp;
+			</div>
+		</div>
 
-  
-    <script language="JavaScript1.1" type="text/javascript">
-    <!--
-	    var gDomain="www.stats.tso.co.uk";
-	    var gDcsId="dcs8a1rrculeroaqmbjq87oq1_4s7l";
-	    var gFpcDom=".parliament.uk";
-	    var gFpc="WT_FPC";
-	    var gConvert=true;
-	    if((typeof(gConvert)!="undefined")&&gConvert&&(document.cookie.indexOf(gFpc+"=")==-1)&&(document.cookie.indexOf("WTLOPTOUT=")==-1)){
-		    document.write("<scr"+"ipt type='text/javascript' SRC='"+"http"+(window.location.protocol.indexOf('https:')==0?'s':'')+"://"+gDomain+"/"+gDcsId+"/wtid.js"+"'><\/scr"+"ipt>");
-	    }
-	-->
-    </script>
-    <script language="JavaScript1.1" type="text/javascript" src="http://www.parliament.uk/styles/webtrends.js"></script>
-    <noscript>
-        <img alt="" border="0" name="DCSIMG" width="1" height="1" src="http://www.stats.tso.co.uk/dcs8a1rrculeroaqmbjq87oq1_4s7l/njs.gif?dcsuri=/nojavascript&amp;WT.js=No" />
-    </noscript>
-    
+		
 
+		<script type="text/javascript">
 
-    
-    <script type="text/javascript" src="http://j.clickdensity.com/cr.js"></script>
-    <script type="text/javascript">
-    //<![CDATA[
-      var clickdensity_siteID = 5305;
-      var clickdensity_keyElement = 'kvalue';
-    //]]>
-    </script>
-    
+			var gDomain = "www.stats.tso.co.uk";
+			var gDcsId = "dcs8a1rrculeroaqmbjq87oq1_4s7l";
+			var gFpcDom = ".parliament.uk";
+			var gFpc = "WT_FPC";
+			var gConvert = true;
+			if ((typeof (gConvert) != "undefined") && gConvert && (document.cookie.indexOf(gFpc + "=") == -1) && (document.cookie.indexOf("WTLOPTOUT=") == -1)) {
+				document.write("<scr" + "ipt type='text/javascript' SRC='" + "http" + (window.location.protocol.indexOf('https:') == 0 ? 's' : '') + "://" + gDomain + "/" + gDcsId + "/wtid.js" + "'><\/scr" + "ipt>");
+			}
 
-</div>
-</body>
+		</script>
+
+		<script type="text/javascript" src="http://www.parliament.uk/styles/webtrends.js"></script>
+
+		<noscript>
+			<img alt="" border="0" name="DCSIMG" width="1" height="1" 
+				src="http://www.stats.tso.co.uk/dcs8a1rrculeroaqmbjq87oq1_4s7l/njs.gif?dcsuri=/nojavascript&WT.js=No" />
+		</noscript>
+
+		<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+
+		<script type="text/javascript">
+			try {
+				var pageTracker = _gat._getTracker("UA-2953405-1");
+				pageTracker._trackPageview();
+			} catch (err) { }
+		</script>
+	</body>
 </html>
