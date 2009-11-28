@@ -38,28 +38,32 @@ class Bill < ActiveRecord::Base
       end
     end
 
-    def get_current_bills
+    def get_current_bill_urls
       load_data 'http://services.parliament.uk/bills/', 'bills_before_parliament.html'
       doc = Hpricot open(data_path('bills_before_parliament.html'))
 
       current = (doc/'a').inject({}) do |hash, a|
-        if a['href'] && a['href'].to_s[/\d\d\d\d-\d\d\//] && a.parent.next_sibling.at('a')
+        if a['href'] && a['href'].to_s[/\d\d\d\d-\d\d\//] # && a.parent.next_sibling.at('a')
           key = a['href'].strip.chomp('&#xA;')
-          key = "http://services.parliament.uk/bills/#{key}" unless key[/^http:\/\/services.parliament.uk\/bills\//]
-          hash[key] = a.parent.next_sibling.at('a')['href']
+          key = "http://services.parliament.uk#{key}" unless key[/^http:\/\/services.parliament.uk\/bills\//]
+          hash[key] = key
         end
         hash
       end
     end
 
-    def load_bills
-      load_data 'http://services.parliament.uk/bills/AllBills.rss', 'AllBills.rss'
-      current = get_current_bills
-
+    def get_current_bills
+      load_data 'http://services.parliament.uk/bills/AllBills.rss', 'AllBills.xml'
+      current = get_current_bill_urls
       hash = Hash.from_xml IO.read(RAILS_ROOT + '/data/AllBills.xml')
       all_bills = Morph.from_hash(hash).channel.items
-      current_bills = all_bills.select {|x| current.has_key?(x.link) }
+      current_bills = all_bills.select do |bill|
+        current.has_key?(bill.link)
+      end
+    end
 
+    def load_bills
+      current_bills = get_current_bills
       bills = []
       current_bills.each do |data|
         url = data.link
@@ -67,7 +71,7 @@ class Bill < ActiveRecord::Base
         puts name
         bill = find_or_create_by_url_and_name(url, name)
         bill.description = data.description
-        bill.feed_uri = current[data.link]
+        bill.feed_uri = data.link.sub(/\d\d\d\d-\d\d/, 'RSS').sub('html','xml')
         categories = data.categories
         if categories.include?('Lords')
           bill.house = categories.delete('Lords')
