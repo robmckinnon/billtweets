@@ -12,7 +12,7 @@ class NewsQuery < EntryQuery
   def news_search
     begin
       url = "http://news.google.co.uk/news?hl=en&ned=uk&ie=UTF-8&scoring=n&q=#{URI.escape(query_for_search)}&output=atom"
-
+      puts url
       xml = open(url).read
       results = Morph.from_hash(Hash.from_xml(xml.gsub('id>','id_name>').gsub('type=','type_name=')))
       results.entries = [results.entry] if results.respond_to?(:entry) && results.entry
@@ -27,12 +27,12 @@ class NewsQuery < EntryQuery
         e.title = doc.at('a').inner_text
         e.title = e.full_title.sub(e.publisher,'').strip.chomp('-') if e.title.blank?
         e.content = doc.at('font[@size="-1"]:eq(1)').to_s
-        e.published_date = e.issued
-        e.display_date = Date.parse(e.published_date).to_s(:long)
+        e.published_date = e.issued if e.respond_to?(:issued)
+        e.display_date = Date.parse(e.published_date).to_s(:long) if e.respond_to?(:published_date) && e.published_date
         e.url = e.link.href
       end
 
-      entries = results.entries.sort_by {|x| Date.parse(x.published_date) }.reverse
+      entries = results.entries.select{|e| e.published_date}.sort_by {|x| Date.parse(x.published_date) }.reverse
       entries.collect do |entry|
         make_item entry, NewsItem
       end

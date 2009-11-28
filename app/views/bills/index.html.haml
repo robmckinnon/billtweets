@@ -1,5 +1,8 @@
 %h1 Listing bills
 
+%div
+  = button_to 'Load bills', :controller => 'bills', :action => 'load_bills'
+
 %table
   %tr
     %th Name

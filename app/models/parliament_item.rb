@@ -81,8 +81,10 @@ class ParliamentItem < EntryItem
         date = "date=#{year}-#{$2}-#{$3}"
       elsif title[/Sitting: (\d\d)\/(\d\d)\/(\d\d\d\d)/]
         date = "date=#{$3}-#{$2}-#{$1}"
-      else
+      elsif published_time
         date = "date=#{published_time.to_date.to_s}"
+      else
+        return nil
       end
       type = "type=#{house}"
       url = "http://www.theyworkforyou.com/api/getDebates?#{type}&#{date}&output=xml&key=#{twfy_key}"

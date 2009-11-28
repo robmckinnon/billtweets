@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :entry_sources
 
   map.resources :bills
+  map.load_bills 'bills/load_bills', :controller => 'bills', :action => 'load_bills', :conditions => { :method => 'put' }
 
   map.resources :outgoing_tweets
 

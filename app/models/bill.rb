@@ -11,18 +11,6 @@ class Bill < ActiveRecord::Base
   belongs_to :tweeter
   has_many :entry_queries
 
-  def stories_count
-    entry_queries.collect{ |x| x.entry_item_count }.sum
-  end
-
-  def entry_items
-    entry_queries.collect(&:entry_items).flatten.sort_by(&:published_time)
-  end
-
-  def news_items
-    entry_items.select{|x| x.is_a?(BlogItem)}
-  end
-
   class << self
 
     def tweet
@@ -37,16 +25,36 @@ class Bill < ActiveRecord::Base
       end
     end
 
-    def load_bills
-      doc = Hpricot open(RAILS_ROOT + '/data/bills_before_parliament.html')
-      current = (doc/'a').inject({}) do |h, a|
+    def data_path name
+      "#{RAILS_ROOT}/data/#{name}"
+    end
+
+    def load_data url, name
+      data = open(url).read
+      unless data.blank?
+        File.open(data_path(name), 'w') do |file|
+          file.write data
+        end
+      end
+    end
+
+    def get_current_bills
+      load_data 'http://services.parliament.uk/bills/', 'bills_before_parliament.html'
+      doc = Hpricot open(data_path('bills_before_parliament.html'))
+
+      current = (doc/'a').inject({}) do |hash, a|
         if a['href'] && a['href'].to_s[/\d\d\d\d-\d\d\//] && a.parent.next_sibling.at('a')
           key = a['href'].strip.chomp('&#xA;')
           key = "http://services.parliament.uk/bills/#{key}" unless key[/^http:\/\/services.parliament.uk\/bills\//]
-          h[key] = a.parent.next_sibling.at('a')['href']
+          hash[key] = a.parent.next_sibling.at('a')['href']
         end
-        h
+        hash
       end
+    end
+
+    def load_bills
+      load_data 'http://services.parliament.uk/bills/AllBills.rss', 'AllBills.rss'
+      current = get_current_bills
 
       hash = Hash.from_xml IO.read(RAILS_ROOT + '/data/AllBills.xml')
       all_bills = Morph.from_hash(hash).channel.items
@@ -89,6 +97,18 @@ class Bill < ActiveRecord::Base
       end
       bills
     end
+  end
+
+  def stories_count
+    entry_queries.collect{ |x| x.entry_item_count }.sum
+  end
+
+  def entry_items
+    entry_queries.collect(&:entry_items).flatten.sort_by(&:published_time)
+  end
+
+  def news_items
+    entry_items.select{|x| x.is_a?(BlogItem)}
   end
 
   def make_tweeter

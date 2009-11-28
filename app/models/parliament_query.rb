@@ -16,7 +16,7 @@ class ParliamentQuery < EntryQuery
 
     if m.channel.items
       results = m.channel.items
-    elsif m.channel.item
+    elsif m.channel.respond_to?(:item) && m.channel.item
       results = [m.channel.item]
     else
       results = []
