@@ -22,17 +22,25 @@ class NewsQuery < EntryQuery
         doc = Hpricot "<html><body>#{e.content}</body></html>"
         e.author = doc.at('font[@color="#6f6f6f"]').inner_text
         e.publisher = e.author.split(',')[0]
-        e.publisher_url = nil
+        e.publisher_url = ''
         e.full_title = e.title
         e.title = doc.at('a').inner_text
         e.title = e.full_title.sub(e.publisher,'').strip.chomp('-') if e.title.blank?
         e.content = doc.at('font[@size="-1"]:eq(1)').to_s
-        e.published_date = e.issued if e.respond_to?(:issued)
+        e.published_date = e.issued  if e.respond_to?(:issued)
+        e.published_date = e.updated if e.respond_to?(:updated) && (!e.respond_to?(:published_date) || e.published_date.nil?)
         e.display_date = Date.parse(e.published_date).to_s(:long) if e.respond_to?(:published_date) && e.published_date
-        e.url = e.link.href
+        link = e.link.href.split('&').select{|x| x[/^url=/] }.first.sub('url=','')
+        e.url = URI.unescape(link)
+        # e.url = e.link.href
       end
 
-      entries = results.entries.select{|e| e.published_date}.sort_by {|x| Date.parse(x.published_date) }.reverse
+      entries = results.entries.select do |e|
+        e.published_date
+      end.sort_by do |x|
+        Date.parse(x.published_date)
+      end.reverse
+
       entries.collect do |entry|
         make_item entry, NewsItem
       end
@@ -63,6 +71,7 @@ class NewsQuery < EntryQuery
       end
 
       entries = results.entries.sort_by {|x| Date.parse(x.published_date) }.reverse
+
       entries.collect do |entry|
         make_item entry, BlogItem
       end
@@ -75,9 +84,11 @@ class NewsQuery < EntryQuery
   private
 
     def make_item data, model
-      item = model.find_or_create_by_url_and_published_date data.link.href, data.published_date
+      published_date = data.respond_to?(:published_date) ? data.published_date : nil
+      item = model.find_or_create_by_url_and_published_date data.url, published_date
 
-      source = EntrySource.find_or_create_from_data item.source_model, data.publisher, data.publisher_url, data.full_title, data.link.href
+      publisher_url = data.respond_to?(:publisher_url) ? data.publisher_url : nil
+      source = EntrySource.find_or_create_from_data item.source_model, data.publisher, publisher_url, data.full_title, data.url
 
       item.title = data.title
       item.publisher = data.publisher

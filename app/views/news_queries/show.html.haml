@@ -14,6 +14,9 @@
   %strong Tweeter:
   =h @news_query.tweeter ? @news_query.tweeter.name : 'n/a'
 
+%div
+  = button_to 'Do query search', :controller => 'news_queries', :action => 'do_search'
+
 - unless @news_query.entry_items.empty?
   - @news_query.entry_items.sort_by(&:published_time).each do |item|
     %p

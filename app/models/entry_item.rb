@@ -59,7 +59,11 @@ class EntryItem < ActiveRecord::Base
     text = title.gsub(/<[^>]+>/,'')
     text.gsub!('News Archive » ','')
     text.gsub!('&#39;',"'")
-    "#{text} #{url} #{published_time.to_s(:short)}"
+    if publisher[/unknown|admin|\(ö\)/]
+      "#{text} #{url}"
+    else
+      "#{text} #{url} [#{publisher.sub(' (subscription)','').sub('guardian.co.uk','Guardian').sub('Telegraph.co.uk','Telegraph').sub('.com','').sub('.co.uk','').sub(/ UK$/,'') }]"
+    end
   end
 
 end

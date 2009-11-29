@@ -108,7 +108,7 @@ class Bill < ActiveRecord::Base
   end
 
   def entry_items
-    entry_queries.collect(&:entry_items).flatten.sort_by(&:published_time)
+    entry_queries.collect(&:entry_items).flatten.compact.sort_by(&:published_time)
   end
 
   def news_items

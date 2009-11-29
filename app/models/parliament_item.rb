@@ -6,10 +6,14 @@ class ParliamentItem < EntryItem
 
   validates_presence_of :title
 
-  before_save :lookup_twfy_uri
+  before_save :set_published_time, :lookup_twfy_uri
 
   def source_model
     ParliamentSource
+  end
+
+  def set_published_time
+    self.published_time = Date.parse(published_date) if !published_time && published_date
   end
 
   def tweet_msg
@@ -136,7 +140,8 @@ class ParliamentItem < EntryItem
         # puts e.to_s
         # nil
       # end
-      self.twfy_uri = if title[/Provisional Sitting/] || (!url[/(ldhansrd|cmhansrd)/] && !content[/Reading/])
+      self.url = url.href if url.respond_to?(:href)
+      self.twfy_uri = if (title && title[/Provisional Sitting/]) || (!url[/(ldhansrd|cmhansrd)/] && !content[/Reading/])
         nil
       elsif content[/House of Commons (\S+) Reading/i] || url[/cmhansrd/]
         find_twfy_url 'commons'

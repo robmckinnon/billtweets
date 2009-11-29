@@ -51,3 +51,5 @@ end
 ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(
   :d_m_y => "%d %b %Y"
 )
+
+require "#{RAILS_ROOT}/data/whitelist.rb"

@@ -1,6 +1,4 @@
-%p
-  %strong Name:
-  =h @tweeter.name
+%h1=h @tweeter.name
 %p
   %strong Full name:
   =h @tweeter.full_name
@@ -13,8 +11,21 @@
 %p
   %strong Email:
   =h @tweeter.email
+%div
+  = button_to 'Make tweets', :controller => 'tweeters', :action => 'make_tweets'
+%div
+  = button_to 'Do search', :controller => 'tweeters', :action => 'do_search'
+
 %table
-  - @tweeter.tweets.each do |tweet|
+  %tr
+    %th Published Date
+    %th Domain
+    %th Sub domain
+    %th Type
+    %th Publisher
+    %th Tweet
+    %th Content
+  - @tweeter.tweets.select(&:is_whitelisted?).sort_by(&:published_time).each do |tweet|
     %tr
       %td= h tweet.entry_item.published_date.to_date.to_s(:dd_mm_yyyy)
       - if tweet.entry_item.sub_domain

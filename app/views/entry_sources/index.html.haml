@@ -1,24 +1,12 @@
-%h1 Listing entry_sources
+%h1= "#{@type} Sources"
 
 %table
   %tr
-    %th
-    %th Author name
-    %th Item title name
-    %th Author uri
-    %th Item host uri
-  - @entry_sources.group_by(&:type).each do |type, list|
-    - list.sort_by(&:item_host_uri).each do |entry_source|
-      %tr
-        %td= h entry_source.type
-        %td= h entry_source.author_name
-        %td= h entry_source.item_title_name
-        %td= h entry_source.author_uri
-        %td= h entry_source.item_host_uri
-
-        %td= link_to 'Show', object_url(entry_source)
-        %td= link_to 'Edit', edit_object_url(entry_source)
-        %td= link_to 'Destroy', object_url(entry_source), :confirm => 'Are you sure?', :method => :delete
+    %th{:style => 'text-align: left'} Author
+    %th{:style => 'text-align: left'} Item Title
+    %th{:style => 'text-align: left'} Author URI
+    %th{:style => 'text-align: left'} Item host URI
+  = render :partial => 'entry_source', :collection => @entry_sources.sort_by(&:item_host_uri)
 
 %br/
 
