@@ -1,0 +1,26 @@
+- tweet_id = tweet.id
+- id = "tweet_#{tweet_id}"
+%tr{:style => tweet.is_whitelisted? ? '' : 'color: grey' }
+  %td
+    - action = tweet.is_whitelisted? ? 'Block' : 'Approve'
+    = link_to_remote action, :update => id, :url => { :controller => :tweets, :id => tweet_id, :action => :toggle_approval }
+  %td= h tweet.entry_item.published_date.to_date.to_s(:dd_mm_yyyy)
+  - if tweet.entry_item.sub_domain
+    %td{:style => 'text-align:center'}= h tweet.entry_item.host_domain
+    %td= h tweet.entry_item.sub_domain
+  - else
+    %td{:style => 'text-align:center'}= h tweet.entry_item.host_domain
+    %td
+  %td= h tweet.entry_item.class.name.sub('Item','')
+  %td= h tweet.entry_item.publisher
+  %td
+    = h(tweet.display_message).sub(/(http\S+)/, '<a href="\1">\1</a>') + " (#{tweet.display_message.size})"
+    %br
+    = tweet.entry_item.twfy_uri ? link_to(tweet.entry_item.twfy_uri, tweet.entry_item.twfy_uri) : ''
+  %td
+    = h tweet.entry_item.published_date
+    %br
+    = h tweet.entry_item.title
+    %br
+    = h tweet.entry_item.content
+

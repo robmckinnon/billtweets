@@ -23,4 +23,5 @@ class EntrySourcesController < ResourceController::Base
     @entry_sources = ParliamentSource.all.sort_by(&:item_host_uri)
     render 'index'
   end
+
 end

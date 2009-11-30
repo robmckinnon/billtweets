@@ -3,12 +3,20 @@ class Tweet < ActiveRecord::Base
   belongs_to :entry_item
   belongs_to :tweeter
 
-  def is_a_blog_item?
-    entry_item.is_a?(BlogItem)
+  def entry_source
+    entry_item.entry_source
+  end
+
+  def block_source
+    entry_source.block
+  end
+
+  def approve_source
+    entry_source.approve
   end
 
   def is_whitelisted?
-    (!is_a_blog_item? || BLOG_WHITELIST_HOSTS.has_key?(host) ) && !BLACK_HOSTS.has_key?(host)
+    entry_item.entry_source.approved || (BLOG_WHITELIST_HOSTS.has_key?(host) && !BLACK_HOSTS.has_key?(host))
   end
 
   def host

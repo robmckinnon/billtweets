@@ -1,20 +1,23 @@
 class TweetersController < ResourceController::Base
 
   before_filter :ensure_name_url, :only => :show
+  before_filter :find_tweeter, :only => [:make_tweets, :do_search, :block_source, :approve_source]
 
   def make_tweets
-    tweeter = Tweeter.find(params[:id])
-    tweeter.make_tweets
+    @tweeter.make_tweets
     redirect_to :action => :show, :id => params[:id]
   end
 
   def do_search
-    tweeter = Tweeter.find(params[:id])
-    tweeter.do_search
+    @tweeter.do_search
     make_tweets
   end
 
   private
+
+    def set_tweeter
+      @tweeter = Tweeter.find(params[:id])
+    end
 
     def ensure_name_url
       begin

@@ -1,0 +1,10 @@
+%html{:lang=>"en-GB"}
+  %head
+    %title= @title ? "#{strip_tags(@title)} | BillTweets.com" : "BillTweets.com"
+    = javascript_include_tag :defaults
+  %body
+    #container
+      - if flash[:notice]
+        %p
+          %em= flash[:notice]
+      = yield
