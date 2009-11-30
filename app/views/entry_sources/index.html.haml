@@ -2,11 +2,12 @@
 
 %table
   %tr
-    %th{:style => 'text-align: left'} Author
     %th{:style => 'text-align: left'} Item Title
-    %th{:style => 'text-align: left'} Author URI
     %th{:style => 'text-align: left'} Item host URI
-  = render :partial => 'entry_source', :collection => @entry_sources.sort_by(&:item_host_uri)
+    %th{:style => 'text-align: left'} Author
+    %th{:style => 'text-align: left'} Author URI
+    %th{:style => 'text-align: left'} Approved
+  = render :partial => 'entry_source', :collection => @entry_sources
 
 %br/
 

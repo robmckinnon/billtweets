@@ -1,8 +1,10 @@
-%tr
-  %td= h entry_source.author_name
+- odd = @entry_sources.index(entry_source).odd?
+%tr{:style => odd ? 'background: #eee;' : ''}
   %td= h entry_source.item_title_name
-  %td= h entry_source.author_uri
   %td= h entry_source.item_host_uri
+  %td= h entry_source.author_name
+  %td= h entry_source.author_uri
+  %td= h entry_source.approved
 
   %td= link_to 'Show', object_url(entry_source)
   %td= link_to 'Edit', edit_object_url(entry_source)

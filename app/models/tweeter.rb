@@ -1,8 +1,10 @@
-  class Tweeter < ActiveRecord::Base
+class Tweeter < ActiveRecord::Base
 
   has_friendly_id :name, :use_slug => true, :strip_diacritics => true
 
   has_one  :bill
+  has_many :entry_queries, :through => :bill
+
   has_many :tweets
   has_many :untweeted, :class_name => "Tweet", :conditions => "tweeted = false"
 
@@ -13,20 +15,24 @@
   validates_uniqueness_of :name
   validates_uniqueness_of :full_name
 
+  def entry_items
+    bill.entry_items
+  end
+
+  def entry_sources
+    entry_items.collect(&:entry_source).compact.uniq
+  end
+
   def next_untweeted
     untweeted.select(&:is_whitelisted?).sort_by(&:published_time).first
   end
 
   def do_search
-    bill.entry_queries.each {|q| q.do_search }
+    entry_queries.each {|q| q.do_search }
   end
 
   def entry_item_count
-    bill.entry_queries.collect(&:entry_item_count).sum
-  end
-
-  def entry_items
-    bill.entry_items
+    entry_queries.collect(&:entry_item_count).sum
   end
 
   def make_tweets

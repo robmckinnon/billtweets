@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090525170339) do
+ActiveRecord::Schema.define(:version => 20091130193756) do
 
   create_table "bills", :force => true do |t|
     t.string   "name"
@@ -64,7 +64,10 @@ ActiveRecord::Schema.define(:version => 20090525170339) do
     t.string   "item_title_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "approved"
   end
+
+  add_index "entry_sources", ["approved"], :name => "index_entry_sources_on_approved"
 
   create_table "outgoing_tweets", :force => true do |t|
     t.string   "dm_to"
