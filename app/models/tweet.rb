@@ -25,7 +25,7 @@ class Tweet < ActiveRecord::Base
   end
 
   def is_whitelisted?
-    (entry_item.entry_source && entry_item.entry_source.approved) || (BLOG_WHITELIST_HOSTS.has_key?(host) && !BLACK_HOSTS.has_key?(host))
+    (entry_item.entry_source && entry_item.entry_source.is_approved) || (BLOG_WHITELIST_HOSTS.has_key?(host) && !BLACK_HOSTS.has_key?(host))
   end
 
   def host

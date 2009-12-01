@@ -3,10 +3,6 @@
   = link_to "@#{@tweeter.name}", "http://twitter.com/#{@tweeter.name}"
 %p
   =h @tweeter.bio
-  %strong Password:
-  =h @tweeter.password
-  %strong Email:
-  =h @tweeter.email
 %div
   = button_to 'Make tweets', :controller => 'tweeters', :action => 'make_tweets'
 
