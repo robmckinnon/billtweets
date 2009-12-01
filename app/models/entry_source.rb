@@ -30,7 +30,4 @@ class EntrySource < ActiveRecord::Base
     self.is_ok = true
   end
 
-  def default_ok_to_false
-    self.is_ok = false
-  end
 end
