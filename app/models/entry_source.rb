@@ -29,4 +29,8 @@ class EntrySource < ActiveRecord::Base
   def default_approved_to_true
     self.approved = true
   end
+
+  def default_approved_to_false
+    self.approved = false
+  end
 end

@@ -88,13 +88,15 @@ class NewsQuery < EntryQuery
       item = model.find_or_create_by_url_and_published_date data.url, published_date
 
       publisher_url = data.respond_to?(:publisher_url) ? data.publisher_url : nil
-      source = EntrySource.find_or_create_from_data item.source_model, data.publisher, publisher_url, data.full_title, data.url
 
       item.title = data.title
       item.publisher = data.publisher
       item.published_time = Time.parse(data.published_date) if data.published_date
       item.content = data.content
       item.entry_query_id = self.id
+
+      source = EntrySource.find_or_create_from_data item.source_model, item.publisher, publisher_url, data.full_title, item.url
+
       item.entry_source_id = source.id
       item.save!
       item
