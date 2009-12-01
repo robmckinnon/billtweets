@@ -4,13 +4,9 @@ class TweetersController < ResourceController::Base
   before_filter :find_tweeter, :only => [:make_tweets, :do_search]
 
   def make_tweets
+    @tweeter.do_search
     @tweeter.make_tweets
     redirect_to :action => :show, :id => params[:id]
-  end
-
-  def do_search
-    @tweeter.do_search
-    make_tweets
   end
 
   private

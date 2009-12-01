@@ -9,8 +9,6 @@
   =h @tweeter.email
 %div
   = button_to 'Make tweets', :controller => 'tweeters', :action => 'make_tweets'
-%div
-  = button_to 'Do search', :controller => 'tweeters', :action => 'do_search'
 
 %ul
   - false && @tweeter.entry_sources.each do |source|
