@@ -1,6 +1,10 @@
 %h1
   = @tweeter.full_name
   = link_to "@#{@tweeter.name}", "http://twitter.com/#{@tweeter.name}"
+  = @tweeted_count
+  tweeted,
+  = @to_tweet_count
+  to tweet
 %p
   =h @tweeter.bio
 %div

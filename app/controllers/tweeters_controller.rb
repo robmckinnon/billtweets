@@ -18,6 +18,10 @@ class TweetersController < ResourceController::Base
 
     def set_tweets
       @tweets = @tweeter.sorted_tweets
+      tweeted = @tweets.select(&:tweeted)
+      to_tweet = (@tweets - tweeted).select(&:is_whitelisted?)
+      @tweeted_count = tweeted.size
+      @to_tweet_count = to_tweet.size
     end
 
     def ensure_name_url
