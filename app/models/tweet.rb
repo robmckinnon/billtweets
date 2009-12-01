@@ -3,6 +3,15 @@ class Tweet < ActiveRecord::Base
   belongs_to :entry_item
   belongs_to :tweeter
 
+  def post_tweet
+    httpauth = Twitter::HTTPAuth.new(tweeter.user, tweeter.password)
+    twitter = Twitter::Base.new(httpauth)
+    twitter.update message
+    self.tweeted = true
+    self.tweeted_at = Time.now
+    save!
+  end
+
   def entry_source
     entry_item.entry_source
   end
@@ -16,7 +25,7 @@ class Tweet < ActiveRecord::Base
   end
 
   def is_whitelisted?
-    entry_item.entry_source.approved || (BLOG_WHITELIST_HOSTS.has_key?(host) && !BLACK_HOSTS.has_key?(host))
+    (entry_item.entry_source && entry_item.entry_source.approved) || (BLOG_WHITELIST_HOSTS.has_key?(host) && !BLACK_HOSTS.has_key?(host))
   end
 
   def host

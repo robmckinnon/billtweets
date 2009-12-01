@@ -3,7 +3,6 @@ class Tweeter < ActiveRecord::Base
   has_friendly_id :name, :use_slug => true, :strip_diacritics => true
 
   has_one  :bill
-  has_many :entry_queries, :through => :bill
 
   has_many :tweets
   has_many :untweeted, :class_name => "Tweet", :conditions => "tweeted = false"
@@ -17,6 +16,10 @@ class Tweeter < ActiveRecord::Base
 
   def entry_items
     bill.entry_items
+  end
+
+  def entry_queries
+    bill.entry_queries
   end
 
   def entry_sources
@@ -51,7 +54,7 @@ class Tweeter < ActiveRecord::Base
             (existing = Tweet.find_by_message(message.sub('publishing ','publishing House of Lords '))) ) &&
             existing.id != tweet.id
             # ignore
-          else
+          elsif !tweet.tweeted
             tweet.message = message
             print '.'
             tweet.save
