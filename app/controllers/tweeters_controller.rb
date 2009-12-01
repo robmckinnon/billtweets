@@ -1,7 +1,8 @@
 class TweetersController < ResourceController::Base
 
   before_filter :ensure_name_url, :only => :show
-  before_filter :find_tweeter, :only => [:make_tweets, :do_search]
+  before_filter :find_tweeter, :only => [:make_tweets, :show]
+  before_filter :set_tweets, :only => :show
 
   def make_tweets
     @tweeter.do_search
@@ -13,6 +14,10 @@ class TweetersController < ResourceController::Base
 
     def find_tweeter
       @tweeter = Tweeter.find(params[:id])
+    end
+
+    def set_tweets
+      @tweets = @tweeter.sorted_tweets
     end
 
     def ensure_name_url

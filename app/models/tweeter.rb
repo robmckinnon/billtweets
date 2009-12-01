@@ -4,7 +4,7 @@ class Tweeter < ActiveRecord::Base
 
   has_one  :bill
 
-  has_many :tweets
+  has_many :tweets, :include => :entry_item
   has_many :untweeted, :class_name => "Tweet", :conditions => "tweeted = false"
 
   validates_size_of :name,      :maximum => 15
@@ -13,6 +13,10 @@ class Tweeter < ActiveRecord::Base
 
   validates_uniqueness_of :name
   validates_uniqueness_of :full_name
+
+  def sorted_tweets
+    tweets.sort_by(&:published_time)
+  end
 
   def entry_items
     bill.entry_items

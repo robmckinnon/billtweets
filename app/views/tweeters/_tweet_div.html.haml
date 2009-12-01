@@ -1,4 +1,4 @@
 - tweet_id = tweet_div.id
 - id = "tweet_#{tweet_id}"
 %tbody{:id => id}
-  = render :partial => 'tweet', :object => tweet_div
+  = render :partial => 'tweet', :object => tweet_div, :locals => {:tweets => tweets}

@@ -14,14 +14,10 @@
       = source.item_host_uri
 %table
   %tr
-    %th Published Date
-    %th Domain
-    %th Sub domain
-    %th Type
-    %th Publisher
+    %th
     %th Tweet
     %th Content
-  = render :partial => 'tweet_div', :collection => @tweeter.tweets.sort_by(&:published_time)
+  = render :partial => 'tweet_div', :collection => @tweets, :locals => {:tweets => @tweets}
 
 = link_to 'Edit', edit_object_url
 |
