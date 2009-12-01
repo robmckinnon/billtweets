@@ -1,5 +1,5 @@
 class BlogSource < EntrySource
 
-  before_validation_on_create :default_approved_to_false
+  before_validation_on_create :default_ok_to_false
 
 end

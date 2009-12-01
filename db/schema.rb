@@ -64,10 +64,8 @@ ActiveRecord::Schema.define(:version => 20091130193756) do
     t.string   "item_title_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_approved"
+    t.boolean  "is_ok"
   end
-
-  add_index "entry_sources", ["is_approved"], :name => "index_entry_sources_on_is_approved"
 
   create_table "outgoing_tweets", :force => true do |t|
     t.string   "dm_to"
