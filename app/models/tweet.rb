@@ -5,7 +5,7 @@ class Tweet < ActiveRecord::Base
 
   def post_tweet
     if RAILS_ENV == 'production'
-      httpauth = Twitter::HTTPAuth.new(tweeter.user, tweeter.password)
+      httpauth = Twitter::HTTPAuth.new(tweeter.name, tweeter.password)
       twitter = Twitter::Base.new(httpauth)
       twitter.update message
     end
