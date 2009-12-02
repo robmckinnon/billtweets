@@ -16,7 +16,7 @@ class Tweeter < ActiveRecord::Base
 
   class << self
     def make_tweets
-      find_each do {|tweeter| tweeter.make_tweets}
+      find_each {|tweeter| tweeter.make_tweets}
     end
   end
 
