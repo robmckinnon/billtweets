@@ -4,9 +4,12 @@ class Tweet < ActiveRecord::Base
   belongs_to :tweeter
 
   def post_tweet
-    httpauth = Twitter::HTTPAuth.new(tweeter.user, tweeter.password)
-    twitter = Twitter::Base.new(httpauth)
-    twitter.update message
+    if RAILS_ENV == 'production'
+      httpauth = Twitter::HTTPAuth.new(tweeter.user, tweeter.password)
+      twitter = Twitter::Base.new(httpauth)
+      twitter.update message
+    end
+    puts "#{tweeter.name}: #{message}"
     self.tweeted = true
     self.tweeted_at = Time.now
     save!

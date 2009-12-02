@@ -56,7 +56,19 @@ class EntryItem < ActiveRecord::Base
   end
 
   def tweet_msg
-    text = title.gsub(/<[^>]+>/,'')
+    if title == publisher
+      doc = Hpricot open(url)
+      text = doc.at('title').inner_text
+    else
+      text = title.gsub(/<[^>]+>/,'')
+    end
+
+    last_index = [text.index('- '), text.index('| '), text.index('− '), text.index('« '), text.index('− ')].compact.max
+
+    if last_index && last_index > 0
+      text = text[0..(last_index - 1)].strip
+    end
+
     text.gsub!('News Archive » ','')
     text.gsub!('&#39;',"'")
     if publisher[/unknown|admin|\(ö\)/]

@@ -14,6 +14,15 @@ class Tweeter < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_uniqueness_of :full_name
 
+  def tweet options
+    if to_tweet = next_untweeted
+      max_delay = options[:max_delay]
+      delay = rand(max_delay) + 1
+      sleep(delay * 60)
+      to_tweet.post_tweet
+    end
+  end
+
   def sorted_tweets
     tweets.sort_by(&:published_time)
   end

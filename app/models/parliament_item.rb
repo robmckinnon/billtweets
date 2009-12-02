@@ -19,7 +19,9 @@ class ParliamentItem < EntryItem
   def tweet_msg
     text = prepare_tweet_text content
     if title[/Provisional Sitting: (\d\d)\/(\d\d)\/(\d\d\d\d)/]
-      tweet = "provisional sitting date for #{text} is #{Date.new($3.to_i,$2.to_i,$1.to_i).to_s(:d_m_y).reverse.chomp('0').reverse}"
+      tweet = "provisional sitting date for #{text} is #{Date.new($3.to_i,$2.to_i,$1.to_i).to_s(:d_m_y).reverse.chomp('0').reverse}: #{url}"
+    elsif title[/Sitting: (\d\d)\/(\d\d)\/(\d\d\d\d)/]
+      tweet = "#{text} was #{Date.new($3.to_i,$2.to_i,$1.to_i).to_s(:d_m_y).reverse.chomp('0').reverse}: #{url}"
     else
       link = twfy_uri ? twfy_uri : url
 
@@ -57,16 +59,28 @@ class ParliamentItem < EntryItem
       text.gsub!('Second reading', '2nd Reading')
       text.gsub!('Second Reading', '2nd Reading')
 
-      if title[/^(Sitting|Publication)/] && text.ends_with?('Reading')
-        if twfy_uri && twfy_uri[/lords/] && !text.include?('House of Lords')
+      if title[/^Publication/] && text[/Reading$/i]
+        if ((url && url[/ldhansrd/]) || (twfy_uri && twfy_uri[/lords/])) && !text.include?('House of Lords')
           text = "publishing House of Lords #{text}"
-        elsif twfy_uri && twfy_uri[/debates/] && !text.include?('House of Commons')
+        elsif ((url && url[/cmhansrd/]) || (twfy_uri && twfy_uri[/debates/])) && !text.include?('House of Commons')
           text = "publishing House of Commons #{text}"
         else
           text = "publishing #{text}"
         end
+      elsif title[/^Sitting/] && text[/Reading$/i]
+        if ((url && url[/ldhansrd/]) || (twfy_uri && twfy_uri[/lords/])) && !text.include?('House of Lords')
+          text = "House of Lords #{text}"
+        elsif ((url && url[/cmhansrd/]) || (twfy_uri && twfy_uri[/debates/])) && !text.include?('House of Commons')
+          text = "House of Commons #{text}"
+        else
+          text = "#{text}"
+        end
       elsif title.starts_with?('Publication:')
-        text = "publishing #{text}"
+        if text[/^HL Bill/]
+          text = "publishing #{entry_query.bill.name}, #{text}"
+        else
+          text = "publishing #{text}"
+        end
       end
 
       text
