@@ -78,6 +78,8 @@ class ParliamentItem < EntryItem
       elsif title.starts_with?('Publication:')
         if text[/^HL Bill/]
           text = "publishing #{entry_query.bill.name}, #{text}"
+        elsif text[/^Bill/]
+          text = "publishing #{entry_query.bill.name}, #{text}"
         else
           text = "publishing #{text}"
         end
