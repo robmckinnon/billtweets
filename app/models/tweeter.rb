@@ -14,8 +14,13 @@ class Tweeter < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_uniqueness_of :full_name
 
+  class << self
+    def make_tweets
+      find_each do {|tweeter| tweeter.make_tweets}
+    end
+  end
+
   def tweet options
-    make_tweets
     max_delay = options[:max_delay]
     delay = rand(max_delay) + 1
     sleep(delay * 60)
