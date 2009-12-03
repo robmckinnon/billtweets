@@ -84,15 +84,17 @@ class NewsQuery < EntryQuery
   private
 
     def make_item data, model
-      unless model.exists?(:url => data.url)
+      published_date = data.respond_to?(:published_date) ? data.published_date : nil
+
+      if published_date && !model.exists?(:url => data.url)
         item = model.find_or_create_by_url(data.url)
 
-        published_date = data.respond_to?(:published_date) ? data.published_date : nil
         publisher_url = data.respond_to?(:publisher_url) ? data.publisher_url : nil
 
         item.title = data.title
         item.publisher = data.publisher
-        item.published_time = Time.parse(data.published_date) if data.published_date
+        item.published_date = published_date
+        item.published_time = Time.parse(published_date)
         item.content = data.content
         item.entry_query_id = self.id
 
@@ -101,6 +103,8 @@ class NewsQuery < EntryQuery
         item.entry_source_id = source.id
         item.save!
         item
+      else
+        nil
       end
     end
 
