@@ -2,7 +2,7 @@ class EntryItem < ActiveRecord::Base
 
   belongs_to :entry_query
   belongs_to :entry_source
-  has_one :tweet
+  has_one :tweet, :dependent => :destroy
 
   def twfy_url
     nil
