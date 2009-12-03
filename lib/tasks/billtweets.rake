@@ -6,8 +6,10 @@ namespace :billtweets do
     if max_random_delay
       %w[equalitybilluk digiconbill].each do |bill|
         tweeter = Tweeter.find(bill)
-        tweeter.do_search
-        tweeter.make_tweets
+        if bill == 'digiconbill'
+          tweeter.do_search
+          tweeter.make_tweets
+        end
         tweeter.tweet(:max_delay => max_random_delay)
       end
     else
