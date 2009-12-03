@@ -17,7 +17,7 @@ class TweetersController < ResourceController::Base
     end
 
     def set_tweets
-      @tweets = @tweeter.sorted_tweets
+      @tweets = @tweeter.sorted_tweets.reverse
       tweeted = @tweets.select(&:tweeted)
       to_tweet = (@tweets - tweeted).select(&:is_whitelisted?)
       @tweeted_count = tweeted.size

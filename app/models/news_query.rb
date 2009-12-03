@@ -86,8 +86,11 @@ class NewsQuery < EntryQuery
     def make_item data, model
       published_date = data.respond_to?(:published_date) ? data.published_date : nil
 
-      if published_date && !model.exists?(:url => data.url)
-        item = model.find_or_create_by_url(data.url)
+      url = data.url
+      url = url.split('?').first if url && url.include?('sky.com')
+
+      if published_date && !model.exists?(:url => url)
+        item = model.find_or_create_by_url(url)
 
         publisher_url = data.respond_to?(:publisher_url) ? data.publisher_url : nil
 

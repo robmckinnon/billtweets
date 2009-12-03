@@ -56,7 +56,7 @@ class EntryItem < ActiveRecord::Base
   end
 
   def tweet_msg
-    if title == publisher
+    if title.strip == publisher.strip
       doc = Hpricot open(url)
       text = doc.at('title').inner_text
     else
@@ -66,7 +66,11 @@ class EntryItem < ActiveRecord::Base
     last_index = [text.index('- '), text.index('| '), text.index('− '), text.index('« '), text.index('− ')].compact.max
 
     if last_index && last_index > 0
-      text = text[0..(last_index - 1)].strip
+      if !publisher.blank? && text.starts_with?(publisher)
+        text = text[(last_index+2)..(text.size - 1)].strip
+      else
+        text = text[0..(last_index - 1)].strip
+      end
     end
 
     text.gsub!('News Archive » ','')
@@ -74,7 +78,17 @@ class EntryItem < ActiveRecord::Base
     if publisher[/unknown|admin|\(ö\)/]
       "#{text} #{url}"
     else
-      "#{text} #{url} [#{publisher.sub(' (subscription)','').sub('Channel 4 News','Channel 4').sub('guardian.co.uk','Guardian').sub('Telegraph.co.uk','Telegraph').sub('.com','').sub('.co.uk','').sub(' (press release)','').sub(/ UK$/,'') }]"
+      publisher_name = publisher.sub(' (subscription)','')
+      publisher_name.sub!('Channel 4 News','Channel 4')
+      publisher_name.sub!('guardian.co.uk','Guardian')
+      publisher_name.sub!('Telegraph.co.uk','Telegraph')
+      publisher_name.sub!('.com','')
+      publisher_name.sub!('.co.uk','')
+      publisher_name.sub!(' (press release)','')
+      publisher_name.sub!(' (blog)','')
+      publisher_name.sub!(' Business News','')
+      publisher_name.sub!(/ UK$/,'')
+      "#{text} #{url} [#{publisher_name}]"
     end
   end
 
