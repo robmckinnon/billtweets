@@ -88,9 +88,9 @@ class EntryItem < ActiveRecord::Base
       publisher_name.sub!(' (blog)','')
       publisher_name.sub!(' Business News','')
       publisher_name.sub!(/ UK$/,'')
-      if tweet.tweeter.name == 'digiconbill'
-        publisher_name += " #debill"
-      end
+      # if tweet.tweeter.name == 'digiconbill'
+        # publisher_name += " #debill"
+      # end
       "#{text} #{url} [#{publisher_name}]"
     end
   end
