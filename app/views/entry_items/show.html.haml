@@ -1,0 +1,37 @@
+%p
+  %strong Title:
+  =h @entry_item.title
+%p
+  %strong Type:
+  =h @entry_item.type
+%p
+  %strong Url:
+  =h @entry_item.url
+%p
+  %strong Publisher:
+  =h @entry_item.publisher
+%p
+  %strong Published date:
+  =h @entry_item.published_date
+%p
+  %strong Published time:
+  =h @entry_item.published_time
+%p
+  %strong Content:
+  =h @entry_item.content
+%p
+  %strong Entry query:
+  =h @entry_item.entry_query_id
+%p
+  %strong Created:
+  =h @entry_item.created_at
+%p
+  %strong Entry source:
+  =h @entry_item.entry_source_id
+%p
+  %strong TWFY uri:
+  =h @entry_item.twfy_uri
+
+= link_to 'Edit', edit_object_url
+|
+= link_to 'Back', collection_url

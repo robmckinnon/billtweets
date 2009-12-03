@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :tweeters, :except => :show
   map.make_tweets 'tweeters/:id/make_tweets', :controller => 'tweeters', :action => 'make_tweets'
 
+  map.resources :entry_items
   map.resources :news_items
   map.resources :news_queries
   map.do_search 'news_queries/:id/do_search', :controller => 'news_queries', :action => 'do_search'

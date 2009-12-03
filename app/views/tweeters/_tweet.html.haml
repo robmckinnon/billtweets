@@ -23,6 +23,7 @@
     = button_to_remote action, :update => id, :url => { :controller => :tweets, :id => tweet_id, :action => :toggle_approval }
   %td
     = tweet.entry_item.title
+    %small= link_to 'item', entry_item_path(tweet.entry_item)
     %br
     = tweet.entry_item.content
 

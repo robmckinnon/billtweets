@@ -1,0 +1,15 @@
+%p
+  %label{:for => "news_item_title"} Title:
+  = f.text_field :title
+%p
+  %label{:for => "news_item_url"} Url:
+  = f.text_field :url
+%p
+  %label{:for => "news_item_publisher"} Publisher:
+  = f.text_field :publisher
+%p
+  %label{:for => "news_item_content"} Content:
+  = f.text_area :content
+%p
+  %label{:for => "news_item_news_query_id"} News query:
+  = f.text_field :news_query_id
