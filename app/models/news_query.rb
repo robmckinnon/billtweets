@@ -85,7 +85,7 @@ class NewsQuery < EntryQuery
 
     def make_item data, model
       published_date = data.respond_to?(:published_date) ? data.published_date : nil
-      item = model.find_or_create_by_url_and_published_date data.url, published_date
+      item = model.find_or_create_by_url(data.url)
 
       publisher_url = data.respond_to?(:publisher_url) ? data.publisher_url : nil
 
