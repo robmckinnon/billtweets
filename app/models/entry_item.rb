@@ -74,7 +74,7 @@ class EntryItem < ActiveRecord::Base
     if publisher[/unknown|admin|\(ö\)/]
       "#{text} #{url}"
     else
-      "#{text} #{url} [#{publisher.sub(' (subscription)','').sub('guardian.co.uk','Guardian').sub('Telegraph.co.uk','Telegraph').sub('.com','').sub('.co.uk','').sub(' (press release)','').sub(/ UK$/,'') }]"
+      "#{text} #{url} [#{publisher.sub(' (subscription)','').sub('Channel 4 News','Channel 4').sub('guardian.co.uk','Guardian').sub('Telegraph.co.uk','Telegraph').sub('.com','').sub('.co.uk','').sub(' (press release)','').sub(/ UK$/,'') }]"
     end
   end
 
