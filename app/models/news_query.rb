@@ -43,7 +43,7 @@ class NewsQuery < EntryQuery
 
       entries.collect do |entry|
         make_item entry, NewsItem
-      end
+      end.compact
     rescue Exception => e
       raise e
       nil
@@ -74,7 +74,7 @@ class NewsQuery < EntryQuery
 
       entries.collect do |entry|
         make_item entry, BlogItem
-      end
+      end.compact
     rescue Exception => e
       raise e
       nil
@@ -84,22 +84,24 @@ class NewsQuery < EntryQuery
   private
 
     def make_item data, model
-      published_date = data.respond_to?(:published_date) ? data.published_date : nil
-      item = model.find_or_create_by_url(data.url)
+      unless model.exists?(:url => data.url)
+        item = model.find_or_create_by_url(data.url)
 
-      publisher_url = data.respond_to?(:publisher_url) ? data.publisher_url : nil
+        published_date = data.respond_to?(:published_date) ? data.published_date : nil
+        publisher_url = data.respond_to?(:publisher_url) ? data.publisher_url : nil
 
-      item.title = data.title
-      item.publisher = data.publisher
-      item.published_time = Time.parse(data.published_date) if data.published_date
-      item.content = data.content
-      item.entry_query_id = self.id
+        item.title = data.title
+        item.publisher = data.publisher
+        item.published_time = Time.parse(data.published_date) if data.published_date
+        item.content = data.content
+        item.entry_query_id = self.id
 
-      source = EntrySource.find_or_create_from_data item.source_model, item.publisher, publisher_url, data.full_title, item.url
+        source = EntrySource.find_or_create_from_data item.source_model, item.publisher, publisher_url, data.full_title, item.url
 
-      item.entry_source_id = source.id
-      item.save!
-      item
+        item.entry_source_id = source.id
+        item.save!
+        item
+      end
     end
 
     def query_for_search
