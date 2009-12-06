@@ -33,7 +33,8 @@ class ParliamentQuery < EntryQuery
           item.published_time = Time.parse(updated) if updated
 
           item_uri = "http://#{data.link.href.split('/')[2]}/"
-          source = ParliamentSource.find_or_create_by_author_name_and_item_title_name_and_item_host_uri('UK Parliament', data.category, item_uri)
+          category = data.respond_to?(:category) ? data.category : nil
+          source = ParliamentSource.find_or_create_by_author_name_and_item_title_name_and_item_host_uri('UK Parliament', category, item_uri)
           item.entry_source_id = source.id
           item.save!
         end
