@@ -68,6 +68,7 @@ class EntryItem < ActiveRecord::Base
       text = title.gsub(/<[^>]+>/,'')
     end
 
+    text.sub!('Stand up diggers all: ','')
     last_index = [text.index('- '), text.index('| '), text.index('− '), text.index('« '), text.index('− ')].compact.max
 
     if last_index && last_index > 0
