@@ -69,6 +69,7 @@ class EntryItem < ActiveRecord::Base
     end
 
     text.sub!('Stand up diggers all: ','')
+    text.sub!('Net neutrality in Europe: ','')
     last_index = [text.index('- '), text.index('| '), text.index('− '), text.index('« '), text.index('− ')].compact.max
 
     if last_index && last_index > 0
