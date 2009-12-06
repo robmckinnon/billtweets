@@ -50,7 +50,7 @@ class Tweeter < ActiveRecord::Base
   end
 
   def next_untweeted
-    untweeted.select(&:is_whitelisted?).sort_by(&:published_time).first
+    untweeted.select(&:is_approved?).select{|x| !x.is_suppressed?}.sort_by(&:published_time).first
   end
 
   def do_search
@@ -86,6 +86,10 @@ class Tweeter < ActiveRecord::Base
           print '.'
           $stdout.flush
           message = item.tweet_msg
+          if name == 'digiconbill'
+            message += " #debill"
+          end
+
           if (existing = Tweet.find_by_message(message))
             # ignore
           elsif message.starts_with?('publishing ') &&

@@ -1,7 +1,6 @@
-- odd = tweets.index(tweet).odd?
 - tweet_id = tweet.id
 - id = "tweet_#{tweet_id}"
-%tr{:style => (odd ? 'background: #eee;' : '') + (tweet.tweeted ? 'color: green;' : (tweet.is_whitelisted? ? '' : 'color: grey;') ) }
+%tr{:style => tweet_style(tweet, tweets) }
   %td
     = h(tweet.display_message).sub(/(http\S+)/, '<br/><small><a style="text-decoration: none;" href="\1">\1</a></small>')
     %br
@@ -19,8 +18,13 @@
         - else
           = h tweet.entry_item.host_domain
   %td
-    - action = tweet.is_whitelisted? ? 'Block' : 'Approve'
-    = button_to_remote action, :update => id, :url => { :controller => :tweets, :id => tweet_id, :action => :toggle_approval }
+    - if tweet.is_whitelisted?
+      %small [whitelisted]
+    - else
+      - action = tweet.is_approved? ? 'Block source' : 'Approve source'
+      = button_to_remote action, :update => id, :url => { :controller => :tweets, :id => tweet_id, :action => :toggle_approval }
+    - action = tweet.is_suppressed? ? 'Unsuppress tweet' : 'Suppress tweet'
+    = button_to_remote action, :update => id, :url => { :controller => :tweets, :id => tweet_id, :action => :toggle_suppress }
   %td
     = tweet.entry_item.title
     %small= link_to 'item', entry_item_path(tweet.entry_item)

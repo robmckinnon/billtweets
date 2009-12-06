@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091130193756) do
+ActiveRecord::Schema.define(:version => 20091206143954) do
 
   create_table "bills", :force => true do |t|
     t.string   "name"
@@ -115,8 +115,10 @@ ActiveRecord::Schema.define(:version => 20091130193756) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "entry_item_id"
+    t.boolean  "suppress"
   end
 
+  add_index "tweets", ["suppress"], :name => "index_tweets_on_suppress"
   add_index "tweets", ["tweeter_id"], :name => "index_tweets_on_tweeter_id"
 
 end
