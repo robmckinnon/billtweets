@@ -45,7 +45,7 @@ class NewsQuery < EntryQuery
         make_item entry, NewsItem
       end.compact
     rescue Exception => e
-      raise e
+      raise e if RAILS_ENV == 'production'
       nil
     end
   end
@@ -76,7 +76,7 @@ class NewsQuery < EntryQuery
         make_item entry, BlogItem
       end.compact
     rescue Exception => e
-      raise e
+      raise e if RAILS_ENV == 'production'
       nil
     end
   end

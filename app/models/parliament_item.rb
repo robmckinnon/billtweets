@@ -19,9 +19,9 @@ class ParliamentItem < EntryItem
   def tweet_msg
     text = prepare_tweet_text content
     if title[/Provisional Sitting: (\d\d)\/(\d\d)\/(\d\d\d\d)/]
-      tweet = "provisional sitting date for #{text} is #{Date.new($3.to_i,$2.to_i,$1.to_i).to_s(:d_m_y).reverse.chomp('0').reverse}: #{url}"
+      tweet = "provisional sitting date for #{text} is #{format_date($3,$2,$1)}: #{url}"
     elsif title[/Sitting: (\d\d)\/(\d\d)\/(\d\d\d\d)/]
-      tweet = "#{text} was #{Date.new($3.to_i,$2.to_i,$1.to_i).to_s(:d_m_y).reverse.chomp('0').reverse}: #{url}"
+      tweet = "#{text} was #{format_date($3,$2,$1)}: #{url}"
     else
       link = twfy_uri ? twfy_uri : url
 
@@ -39,6 +39,12 @@ class ParliamentItem < EntryItem
   end
 
   private
+
+    def format_date year_or_date, month=nil, day=nil
+      date = day ? Date.new(year_or_date.to_i, month.to_i, day.to_i) : year_or_date
+      date = date.to_date if date.is_a?(Time)
+      date.to_s(:d_m_y).reverse.chomp('0').reverse
+    end
 
     def prepare_tweet_text text
       text = text.gsub(/<[^>]+>/,' ')
@@ -61,11 +67,11 @@ class ParliamentItem < EntryItem
 
       if title[/^Publication/] && text[/Reading$/i]
         if ((url && url[/ldhansrd/]) || (twfy_uri && twfy_uri[/lords/])) && !text.include?('House of Lords')
-          text = "publishing House of Lords #{text}"
+          text = "House of Lords #{text} Hansard published on #{format_date(published_time)}"
         elsif ((url && url[/cmhansrd/]) || (twfy_uri && twfy_uri[/debates/])) && !text.include?('House of Commons')
-          text = "publishing House of Commons #{text}"
+          text = "House of Commons #{text} Hansard published on #{format_date(published_time)}"
         else
-          text = "publishing #{text}"
+          text = "#{text} published on #{format_date(published_time)}"
         end
       elsif title[/^Sitting/] && text[/Reading$/i]
         if ((url && url[/ldhansrd/]) || (twfy_uri && twfy_uri[/lords/])) && !text.include?('House of Lords')
@@ -77,11 +83,11 @@ class ParliamentItem < EntryItem
         end
       elsif title.starts_with?('Publication:')
         if text[/^HL Bill/]
-          text = "publishing #{entry_query.bill.name}, #{text}"
+          text = "#{entry_query.bill.name}, #{text} published on #{format_date(published_time)}"
         elsif text[/^Bill/]
-          text = "publishing #{entry_query.bill.name}, #{text}"
+          text = "#{entry_query.bill.name}, #{text} published on #{format_date(published_time)}"
         else
-          text = "publishing #{text}"
+          text = "#{text} published on #{format_date(published_time)}"
         end
       end
 

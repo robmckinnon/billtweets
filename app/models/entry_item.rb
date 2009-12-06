@@ -57,8 +57,13 @@ class EntryItem < ActiveRecord::Base
 
   def tweet_msg
     if title.strip == publisher.strip
-      doc = Hpricot open(url)
-      text = doc.at('title').inner_text
+      begin
+        doc = Hpricot open(url)
+        text = doc.at('title').inner_text
+      rescue Exception => e
+        raise e if RAILS_ENV == 'production'
+        text = title.gsub(/<[^>]+>/,'')
+      end
     else
       text = title.gsub(/<[^>]+>/,'')
     end
