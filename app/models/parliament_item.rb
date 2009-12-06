@@ -58,11 +58,10 @@ class ParliamentItem < EntryItem
       text.sub!('The Bill received its ','received ')
       text.sub!('The Bill will be have its ','will have ')
       text.sub!('The Bill was ','was ')
-      text.gsub!(/(\d)(th|st|nd|rd) (January|February|March|April|May|June|July|August|September|October|November|December)/, '\1 \2')
-      text.gsub!(/(\d)(th|st|nd|rd) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/, '\1 \2')
       %w(January February March April May June July August September October November December).each do |month|
         text.gsub!(month, month[0..2])
       end
+      text.gsub!(/(\d)(th|st|nd|rd) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/, '\1 \3')
       text.gsub!('Second reading', '2nd Reading')
       text.gsub!('Second Reading', '2nd Reading')
 
