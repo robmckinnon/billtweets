@@ -74,10 +74,10 @@ class EntryItem < ActiveRecord::Base
       text.sub!('BBC - ','')
       self.publisher = 'BBC' if publisher.blank?
     end
-    last_index = [text.index('- '), text.index('| '), text.index('− '), text.index('« '), text.index('− ')].compact.max
+    last_index = [text.index('- '), text.index('| '), text.index('− '), text.index('« '), text.index('» ') text.index('− ')].compact.max
 
     if last_index && last_index > 0
-      if !publisher.blank? && text.starts_with?(publisher)
+      if !publisher.blank? && text.strip.starts_with?(publisher)
         text = text[(last_index+2)..(text.size - 1)].strip
       else
         text = text[0..(last_index - 1)].strip
