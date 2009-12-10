@@ -67,6 +67,7 @@ class EntryItem < ActiveRecord::Base
     else
       text = title.gsub(/<[^>]+>/,'')
       text.sub!(/^#{publisher}: /,'')
+      text.sub!(/^#{host_domain.chomp('.com')}: /i, '')
     end
 
     text.sub!('Stand up diggers all: ','')
