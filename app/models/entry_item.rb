@@ -66,10 +66,11 @@ class EntryItem < ActiveRecord::Base
       end
     else
       text = title.gsub(/<[^>]+>/,'')
-      text.sub!(/^#{publisher}: /,'')
-      text.sub!(/^#{host_domain.chomp('.com')}: /i, '')
     end
 
+    text.sub!(/^#{publisher}: /i,'')
+    text.sub!(/^#{host_domain.sub('.com','')}: /i, '')
+    text.sub!('News: ','')
     text.sub!('Stand up diggers all: ','')
     text.sub!('Net neutrality in Europe: ','')
     if text.include?('BBC - ')
