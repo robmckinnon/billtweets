@@ -66,6 +66,7 @@ class EntryItem < ActiveRecord::Base
       end
     else
       text = title.gsub(/<[^>]+>/,'')
+      text.sub!(/^#{publisher}: /,'')
     end
 
     text.sub!('Stand up diggers all: ','')
@@ -74,7 +75,8 @@ class EntryItem < ActiveRecord::Base
       text.sub!('BBC - ','')
       self.publisher = 'BBC' if publisher.blank?
     end
-    last_index = [text.index('- '), text.index('| '), text.index('− '), text.index('« '), text.index('» ') text.index('− ')].compact.max
+    last_index = [text.index('- '), text.index('| '), text.index('− '),
+        text.index('« '), text.index('» '), text.index('− ')].compact.max
 
     if last_index && last_index > 0
       if !publisher.blank? && text.strip.starts_with?(publisher)
