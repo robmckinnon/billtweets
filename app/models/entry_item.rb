@@ -73,6 +73,7 @@ class EntryItem < ActiveRecord::Base
     text.sub!('News: ','')
     text.sub!('Stand up diggers all: ','')
     text.sub!('Net neutrality in Europe: ','')
+    text.sub!('Trying To Invent The Future One Step At A Time: ','')
     if text.include?('BBC - ')
       text.sub!('BBC - ','')
       self.publisher = 'BBC' if publisher.blank?
