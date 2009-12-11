@@ -65,7 +65,8 @@ class Tweeter < ActiveRecord::Base
     entry_items.each do |item|
       if (item.url == 'http://www.publications.parliament.uk/pa/pabills/no_debate.htm' &&
         item.twfy_uri.nil?) ||
-        item.url == 'http://services.parliament.uk/bills/2008-09/politicalpartiesandelections.html'
+        item.url == 'http://services.parliament.uk/bills/2008-09/politicalpartiesandelections.html' ||
+        item.title[/EPICponyz: /]
         # ignore
       else
         if tweet = item.tweet
