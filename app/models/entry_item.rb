@@ -70,6 +70,10 @@ class EntryItem < ActiveRecord::Base
 
     text.sub!(/^#{publisher}: /i,'')
     text.sub!(/^#{host_domain.sub('.com','')}: /i, '')
+    text.sub!('p2pnet news  &raquo;','')
+    text.sub!('Blog Archive   &raquo;','')
+    text.sub!('Simonsays: ','')
+    text.sub!('BizLawCentral: ','')
     text.sub!('News: ','')
     text.sub!('Stand up diggers all: ','')
     text.sub!('Net neutrality in Europe: ','')
@@ -78,6 +82,8 @@ class EntryItem < ActiveRecord::Base
       text.sub!('BBC - ','')
       self.publisher = 'BBC' if publisher.blank?
     end
+
+    text.strip!
     last_index = [text.index('- '), text.index('| '), text.index('− '),
         text.index('« '), text.index('» '), text.index('− ')].compact.max
 
