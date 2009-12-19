@@ -69,6 +69,7 @@ class EntryItem < ActiveRecord::Base
     end
 
     text.sub!(/^#{publisher}: /i,'')
+    text.sub!(/^#{host}: /i,'')
     text.sub!(/^#{host_domain.sub('.com','')}: /i, '')
     text.sub!('p2pnet news  &raquo;','')
     text.sub!('Blog Archive   &raquo;','')
