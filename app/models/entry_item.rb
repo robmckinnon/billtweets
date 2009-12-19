@@ -70,6 +70,7 @@ class EntryItem < ActiveRecord::Base
 
     text.sub!(/^#{publisher}: /i,'')
     text.sub!(/^#{sub_domain}: /i,'') if sub_domain
+    text.sub!(/^#{sub_domain} -/i,'') if sub_domain
     text.sub!(/^#{host_domain.sub('.com','')}: /i, '')
     text.sub!('p2pnet news » Blog Archive » ','')
     text.sub!('p2pnet news  &raquo;','')
