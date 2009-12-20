@@ -27,7 +27,7 @@
         = h bill.house
         %br
         = bill.bill_type.split('(').join('<br/>(')
-        - if bill.categories
+        - if bill.categories && !eval(bill.categories).empty?
           %br
           = h bill.categories
 
