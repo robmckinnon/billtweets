@@ -56,7 +56,7 @@ class EntryItem < ActiveRecord::Base
   end
 
   def tweet_msg
-    if title.strip == publisher.strip
+    if title.strip == publisher.strip || title.include?('FinData: NZX Company Announcement - ')
       begin
         doc = Hpricot open(url)
         text = doc.at('title').inner_text
@@ -72,6 +72,8 @@ class EntryItem < ActiveRecord::Base
     text.sub!(/^#{sub_domain}: /i,'') if sub_domain
     text.sub!(/^#{sub_domain} -/i,'') if sub_domain
     text.sub!(/^#{host_domain.sub('.com','')}: /i, '')
+    text.sub!('FinData: NZX Company Announcement -','')
+    text.sub!('GENERAL: ','')
     text.sub!('p2pnet news » Blog Archive » ','')
     text.sub!('p2pnet news  &raquo;','')
     text.sub!('Blog Archive   &raquo;','')
