@@ -72,7 +72,12 @@ class EntryItem < ActiveRecord::Base
     text.sub!(/^#{sub_domain}: /i,'') if sub_domain
     text.sub!(/^#{sub_domain} -/i,'') if sub_domain
     text.sub!(/^#{host_domain.sub('.com','')}: /i, '')
+    
+    if text.include?('FinData: ')
+      self.publisher = 'FinData' if publisher.blank?
+    end
     text.sub!('FinData: NZX Company Announcement -','')
+    text.sub!('FinData: News Story - ','')
     text.sub!('GENERAL: ','')
     text.sub!('p2pnet news » Blog Archive » ','')
     text.sub!('p2pnet news  &raquo;','')
@@ -106,11 +111,13 @@ class EntryItem < ActiveRecord::Base
       "#{text} #{url}"
     else
       publisher_name = publisher.sub(' (subscription)','')
+      publisher_name.sub!('New Zealand Herald','NZ Herald')
       publisher_name.sub!('Channel 4 News','Channel 4')
       publisher_name.sub!('guardian.co.uk','Guardian')
       publisher_name.sub!('Telegraph.co.uk','Telegraph')
       publisher_name.sub!('.com','')
       publisher_name.sub!('.co.uk','')
+      publisher_name.sub!('.co.nz','')
       publisher_name.sub!(' (press release)','')
       publisher_name.sub!(' (blog)','')
       publisher_name.sub!(' Business News','')
