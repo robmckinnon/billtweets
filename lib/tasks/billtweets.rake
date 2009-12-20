@@ -4,7 +4,7 @@ namespace :billtweets do
   task :do_tweets => :environment do
     max_random_delay = ENV['max_delay']
     if max_random_delay
-      %w[equalitybilluk digiconbill briberybill].each do |bill|
+      %w[equalitybilluk digiconbill briberybill aucklandlawbill].each do |bill|
         tweeter = Tweeter.find(bill)
         tweeter.do_search
         tweeter.make_tweets
