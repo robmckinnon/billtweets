@@ -87,6 +87,7 @@ class EntryItem < ActiveRecord::Base
     text.sub!('GENERAL: ','')
     text.sub!('p2pnet news » Blog Archive » ','')
     text.sub!('p2pnet news  &raquo;','')
+    text.sub!('Digital Britain  &raquo; Blog Archive   &raquo;','')
     text.sub!('Blog Archive   &raquo;','')
     text.sub!('Simonsays: ','')
     text.sub!('BizLawCentral: ','')
