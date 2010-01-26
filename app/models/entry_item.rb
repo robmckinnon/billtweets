@@ -61,7 +61,7 @@ class EntryItem < ActiveRecord::Base
         doc = Hpricot open(url)
         text = doc.at('title').inner_text
       rescue Exception => e
-        logger.error("#{e.class.name}: #{e.to_s}: #{url}"
+        logger.error("#{e.class.name}: #{e.to_s}: #{url}")
         return nil
         # if e.is_a?(OpenURI::HTTPError) && e.message[/404 Not Found/]
           # return nil
