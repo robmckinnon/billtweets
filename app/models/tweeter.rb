@@ -93,20 +93,22 @@ class Tweeter < ActiveRecord::Base
           print '.'
           $stdout.flush
           message = item.tweet_msg
-          if name == 'digiconbill'
-            message += " #debill"
-          end
-
-          if (existing = Tweet.find_by_message(message))
-            # ignore
-          elsif message.starts_with?('publishing ') &&
-            ((existing = Tweet.find_by_message(message.sub('publishing ','publishing House of Commons '))) ||
-            (existing = Tweet.find_by_message(message.sub('publishing ','publishing House of Lords '))) )
-            # ignore
-          else
-            tweet = tweets.create :message => message, :entry_item_id => item.id, :tweeted => false
-            # BillTweets.twitter_update tweeter.name, msg
-            # sleep 30
+          if message
+            if name == 'digiconbill'
+              message += " #debill"
+            end
+  
+            if (existing = Tweet.find_by_message(message))
+              # ignore
+            elsif message.starts_with?('publishing ') &&
+              ((existing = Tweet.find_by_message(message.sub('publishing ','publishing House of Commons '))) ||
+              (existing = Tweet.find_by_message(message.sub('publishing ','publishing House of Lords '))) )
+              # ignore
+            else
+              tweet = tweets.create :message => message, :entry_item_id => item.id, :tweeted => false
+              # BillTweets.twitter_update tweeter.name, msg
+              # sleep 30
+            end
           end
         end
       end

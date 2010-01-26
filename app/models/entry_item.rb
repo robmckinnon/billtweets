@@ -61,8 +61,12 @@ class EntryItem < ActiveRecord::Base
         doc = Hpricot open(url)
         text = doc.at('title').inner_text
       rescue Exception => e
-        raise e if RAILS_ENV == 'production'
-        text = title.gsub(/<[^>]+>/,'')
+        if e.is_a?(OpenURI::HTTPError) && e.message[/404 Not Found/]
+          return nil
+        else
+          raise e if RAILS_ENV == 'production'
+          text = title.gsub(/<[^>]+>/,'')
+        end
       end
     else
       text = title.gsub(/<[^>]+>/,'')
