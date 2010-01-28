@@ -69,25 +69,27 @@ class Tweeter < ActiveRecord::Base
         # ignore
       elsif item.title.include?('EPICponyz') || item.publisher.include?('thwjustin')
         # ignore
-      elsif item.title.include?('Speech: ') && item.publisher.include?('Scoop')        
+      elsif item.title.include?('Speech: ') && item.publisher.include?('Scoop')
         # ignore
       else
         if tweet = item.tweet
           message = item.tweet_msg
-          if name == 'digiconbill' && !message.include?('#debill')
-            message += " #debill"
-          end
-          if (existing = Tweet.find_by_message(message)) && existing.id != tweet.id
-            # ignore
-          elsif message.starts_with?('publishing ') &&
-            ((existing = Tweet.find_by_message(message.sub('publishing ','publishing House of Commons '))) ||
-            (existing = Tweet.find_by_message(message.sub('publishing ','publishing House of Lords '))) ) &&
-            existing.id != tweet.id
-            # ignore
-          elsif !tweet.tweeted
-            tweet.message = message
-            print '.'
-            tweet.save
+          if message
+            if name == 'digiconbill' && !message.include?('#debill')
+              message += " #debill"
+            end
+            if (existing = Tweet.find_by_message(message)) && existing.id != tweet.id
+              # ignore
+            elsif message.starts_with?('publishing ') &&
+              ((existing = Tweet.find_by_message(message.sub('publishing ','publishing House of Commons '))) ||
+              (existing = Tweet.find_by_message(message.sub('publishing ','publishing House of Lords '))) ) &&
+              existing.id != tweet.id
+              # ignore
+            elsif !tweet.tweeted
+              tweet.message = message
+              print '.'
+              tweet.save
+            end
           end
         else
           print '.'
@@ -97,7 +99,7 @@ class Tweeter < ActiveRecord::Base
             if name == 'digiconbill'
               message += " #debill"
             end
-  
+
             if (existing = Tweet.find_by_message(message))
               # ignore
             elsif message.starts_with?('publishing ') &&
