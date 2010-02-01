@@ -62,7 +62,8 @@ class Tweeter < ActiveRecord::Base
   end
 
   def make_tweets
-    entry_items.each do |item|
+    items = entry_items.select{|x| !x.tweet || (x.tweet.tweeted == false && !x.tweet.is_suppressed? && x.tweet.is_approved? ) }
+    items.each do |item|
       if (item.url == 'http://www.publications.parliament.uk/pa/pabills/no_debate.htm' &&
         item.twfy_uri.nil?) ||
         item.url == 'http://services.parliament.uk/bills/2008-09/politicalpartiesandelections.html'
